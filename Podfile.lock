@@ -1,0 +1,81 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - GZIP (1.2.3)
+  - KeychainSwift (19.0.0)
+  - libbase58 (0.1.4)
+  - Mockingjay (3.0.0-alpha.1):
+    - Mockingjay/Core (= 3.0.0-alpha.1)
+    - Mockingjay/XCTest (= 3.0.0-alpha.1)
+  - Mockingjay/Core (3.0.0-alpha.1):
+    - URITemplate (~> 3.0)
+  - Mockingjay/XCTest (3.0.0-alpha.1):
+    - Mockingjay/Core
+  - OLMKit (3.1.0):
+    - OLMKit/olmc (= 3.1.0)
+    - OLMKit/olmcpp (= 3.1.0)
+  - OLMKit/olmc (3.1.0)
+  - OLMKit/olmcpp (3.1.0)
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - SwiftLocation (4.2.0)
+  - SwiftMatrixSDK (0.16.5):
+    - AFNetworking (~> 4.0.0)
+    - GZIP (~> 1.2.2)
+    - libbase58 (~> 0.1.4)
+    - OLMKit (~> 3.1.0)
+    - Realm (~> 4.4.0)
+  - thenPromise (5.1.2)
+  - URITemplate (3.0.0)
+
+DEPENDENCIES:
+  - KeychainSwift (~> 19.0)
+  - Mockingjay (= 3.0.0-alpha.1)
+  - SwiftLocation (~> 4.0)
+  - SwiftMatrixSDK
+  - thenPromise
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - GZIP
+    - KeychainSwift
+    - libbase58
+    - Mockingjay
+    - OLMKit
+    - Realm
+    - SwiftLocation
+    - SwiftMatrixSDK
+    - thenPromise
+    - URITemplate
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  GZIP: af5c90ef903776a7e9afe6ebebd794a84a2929d4
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  libbase58: 7c040313537b8c44b6e2d15586af8e21f7354efd
+  Mockingjay: 0f7c5aa49c7f1b95621cee3c79b557141f5a225c
+  OLMKit: 4ee0159d63feeb86d836fdcfefe418e163511639
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  SwiftLocation: 609ac8859f2c5d48a6cadd2a58c63b1dae02dc25
+  SwiftMatrixSDK: c6d3317090571c01fd206251516d5febf94599ad
+  thenPromise: c1a319348c6052652b071d8dd4c6db9984860209
+  URITemplate: 58e0d47f967006c5d59888af5356c4a8ed3b197d
+
+PODFILE CHECKSUM: 1f2fe2fb40eabdf95b35fd8339a07c156f66d09d
+
+COCOAPODS: 1.8.4

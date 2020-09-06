@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
+        <attribute name="lastReceivedLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lastReceivedLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lastSeen" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="receiving" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="recipientDevice" attributeType="String"/>
+        <attribute name="recipientUser" attributeType="String"/>
+        <attribute name="sending" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="ownerUser" maxCount="1" deletionRule="Nullify" destinationEntity="UserDetails" inverseName="chats" inverseEntity="UserDetails"/>
+    </entity>
+    <entity name="UserDetails" representedClassName="UserDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="syncFromToken" optional="YES" attributeType="String"/>
+        <attribute name="userId" attributeType="String"/>
+        <relationship name="chats" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Chat" inverseName="ownerUser" inverseEntity="Chat"/>
+    </entity>
+    <elements>
+        <element name="Chat" positionX="69.75" positionY="-160.02734375" width="128" height="163"/>
+        <element name="UserDetails" positionX="-270.06640625" positionY="-195.734375" width="128" height="88"/>
+    </elements>
+</model>

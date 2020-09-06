@@ -1,0 +1,6 @@
+framework module Pods_Matrix_Playground {
+  umbrella header "Pods-Matrix Playground-umbrella.h"
+
+  export *
+  module * { export * }
+}
