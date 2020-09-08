@@ -23,6 +23,8 @@
 		EC339A2F248789070074D84A /* Matrix_PlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC339A2E248789070074D84A /* Matrix_PlaygroundUITests.swift */; };
 		EC339A3D248789D80074D84A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = EC339A3C248789D80074D84A /* Podfile */; };
 		EC60D0CC248FC0DA00C02EE2 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60D0CB248FC0DA00C02EE2 /* LogInController.swift */; };
+		EC626FF52507F89A004051E9 /* ChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC626FF42507F89A004051E9 /* ChatError.swift */; };
+		EC626FF72507F9EF004051E9 /* MessagingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC626FF62507F9EF004051E9 /* MessagingError.swift */; };
 		EC6A3FD224EE9DC00074AA6E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6A3FD124EE9DC00074AA6E /* MapView.swift */; };
 		EC6CE89A24FEF130000E53AC /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6CE89924FEF130000E53AC /* ActivityIndicator.swift */; };
 		EC72819F248FD9CE00B8ECF9 /* NewChatModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC72819E248FD9CE00B8ECF9 /* NewChatModal.swift */; };
@@ -108,6 +110,8 @@
 		EC339A30248789070074D84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC339A3C248789D80074D84A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EC60D0CB248FC0DA00C02EE2 /* LogInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		EC626FF42507F89A004051E9 /* ChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatError.swift; sourceTree = "<group>"; };
+		EC626FF62507F9EF004051E9 /* MessagingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingError.swift; sourceTree = "<group>"; };
 		EC6A3FD124EE9DC00074AA6E /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		EC6CE89924FEF130000E53AC /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		EC6FF73B24B052CA00F45C64 /* Matrix Playground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Matrix Playground.entitlements"; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			children = (
 				EC1ECA8324A3A64A0049D06C /* MessagingLogic.swift */,
 				EC88F107250242A700592D65 /* MessagingClasses.swift */,
+				EC626FF62507F9EF004051E9 /* MessagingError.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				EC2343F6248FC9C800B3FC50 /* ChatController.swift */,
 				ECD5184C2492556B002F4D2B /* ChatView.swift */,
 				ECCD4C1924FCD87700B0C460 /* ExplanationTextView.swift */,
+				EC626FF42507F89A004051E9 /* ChatError.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -635,6 +641,7 @@
 				ECCD4C1424FAA8D300B0C460 /* TextFieldWithTitleAndValidation.swift in Sources */,
 				ECCC840624FE8A4100A64336 /* LogoutAndDeleteDataModal.swift in Sources */,
 				EC2343F7248FC9C800B3FC50 /* ChatController.swift in Sources */,
+				EC626FF72507F9EF004051E9 /* MessagingError.swift in Sources */,
 				EC0223512493B14700B4EA0A /* LoginError.swift in Sources */,
 				ECD5184F24925656002F4D2B /* ContentController.swift in Sources */,
 				ECF622B524CA312500564AD3 /* EncryptionHandler.swift in Sources */,
@@ -662,6 +669,7 @@
 				ECD5184B2492553B002F4D2B /* ChatRow.swift in Sources */,
 				ECCD4C1C24FCDB3400B0C460 /* EncryptionError.swift in Sources */,
 				ECCD4C1824FBE77700B0C460 /* CustomServerModal.swift in Sources */,
+				EC626FF52507F89A004051E9 /* ChatError.swift in Sources */,
 				EC776E5824A3DEA800EF2D8D /* LocationLogic.swift in Sources */,
 				EC1ECA8424A3A64A0049D06C /* MessagingLogic.swift in Sources */,
 				EC339A11248788FA0074D84A /* ContentView.swift in Sources */,

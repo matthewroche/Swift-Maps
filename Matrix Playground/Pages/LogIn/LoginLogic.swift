@@ -28,6 +28,7 @@ class LoginLogic {
             // Check inputs exist
             guard username.count > 0 else {throw LoginError.noUsername}
             guard password.count > 0 else {throw LoginError.noPassword}
+            guard serverAddress.count > 0 else {throw LoginError.noPassword}
             
             let homeServerURL = URL.init(string: serverAddress)
             
@@ -77,9 +78,18 @@ class LoginLogic {
     }
     
     private func encodeCredentialsForKeychain(credentials: MXCredentials) throws -> Data {
+        //Ensure valid credentials received
+        guard credentials.accessToken != nil else {throw LoginError.invalidServerResponse}
+        guard credentials.deviceId != nil else {throw LoginError.invalidServerResponse}
+        guard credentials.homeServer != nil else {throw LoginError.invalidServerResponse}
+        guard credentials.userId != nil else {throw LoginError.invalidServerResponse}
+        
         let encodableCredentials = KeychainCredentials(
-            accessToken: credentials.accessToken!, deviceId: credentials.deviceId!,
-            homeServer: credentials.homeServer!, userId: credentials.userId!)
+            accessToken: credentials.accessToken!,
+            deviceId: credentials.deviceId!,
+            homeServer: credentials.homeServer!,
+            userId: credentials.userId!)
+        
         return try JSONEncoder().encode(encodableCredentials)
     }
     

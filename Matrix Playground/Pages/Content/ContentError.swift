@@ -9,6 +9,8 @@
 import Foundation
 
 enum ContentError: LocalizedError {
+    case noUsername
+    case noDevice
     case invalidLocationReceived
     case duplicateChat
     case notLoggedIn
@@ -20,6 +22,10 @@ enum ContentError: LocalizedError {
 extension ContentError {
     public var errorDescription: String? {
         switch self {
+            case .noUsername:
+                return NSLocalizedString("No username was provided", comment: "")
+            case .noDevice:
+                return NSLocalizedString("No device was provided", comment: "")
             case .invalidLocationReceived:
                 return NSLocalizedString("The data received from the server was incorrectly formatted", comment: "")
             case .duplicateChat:

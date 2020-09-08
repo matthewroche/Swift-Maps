@@ -39,6 +39,8 @@ class ContentLogic {
         locationLogic: LocationLogic) -> Promise<Bool> {
         return Promise {resolve, reject in
             async {
+                guard invitedUser.count > 0 else {throw ContentError.noUsername}
+                guard invitedDevice.count > 0 else {throw ContentError.noDevice}
                 try await(self.messagingLogic.startChat(
                     invitedUser: invitedUser,
                     invitedDevice: invitedDevice,

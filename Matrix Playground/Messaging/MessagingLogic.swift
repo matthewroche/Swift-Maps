@@ -34,8 +34,10 @@ public class MessagingLogic {
         encryptionHandler: EncryptionHandler) -> Promise<Bool> {
         return Promise {resolve, reject in
             async {
+                guard invitedUser.count > 0 else {throw MessagingError.noUsername}
+                guard invitedDevice.count > 0 else {throw MessagingError.noDevice}
                 if try existingChatForUserDevice(localUsername: userDetails.userId!, remoteUsername: invitedUser, remoteDeviceId: invitedDevice, context: context) != nil {
-                    throw ContentError.duplicateChat
+                    throw MessagingError.duplicateChat
                 }
                 
                 let _ = try await(encryptionHandler.createNewSessionForUser(recipient: EncryptedMessageRecipient(userName: invitedUser, deviceName: invitedDevice)))
@@ -187,8 +189,8 @@ public class MessagingLogic {
         context: NSManagedObjectContext) -> Promise<EncryptedSentMessageOutcome> {
         async {
             
-            guard encryptionHandler.device != nil else { throw ContentError.notLoggedIn}
-            guard encryptionHandler.device!.userId != nil else { throw ContentError.notLoggedIn}
+            guard encryptionHandler.device != nil else { throw MessagingError.notLoggedIn}
+            guard encryptionHandler.device!.userId != nil else { throw MessagingError.notLoggedIn}
             
             // Get all recipients
             let recipients = try getAllRegisteredLocationRecipients(localUsername: encryptionHandler.device!.userId! as String, context: context)
@@ -233,6 +235,8 @@ public class MessagingLogic {
     ///   - userDetails: The UserDetails object for the logged in user
     /// - Returns: Void
     public func createNewChat(recipientUser: String, recipientDevice: String, context: NSManagedObjectContext, userDetails: UserDetails) throws -> Void {
+        guard recipientUser.count > 0 else {throw MessagingError.noUsername}
+        guard recipientDevice.count > 0 else {throw MessagingError.noDevice}
         let newChat = Chat.init(context: context)
         newChat.recipientUser = recipientUser
         newChat.recipientDevice = recipientDevice
@@ -282,6 +286,7 @@ public class MessagingLogic {
     
     
     private func checkLocationTrackingRequired(ownerUserId: String, locationLogic: LocationLogic, context: NSManagedObjectContext) throws -> Void {
+        guard ownerUserId.count > 0 else throw {MessagingError.noUsername}
         // Check that chats requiring location to be sent still exist
         let recipients = try getAllRegisteredLocationRecipients(localUsername: ownerUserId, context: context)
         if recipients.count == 0 {

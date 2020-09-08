@@ -29,7 +29,7 @@
 29) Set zoom level for intial map :white_check_mark: 
 30) Fix allow multiple openings of set server dialog :white_check_mark: 
 31) Fix location pin only shows once :white_check_mark: 
-32) Fix location pin doesn't update
+32) Fix location pin doesn't update :white_check_mark: 
 
 
 Note:
