@@ -436,6 +436,8 @@ public class EncryptionHandler {
                 senderDevice: senderDevice!
             )
             // We should never receive another prekey message with the prekey used to create this session, so we can safely delete it
+            // This will unfortunately throw an error every time more than one standard message is received,
+            // but unfortunately there is no sensible way to check whether a key has already been deleted
             self.account!.removeOneTimeKeys(for: session)
             return decryptedMessage
         } catch {
