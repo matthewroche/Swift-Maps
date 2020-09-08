@@ -28,9 +28,12 @@ struct MapView: UIViewRepresentable {
         return mapView
     }
 
-    func updateUIView(_ view: MKMapView, context: UIViewRepresentableContext<MapView>) {
-        if annotations.count != view.annotations.count {
-            view.removeAnnotations(view.annotations)
+    func updateUIView(_ view: MKMapView, context:
+        UIViewRepresentableContext<MapView>) {
+        // The view will always have one addional annotation when compared to our
+        // annotations array, as it includes the local user's location
+        if (annotations.count + 1) != view.annotations.count {
+            view.removeAnnotations(annotations)
             view.addAnnotations(annotations)
         }
     }
@@ -51,6 +54,10 @@ struct MapView: UIViewRepresentable {
         }
         
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if annotation is MKUserLocation {
+                 //return nil so map view draws "blue dot" for standard user location
+                 return nil
+            }
             let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
             view.canShowCallout = true
             return view

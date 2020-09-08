@@ -35,6 +35,8 @@ struct ChatController: View {
             longitude: CLLocationDegrees(chatDetails.lastReceivedLongitude)))
         let annotation = MKPointAnnotation()
         annotation.coordinate = self.centerCoordinate
+        annotation.title = chatDetails.recipientUser
+        annotation.subtitle = chatDetails.recipientDevice
         self._locations = State(initialValue: [annotation])
     }
     
