@@ -9,21 +9,25 @@
 import Foundation
 import CoreLocation
 
-class DirectMessage: Codable {
+class MatrixMapsMessage: Codable {
     
-    init(_ location: CLLocation) throws {
+    init(_ location: CLLocation, version: Int) throws {
         self.location = [location.coordinate.latitude, location.coordinate.longitude]
+        self.version = version
     }
     init(_ dictionary: [String: Any]) throws {
-        let data = try JSONDecoder().decode(DirectMessage.self, from: JSONSerialization.data(withJSONObject: dictionary))
+        let data = try JSONDecoder().decode(MatrixMapsMessage.self, from: JSONSerialization.data(withJSONObject: dictionary))
         self.location = data.location
+        self.version = data.version ?? nil
     }
     init(_ string: String) throws {
-        let data = try JSONDecoder().decode(DirectMessage.self, from: string.data(using: .utf8)!)
+        let data = try JSONDecoder().decode(MatrixMapsMessage.self, from: string.data(using: .utf8)!)
         self.location = data.location
+        self.version = data.version ?? nil
     }
     
     var location: [Double]
+    var version: Int?
     
     func toDictionary() -> NSDictionary {
         let locationDictionary: NSDictionary = [

@@ -15,6 +15,7 @@ import Then
 public class MessagingLogic {
     
     let messageType = "matrixmaps.location"
+    let messageVersion = 1
     
     //Note: Need to be able to force txnId for testing
     /// startChat
@@ -127,9 +128,9 @@ public class MessagingLogic {
                 // For each message
                 for (sender, eventContent) in decryptedEvents {
                     //Ensure message correctly formatted
-                    let content: DirectMessage?
+                    let content: MatrixMapsMessage?
                     do {
-                        content = try DirectMessage(eventContent)
+                        content = try MatrixMapsMessage(eventContent)
                         guard content != nil  else {continue}
                     } catch {
                         // Invalid data was received - skip message
@@ -189,7 +190,7 @@ public class MessagingLogic {
             if recipients.count > 0 {
                 
                 // Create message to send
-                let directMessage = try DirectMessage(location)
+                let directMessage = try MatrixMapsMessage(location, version: self.messageVersion)
                 
                 // Create array of recipients
                 var recipientArray = [EncryptedMessageRecipient]()
