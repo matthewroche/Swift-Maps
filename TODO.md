@@ -20,13 +20,15 @@
 18) Handle preservation of user data on logout :white_check_mark: 
 19) Fix timeout on sync :white_check_mark: 
 22) Fix hidden text on chat screen in dark mode :white_check_mark: 
-23) Centre map on pin on page load
+23) Centre map on pin on page load :white_check_mark: 
 24) Fix fail on alternate syncs :white_check_mark: 
 25) Prevent infinite loop in newLocationReceived :white_check_mark: 
 26) Send locaiton update immediately on new chat creation to check user/device name etc :white_check_mark: 
 27) Fix chat from same user different device doesn't appear as new device. :white_check_mark: 
 28) Add text to login page clarifying exact login address :white_check_mark: 
-29) Set zoom level for intial map
+29) Set zoom level for intial map :white_check_mark: 
+30) Fix allow multiple openings of set server dialog :white_check_mark: 
+31) Fix location pin only shows once
 
 
 

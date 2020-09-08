@@ -56,7 +56,11 @@ public struct LogoutAndDeleteDataModal: View {
                 Text("It will not be possible to recover this data.").padding(.bottom)
             }
             Spacer()
-            SecureField("Password", text: $password).textFieldStyle(RoundedBorderTextFieldStyle())
+            SecureField(
+                "Password",
+                text: $password,
+                onCommit: handleSubmit)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.bottom)
             Button(action: handleSubmit) {
                 HStack {

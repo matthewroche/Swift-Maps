@@ -50,7 +50,8 @@ struct NewChatModal: View {
                 invalidText: "Device name is invalid",
                 validRegex: "^[A-Z]{10}$",
                 text: $inviteDevice,
-                showInvalidText: $invalidDeviceName
+                showInvalidText: $invalidDeviceName,
+                onCommit: startChat
             )
             .padding(.bottom)
             Button(action: startChat) {

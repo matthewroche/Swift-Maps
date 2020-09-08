@@ -15,8 +15,11 @@ struct TextFieldWithTitleAndValidation: View {
     var invalidText: String
     var validRegex: String = ".*"
     var secureField: Bool = false
+    
     @Binding var text: String
     @Binding var showInvalidText: Bool
+    
+    var onCommit: () -> Void = {return}
     
     /// validateText
     /// Validates text in the TextField depending on whether the field is still being edited
@@ -40,7 +43,8 @@ struct TextFieldWithTitleAndValidation: View {
                     TextField(
                         title,
                         text: $text,
-                        onEditingChanged: validateText)
+                        onEditingChanged: validateText,
+                        onCommit: onCommit)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
                 } else {

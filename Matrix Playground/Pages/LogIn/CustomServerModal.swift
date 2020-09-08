@@ -39,7 +39,8 @@ struct CustomServerModal: View {
                 invalidText: "Server address is invalid",
                 validRegex: "^https?:\\/\\/(www\\.)?[a-z0-9]*?\\.?[a-z0-9]*\\.[a-z]{2,3}(\\.[a-z]{2,3})?$",
                 text: $serverAddress,
-                showInvalidText: $showInvalidServerText
+                showInvalidText: $showInvalidServerText,
+                onCommit: handleSetServer
             )
             .padding(.bottom)
             Button("Set", action: handleSetServer)

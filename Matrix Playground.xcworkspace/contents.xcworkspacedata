@@ -13,4 +13,7 @@
    <FileRef
       location = "group:Matrix Playground/../TODO.md">
    </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
 </Workspace>

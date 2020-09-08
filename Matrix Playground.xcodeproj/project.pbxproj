@@ -61,6 +61,7 @@
 		ECF622B424CA312500564AD3 /* OLMMatrixClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF622AC24CA312500564AD3 /* OLMMatrixClasses.swift */; };
 		ECF622B524CA312500564AD3 /* EncryptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF622AD24CA312500564AD3 /* EncryptionHandler.swift */; };
 		ECF622B624CA312500564AD3 /* OLMAccountExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF622AE24CA312500564AD3 /* OLMAccountExtensions.swift */; };
+		ECFFF6B72505566B00B82313 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ECFFF6B62505566B00B82313 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		ECF622AC24CA312500564AD3 /* OLMMatrixClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OLMMatrixClasses.swift; sourceTree = "<group>"; };
 		ECF622AD24CA312500564AD3 /* EncryptionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionHandler.swift; sourceTree = "<group>"; };
 		ECF622AE24CA312500564AD3 /* OLMAccountExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OLMAccountExtensions.swift; sourceTree = "<group>"; };
+		ECFFF6B62505566B00B82313 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 		EC339A00248788FA0074D84A = {
 			isa = PBXGroup;
 			children = (
+				ECFFF6B62505566B00B82313 /* README.md */,
 				EC339A3C248789D80074D84A /* Podfile */,
 				EC339A0B248788FA0074D84A /* Matrix Playground */,
 				EC339A22248789070074D84A /* Matrix PlaygroundTests */,
@@ -519,6 +522,7 @@
 			files = (
 				EC339A19248789060074D84A /* LaunchScreen.storyboard in Resources */,
 				EC339A16248789060074D84A /* Preview Assets.xcassets in Resources */,
+				ECFFF6B72505566B00B82313 /* README.md in Resources */,
 				EC339A3D248789D80074D84A /* Podfile in Resources */,
 				ECDB254524FFE8EA002DA80E /* Assets.xcassets in Resources */,
 			);
@@ -846,7 +850,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Matrix Playground/Matrix Playground.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;
@@ -886,7 +890,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Matrix Playground/Matrix Playground.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;

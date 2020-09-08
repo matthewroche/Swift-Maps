@@ -21,6 +21,10 @@ struct LogInView: View {
     @State var invalidPassword = false
     @State var loginInProgress = false
     
+    // This is required to allow modal to be displayed multiple times
+    // See: https://stackoverflow.com/questions/58512344/swiftui-navigation-bar-button-not-clickable-after-sheet-has-been-presented
+    @Environment(\.presentationMode) var presentation
+    
     var loginParsedServerAddress: String {
         return serverAddress.components(separatedBy: "://").last ?? "** Unknown Address **"
     }
@@ -58,7 +62,8 @@ struct LogInView: View {
                 invalidText: "Invalid password",
                 secureField: true,
                 text: $password,
-                showInvalidText: $invalidPassword
+                showInvalidText: $invalidPassword,
+                onCommit: self.handleLogin
             )
             Spacer()
             if self.username.count > 0 {
