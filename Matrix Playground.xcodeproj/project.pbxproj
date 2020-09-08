@@ -850,7 +850,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Matrix Playground/Matrix Playground.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;
@@ -890,7 +890,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Matrix Playground/Matrix Playground.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;

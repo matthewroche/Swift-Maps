@@ -30,11 +30,32 @@ struct MapView: UIViewRepresentable {
 
     func updateUIView(_ view: MKMapView, context:
         UIViewRepresentableContext<MapView>) {
-        // The view will always have one addional annotation when compared to our
-        // annotations array, as it includes the local user's location
-        if (annotations.count + 1) != view.annotations.count {
-            view.removeAnnotations(annotations)
-            view.addAnnotations(annotations)
+        // As there will only be one annotation, just update the annotation on each update
+        //Get hashes of new annotations
+        let newAnnotationHashes = annotations.map { annotation in
+            return annotation.hash
+        }
+        // For each old annotation
+        for annotation in view.annotations {
+            // If it is not the users location
+            if !(annotation is MKUserLocation) {
+                // If it is not in the list of new hashes
+                if !(newAnnotationHashes.contains(annotation.hash)) {
+                    // Remove annotation
+                    view.removeAnnotation(annotation)
+                }
+            }
+        }
+        let oldAnnotationHashes = view.annotations.map { annotation in
+            return annotation.hash
+        }
+        // For each new annotation
+        for annotation in annotations {
+            // If it is not already in the existing list of annotations
+            if !(oldAnnotationHashes.contains(annotation.hash)) {
+                // Add annotation
+                view.addAnnotation(annotation)
+            }
         }
     }
     

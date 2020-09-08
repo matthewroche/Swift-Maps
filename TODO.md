@@ -28,8 +28,8 @@
 28) Add text to login page clarifying exact login address :white_check_mark: 
 29) Set zoom level for intial map :white_check_mark: 
 30) Fix allow multiple openings of set server dialog :white_check_mark: 
-31) Fix location pin only shows once
-
+31) Fix location pin only shows once :white_check_mark: 
+32) Fix location pin doesn't update
 
 
 Note:

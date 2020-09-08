@@ -67,7 +67,7 @@ public class MessagingLogic {
         ownerUser: UserDetails,
         encryptionHandler: EncryptionHandler) -> Promise<Bool> {
         async {
-            print("Syncing with token: \(ownerUser.syncFromToken)")
+            print("Syncing with token: \(ownerUser.syncFromToken ?? "No token")")
             let syncResponse = try await(
                 mxRestClient.syncPromise(
                     fromToken: ownerUser.syncFromToken, //This can be nil if not set for initial sync
@@ -85,6 +85,7 @@ public class MessagingLogic {
             // If we received exactly 100 events then we reached the server limit of messages to receive
             // We need to sync again to ensure we are up to date
             if (syncResponse.toDevice != nil && syncResponse.toDevice.events != nil) {
+                print("\(syncResponse.toDevice.events.count) events received")
                 if (syncResponse.toDevice.events.count == 100) {
                     try await(self.sync(
                     mxRestClient: mxRestClient,
@@ -92,6 +93,8 @@ public class MessagingLogic {
                     ownerUser: ownerUser,
                     encryptionHandler: encryptionHandler))
                 }
+            } else {
+                print("No events received.")
             }
             return true
         }
@@ -183,6 +186,9 @@ public class MessagingLogic {
         encryptionHandler: EncryptionHandler,
         context: NSManagedObjectContext) -> Promise<EncryptedSentMessageOutcome> {
         async {
+            
+            guard encryptionHandler.device != nil else { throw ContentError.notLoggedIn}
+            guard encryptionHandler.device!.userId != nil else { throw ContentError.notLoggedIn}
             
             // Get all recipients
             let recipients = try getAllRegisteredLocationRecipients(localUsername: encryptionHandler.device!.userId! as String, context: context)
