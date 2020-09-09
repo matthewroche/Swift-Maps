@@ -286,7 +286,7 @@ public class MessagingLogic {
     
     
     private func checkLocationTrackingRequired(ownerUserId: String, locationLogic: LocationLogic, context: NSManagedObjectContext) throws -> Void {
-        guard ownerUserId.count > 0 else throw {MessagingError.noUsername}
+        guard ownerUserId.count > 0 else {throw MessagingError.noUsername}
         // Check that chats requiring location to be sent still exist
         let recipients = try getAllRegisteredLocationRecipients(localUsername: ownerUserId, context: context)
         if recipients.count == 0 {

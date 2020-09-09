@@ -81,6 +81,7 @@ public struct LogoutAndDeleteDataModal: View {
             }
         }
         .padding()
+        .modifier(AdaptsToKeyboard())
     }
 }
 

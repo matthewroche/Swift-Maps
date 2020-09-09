@@ -15,20 +15,6 @@ import OLMKit
 
 public class EncryptionHandler {
     
-    // ////////////////////
-    // PUBLIC FUNCTION LIST
-    // ////////////////////
-    //
-    // createAndUploadDeviceKeys(mxRestClient: MXRestClient)
-    //  - Called once a client has logged in. Creates local encryption keys and stores public keys on server.
-    //
-    // handleSendMessage(recipients: [EncryptedMessageRecipient], message: String)
-    //  - Called to send a message to a recipient
-    //
-    // handleSyncResponse(syncResponse: MXSyncResponse)
-    //  - Called to handle a response from the user syncing. Decrypts messages, updates the active sessions and updates the count of one time keys.
-    //
-    
     // The local user's account
     public var account: OLMAccount?
     // The local user's device
@@ -52,83 +38,93 @@ public class EncryptionHandler {
     // the vent type which we send and respond to
     private let eventType = "matrixmaps.location"
     
+    init() {
+        self.keychain = KeychainSwift()
+        self.mxRestClient = MXRestClient()
+        self.key = Data()
+    }
+    
     init(keychain: KeychainSwift, mxRestClient: MXRestClient) throws {
         
         self.keychain = keychain
         self.mxRestClient = mxRestClient
-        guard mxRestClient.credentials != nil else {throw EncryptionError.noAccount}
-        guard mxRestClient.credentials.userId != nil else {throw EncryptionError.noAccount}
-        self.key = mxRestClient.credentials.userId!.data(using: String.Encoding.utf8)!
+        self.key = (mxRestClient.credentials?.userId ?? "").data(using: String.Encoding.utf8) ?? Data()
         
-        let account = keychain.get(createKeycahinStorageName(suffix: "encryptionAccount"))
-        let device = keychain.get(createKeycahinStorageName(suffix: "encryptionDevice"))
-        let sessionsString = keychain.get(createKeycahinStorageName(suffix: "encryptionSessions"))
-        let recipientDevicesString = keychain.get(createKeycahinStorageName(suffix: "encryptionRecipientDevices"))
-        
-        print("Setting up Encryption Handler")
-        
-        do {
+        if mxRestClient.credentials?.userId != nil {
             
-            if account != nil {
-                print("Creating account")
-                self.account = try OLMAccount.init(serializedData: account!, key: self.key)
-            } else {
-                clearEncryptionState()
-            }
-            if device != nil {
-                print("Creating device")
-                let deviceData = device!.data(using: String.Encoding.utf8)
-                let deviceJSON = try JSONSerialization.jsonObject(with: deviceData!) as! [AnyHashable : Any]
-                self.device = MXDeviceInfo.init(fromJSON: deviceJSON)
-            } else {
-                clearEncryptionState()
-            }
-            if sessionsString != nil {
-                print("Creating sessions")
-                let sessionsData = sessionsString!.data(using: String.Encoding.utf8)!
-                let sessionsStringObject = try JSONSerialization.jsonObject(with: sessionsData) as! [String: [String: String]]
-                var sessionsObject =  [String: [String: OLMSession]]()
-                //Iterate through each session and convert to object
-                for (user, deviceSession) in sessionsStringObject {
-                    for (device, session) in deviceSession {
-                        sessionsObject[user] = [:]
-                        sessionsObject[user]![device] = try OLMSession.init(serializedData: session, key: self.key)
-                    }
-                }
-                self.sessions = MXUsersDevicesMap.init(map: sessionsObject)
-            }
-            if recipientDevicesString != nil {
-                print("Creating recipient devices")
-                let recipientDevicesData = recipientDevicesString!.data(using: String.Encoding.utf8)!
-                let recipientDevicesStringObject = try JSONSerialization.jsonObject(with: recipientDevicesData) as! [String: [String: String]]
-                var recipientDevicesObject = [String: [String: MXDeviceInfo]]()
-                //Iterate through each device and convert to object
-                for (user, deviceDevice) in recipientDevicesStringObject {
-                    for (device, deviceData) in deviceDevice {
-                        recipientDevicesObject[user] = [:]
-                        recipientDevicesObject[user]![device] = try MXDeviceInfo.init(fromJSONString: deviceData)
-                    }
-                }
-                //Ensure each device in recipientDevices has a matching session
-                for (user, deviceDevice) in recipientDevicesStringObject {
-                    for (device, _) in deviceDevice {
-                        guard self.sessions.object(forDevice: device, forUser: user) != nil else {throw EncryptionError.storedSessionsAndRecipientDevicesDoNotMatch}
-                    }
-                }
-                self.recipientDevices = MXUsersDevicesMap.init(map: recipientDevicesObject)
-            }
             
-        } catch {
-            clearEncryptionState()
-            throw error
+            let account = keychain.get(createKeycahinStorageName(suffix: "encryptionAccount"))
+            let device = keychain.get(createKeycahinStorageName(suffix: "encryptionDevice"))
+            let sessionsString = keychain.get(createKeycahinStorageName(suffix: "encryptionSessions"))
+            let recipientDevicesString = keychain.get(createKeycahinStorageName(suffix: "encryptionRecipientDevices"))
+            
+            print("Setting up Encryption Handler")
+            
+            do {
+                
+                if account != nil {
+                    print("Creating account")
+                    self.account = try OLMAccount.init(serializedData: account!, key: self.key)
+                } else {
+                    clearEncryptionState()
+                }
+                if device != nil {
+                    print("Creating device")
+                    let deviceData = device!.data(using: String.Encoding.utf8)
+                    let deviceJSON = try JSONSerialization.jsonObject(with: deviceData!) as? [AnyHashable : Any] ?? [:]
+                    self.device = MXDeviceInfo.init(fromJSON: deviceJSON)
+                } else {
+                    clearEncryptionState()
+                }
+                if sessionsString != nil {
+                    print("Creating sessions")
+                    let sessionsData = sessionsString!.data(using: String.Encoding.utf8) ?? Data()
+                    let sessionsStringObject = try JSONSerialization.jsonObject(with: sessionsData) as? [String: [String: String]] ?? [:]
+                    var sessionsObject =  [String: [String: OLMSession]]()
+                    //Iterate through each session and convert to object
+                    for (user, deviceSession) in sessionsStringObject {
+                        for (device, session) in deviceSession {
+                            sessionsObject[user] = [:]
+                            sessionsObject[user]![device] = try OLMSession.init(serializedData: session, key: self.key)
+                        }
+                    }
+                    self.sessions = MXUsersDevicesMap.init(map: sessionsObject)
+                }
+                if recipientDevicesString != nil {
+                    print("Creating recipient devices")
+                    let recipientDevicesData = recipientDevicesString!.data(using: String.Encoding.utf8) ?? Data()
+                    let recipientDevicesStringObject = try JSONSerialization.jsonObject(with: recipientDevicesData) as? [String: [String: String]] ?? [:]
+                    var recipientDevicesObject = [String: [String: MXDeviceInfo]]()
+                    //Iterate through each device and convert to object
+                    for (user, deviceDevice) in recipientDevicesStringObject {
+                        for (device, deviceData) in deviceDevice {
+                            recipientDevicesObject[user] = [:]
+                            recipientDevicesObject[user]![device] = try MXDeviceInfo.init(fromJSONString: deviceData)
+                        }
+                    }
+                    //Ensure each device in recipientDevices has a matching session
+                    for (user, deviceDevice) in recipientDevicesStringObject {
+                        for (device, _) in deviceDevice {
+                            guard self.sessions.object(forDevice: device, forUser: user) != nil else {throw EncryptionError.storedSessionsAndRecipientDevicesDoNotMatch}
+                        }
+                    }
+                    self.recipientDevices = MXUsersDevicesMap.init(map: recipientDevicesObject)
+                }
+            } catch {
+                clearEncryptionState()
+                throw error
+            }
         }
+        
     }
     
     private func createKeycahinStorageName(suffix: String) -> String {
-        return "\(mxRestClient.credentials.userId!)_\(suffix)"
+        return "\(mxRestClient.credentials?.userId ?? "")_\(suffix)"
     }
     
     private func saveEncryptionState() throws {
+        
+        guard self.mxRestClient.credentials?.userId != nil else {throw EncryptionError.noCredentialsAvailable}
         
         if (self.account != nil) {
             let accountString = try self.account!.serializeData(withKey: self.key)
@@ -164,7 +160,7 @@ public class EncryptionHandler {
     }
     
     func clearEncryptionState() {
-        self.keychain.clearAllForPrefix("\(mxRestClient.credentials.userId!)_encryption")
+        self.keychain.clearAllForPrefix("\(mxRestClient.credentials?.userId ?? "")_encryption")
         self.account = nil
         self.device = nil
         self.sessions = MXUsersDevicesMap<OLMSession>()
@@ -174,23 +170,18 @@ public class EncryptionHandler {
     func createAndUploadDeviceKeys() throws -> Promise<Bool> {
         return Promise { resolve, reject in
             async {
-                if (self.account != nil || self.device != nil) {
-                    reject(EncryptionError.existingAccount)
-                    return
-                }
+                guard self.mxRestClient.credentials?.userId != nil else {throw EncryptionError.noCredentialsAvailable}
+                guard (self.account == nil) else {throw EncryptionError.existingAccount}
+                guard (self.device == nil) else {throw EncryptionError.existingAccount}
                 self.account = OLMAccount.init(newAccount: ())!
                 let (device, otkCount) = try await(
                     self.encryptionLogic.initialiseDeviceKeys(account: self.account!, mxRestClient: self.mxRestClient))
                 self.device = device
                 self.oneTimeKeyCount = otkCount["signed_curve25519"] as? Int
-                do {
-                    try self.saveEncryptionState()
-                } catch {
-                    reject(error)
-                    return
-                }
-                
+                try self.saveEncryptionState()
                 resolve(true)
+            }.onError { error in
+                reject(error)
             }
         }
     }
@@ -198,19 +189,15 @@ public class EncryptionHandler {
     func handleUpdateOneTimeKeys(_ numberOfKeys: UInt) throws -> Promise<Bool> {
         return Promise { resolve, reject in
             async {
-                if (self.account == nil || self.device == nil) {
-                    reject(EncryptionError.noAccount)
-                    return
-                }
+                guard self.mxRestClient.credentials?.userId != nil else {throw EncryptionError.noCredentialsAvailable}
+                guard self.account != nil else {throw EncryptionError.noAccount}
+                guard self.device != nil else {throw EncryptionError.noAccount}
                 let otkCount = try await(self.encryptionLogic.uploadNewOneTimeKeys(account: self.account!, mxRestClient: self.mxRestClient, numberOfKeys: numberOfKeys))
                 self.oneTimeKeyCount = otkCount["signed_curve25519"] as? Int
-                do {
-                    try self.saveEncryptionState()
-                } catch {
-                    reject(error)
-                    return
-                }
+                try self.saveEncryptionState()
                 resolve(true)
+            }.onError { error in
+                reject(error)
             }
         }
     }
@@ -221,6 +208,7 @@ public class EncryptionHandler {
             async {
                 
                 //Ensure encryption keys have been set up
+                guard self.mxRestClient.credentials?.userId != nil else {throw EncryptionError.noCredentialsAvailable}
                 guard self.account != nil else {throw EncryptionError.noAccount}
                 guard self.device != nil else {throw EncryptionError.noAccount}
                 
@@ -285,6 +273,8 @@ public class EncryptionHandler {
                 
                 print(returnedResults)
                 resolve(returnedResults)
+            }.onError { error in
+                reject(error)
             }
         }
     }
@@ -294,10 +284,9 @@ public class EncryptionHandler {
             async {
                 
                 //Ensure encryption keys have been set up
-                if self.account == nil || self.device == nil {
-                    reject(EncryptionError.noAccount)
-                    return
-                }
+                guard self.mxRestClient.credentials?.userId != nil else {throw EncryptionError.noCredentialsAvailable}
+                guard self.account != nil else {throw EncryptionError.noAccount}
+                guard self.device != nil else {throw EncryptionError.noAccount}
                 
                 var decryptedMessages = [EncryptedMessageRecipient:String]()
                 // Ensure toDevice messages exist
@@ -321,6 +310,8 @@ public class EncryptionHandler {
                 
                 resolve(decryptedMessages)
                 
+            }.onError { error in
+                reject(error)
             }
         }
     }
@@ -336,13 +327,10 @@ public class EncryptionHandler {
             return Promise {resolve, reject in
                 async {
                     self.removeSessionForUser(recipient: recipient)
-                    do {
-                        try await(self.createNewSessionForUser(recipient: recipient))
-                    } catch {
-                        reject(error)
-                    }
-                    
+                    try await(self.createNewSessionForUser(recipient: recipient))
                     resolve(true)
+                }.onError { error in
+                    reject(error)
                 }
             }
         }
@@ -358,6 +346,8 @@ public class EncryptionHandler {
                     resolve(true)
                 }
                 resolve(true)
+            }.onError { error in
+                reject(error)
             }
         }
     }
@@ -406,6 +396,7 @@ public class EncryptionHandler {
     }
     
     private func handlePreKeyMessage(encryptedMessage: OLMMessage, senderId: String, wrappedIdentityKey: String) throws -> String {
+        
         // Create new session
         let session = try OLMSession.init(inboundSessionWith: self.account, oneTimeKeyMessage: encryptedMessage.ciphertext)
         //Decrypt message
@@ -469,6 +460,12 @@ public class EncryptionHandler {
     public func createNewSessionForUser(recipient: EncryptedMessageRecipient) -> Promise<Bool> {
         return Promise {resolve, reject in
             async {
+                
+                //Ensure encryption keys have been set up
+                guard self.mxRestClient.credentials?.userId != nil else {throw EncryptionError.noCredentialsAvailable}
+                guard self.account != nil else {throw EncryptionError.noAccount}
+                guard self.device != nil else {throw EncryptionError.noAccount}
+                
                 // Obtaining keys for all devices for user
                 let downloadedKeys = try await(self.mxRestClient.downloadKeysPromise(forUsers: [recipient.userName]))
                 

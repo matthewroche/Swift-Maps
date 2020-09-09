@@ -59,10 +59,10 @@ struct ContentController: View {
             async {
                 self.syncInProgress = true
                 try await(self.contentLogic.sync(
-                    mxRestClient: self.sessionData.mxRestClient!,
+                    mxRestClient: self.sessionData.mxRestClient ?? MXRestClient(),
                     context: self.context,
-                    ownerUser: self.userDetails!,
-                    encryptionHandler: self.sessionData.encryptionHandler!))
+                    ownerUser: self.userDetails ?? UserDetails(),
+                    encryptionHandler: self.sessionData.encryptionHandler ?? EncryptionHandler(keychain: self.sessionData.keychain, mxRestClient: MXRestClient())))
                 DispatchQueue.main.sync {
                     self.syncInProgress = false
                 }
@@ -85,9 +85,9 @@ struct ContentController: View {
                 try await(self.contentLogic.startChat(
                     invitedUser: self.inviteUser,
                     invitedDevice: self.inviteDevice,
-                    userDetails: self.userDetails!,
+                    userDetails: self.userDetails ?? UserDetails(),
                     context: self.context,
-                    encryptionHandler: self.sessionData.encryptionHandler!,
+                    encryptionHandler: self.sessionData.encryptionHandler ?? EncryptionHandler(keychain: self.sessionData.keychain, mxRestClient: MXRestClient()),
                     locationLogic: self.sessionData.locationLogic
                 ))
                 try await(self.sessionData.locationLogic.startTrackingLocation())

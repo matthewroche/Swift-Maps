@@ -96,7 +96,7 @@
 		EC2343F6248FC9C800B3FC50 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		EC31DD9C24A1414C00FE0832 /* ContentLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLogic.swift; sourceTree = "<group>"; };
 		EC31DD9E24A1416300FE0832 /* ContentError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentError.swift; sourceTree = "<group>"; };
-		EC339A09248788FA0074D84A /* Matrix Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Matrix Playground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC339A09248788FA0074D84A /* Matrix Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Matrix Maps.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC339A0E248788FA0074D84A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EC339A10248788FA0074D84A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EC339A15248789060074D84A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		EC339A0A248788FA0074D84A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC339A09248788FA0074D84A /* Matrix Playground.app */,
+				EC339A09248788FA0074D84A /* Matrix Maps.app */,
 				EC339A1F248789070074D84A /* Matrix PlaygroundTests.xctest */,
 				EC339A2A248789070074D84A /* Matrix PlaygroundUITests.xctest */,
 			);
@@ -437,7 +437,7 @@
 			);
 			name = "Matrix Playground";
 			productName = "Matrix Playground";
-			productReference = EC339A09248788FA0074D84A /* Matrix Playground.app */;
+			productReference = EC339A09248788FA0074D84A /* Matrix Maps.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EC339A1E248789070074D84A /* Matrix PlaygroundTests */ = {
@@ -858,7 +858,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Matrix Playground/Matrix Playground.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;
@@ -882,7 +882,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mtr.Matrix-Playground";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Matrix Maps";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -898,7 +898,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Matrix Playground/Matrix Playground.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;
@@ -909,7 +909,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mtr.Matrix-Playground";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Matrix Maps";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -950,7 +950,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Matrix Playground.app/Matrix Playground";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Matrix Maps.app/Matrix Maps";
 			};
 			name = Debug;
 		};
@@ -972,7 +972,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Matrix Playground.app/Matrix Playground";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Matrix Maps.app/Matrix Maps";
 			};
 			name = Release;
 		};

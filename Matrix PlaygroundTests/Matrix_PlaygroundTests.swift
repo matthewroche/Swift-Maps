@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import Matrix_Playground
+@testable import Matrix_Maps
 
 import Mockingjay
 import SwiftMatrixSDK

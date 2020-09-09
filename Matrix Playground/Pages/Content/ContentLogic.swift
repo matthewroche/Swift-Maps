@@ -78,7 +78,7 @@ class ContentLogic {
     func logout (sessionData: SessionData) -> Void {
         sessionData.locationLogic.stopTrackingLocation()
         sessionData.keychain.delete("credentials")
-        sessionData.mxRestClient = nil
+        sessionData.mxRestClient = MXRestClient()
     }
     
     /// logoutAndDeleteData
@@ -93,13 +93,13 @@ class ContentLogic {
             
             guard password.count > 0 else { throw ContentError.passwordDoesNotExist }
             
-            let userId = sessionData.mxRestClient!.credentials.userId!
-            let deviceId = sessionData.mxRestClient!.credentials.deviceId!
+            let userId = sessionData.mxRestClient.credentials?.userId ?? ""
+            let deviceId = sessionData.mxRestClient.credentials?.deviceId ?? ""
             
             // Delete remote device
-            let authSession = try await(sessionData.mxRestClient!.getSessionPromise(toDeleteDevice: deviceId))
+            let authSession = try await(sessionData.mxRestClient.getSessionPromise(toDeleteDevice: deviceId))
             let authDetails = [
-                "session": authSession.session!,
+                "session": authSession.session ?? "",
                 "type": "m.login.password",
                 "user": userId,
                 "identifier": [
@@ -109,7 +109,7 @@ class ContentLogic {
                 "password": password
             ] as [String : Any]
             do {
-                try await(sessionData.mxRestClient!.deleteDevicePromise(deviceId, authParameters: authDetails))
+                try await(sessionData.mxRestClient.deleteDevicePromise(deviceId, authParameters: authDetails))
             } catch {
                 print("Failed deleting remote device")
                 throw error
@@ -120,15 +120,15 @@ class ContentLogic {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "UserDetails")
             let recipientPredicate = NSPredicate(format: "userId == %@", userId )
             fetchRequest.predicate = recipientPredicate
-            let results = try context.fetch(fetchRequest) as! [UserDetails]
+            let results = try context.fetch(fetchRequest) as? [UserDetails] ?? []
             if results.count != 0 {
                 context.delete(results[0])
             }
             
             sessionData.locationLogic.stopTrackingLocation()
             sessionData.keychain.delete("credentials")
-            sessionData.encryptionHandler!.clearEncryptionState()
-            sessionData.mxRestClient = nil
+            sessionData.encryptionHandler.clearEncryptionState()
+            sessionData.mxRestClient = MXRestClient()
             
             return true
         }

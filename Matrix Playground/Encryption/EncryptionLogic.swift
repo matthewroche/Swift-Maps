@@ -19,6 +19,7 @@ public class EncryptionLogic {
     */
     public func initialiseDeviceKeys(account: OLMAccount, mxRestClient: MXRestClient) throws -> Promise<(MXDeviceInfo, [String: NSNumber])> {
         async {
+            guard mxRestClient.credentials != nil else {throw EncryptionError.noCredentialsAvailable}
             //Create device
             let device = try account.generateSignedDeviceKeys(credentials: mxRestClient.credentials)
             //Create signed oneTimeKeys
@@ -28,7 +29,7 @@ public class EncryptionLogic {
             let response = try await(
                 mxRestClient.uploadKeysPromise(device.jsonDictionary() as NSDictionary? as! [String: Any],
                                                oneTimeKeys: signedKeys,
-                                               forDevice: mxRestClient.credentials.deviceId))
+                                               forDevice: mxRestClient.credentials?.deviceId))
             return(device, response.oneTimeKeyCounts)
         }
     }
@@ -44,11 +45,12 @@ public class EncryptionLogic {
     */
     public func uploadNewOneTimeKeys(account: OLMAccount, mxRestClient: MXRestClient, numberOfKeys: UInt) throws -> Promise<[String: NSNumber]> {
         async {
+            guard mxRestClient.credentials != nil else {throw EncryptionError.noCredentialsAvailable}
             //Create signed oneTimeKeys
             let signedKeys = account.generateSignedOneTimeKeys(count: numberOfKeys, credentials: mxRestClient.credentials)
             print("About to start keys upload")
             //Upload keys
-            let response = try await(mxRestClient.uploadKeysPromise([:], oneTimeKeys: signedKeys, forDevice: mxRestClient.credentials.deviceId))
+            let response = try await(mxRestClient.uploadKeysPromise([:], oneTimeKeys: signedKeys, forDevice: mxRestClient.credentials?.deviceId))
             return(response.oneTimeKeyCounts)
         }
     }

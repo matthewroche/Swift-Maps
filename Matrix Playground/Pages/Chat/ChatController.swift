@@ -9,6 +9,7 @@
 import SwiftUI
 import CoreData
 import MapKit
+import SwiftMatrixSDK
 
 struct ChatController: View {
     
@@ -45,11 +46,10 @@ struct ChatController: View {
     /// Deletes a chat from CoreData store
     func stopChat() {
         do {
-            guard self.sessionData.mxRestClient != nil else {throw ChatError.notLoggedIn}
-            guard self.sessionData.mxRestClient!.credentials.userId != nil else {throw ChatError.notLoggedIn}
+            guard self.sessionData.mxRestClient.credentials?.userId != nil else {throw ChatError.notLoggedIn}
             try self.messagingLogic.deleteChat(
                 chat: chatDetails,
-                ownerUserId: self.sessionData.mxRestClient!.credentials.userId!,
+                ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
                 locationLogic: self.sessionData.locationLogic)
         } catch {
@@ -64,14 +64,13 @@ struct ChatController: View {
     /// Stops the user transmitting thier location to a user, and deltes the chat if they are not receiving location updates
     func stopTransmission() {
         do {
-            guard self.sessionData.mxRestClient != nil else {throw ChatError.notLoggedIn}
-            guard self.sessionData.mxRestClient!.credentials.userId != nil else {throw ChatError.notLoggedIn}
+            guard self.sessionData.mxRestClient.credentials?.userId != nil else {throw ChatError.notLoggedIn}
             // If we're not receiving and don't wish to send any more hen just delete the chat
             if (chatDetails.receiving == false) { self.stopChat() }
             chatDetails.sending = false
             try messagingLogic.updateChat(
                 chat: chatDetails,
-                ownerUserId: self.sessionData.mxRestClient!.credentials.userId!,
+                ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
                 locationLogic: self.sessionData.locationLogic)
         } catch {
@@ -84,12 +83,11 @@ struct ChatController: View {
     /// Begins transmission of location to a remote user
     func startTransmission() {
         do {
-            guard self.sessionData.mxRestClient != nil else {throw ChatError.notLoggedIn}
-            guard self.sessionData.mxRestClient!.credentials.userId != nil else {throw ChatError.notLoggedIn}
+            guard self.sessionData.mxRestClient.credentials?.userId != nil else {throw ChatError.notLoggedIn}
             chatDetails.sending = true
             try messagingLogic.updateChat(
                 chat: chatDetails,
-                ownerUserId: self.sessionData.mxRestClient!.credentials.userId!,
+                ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
                 locationLogic: self.sessionData.locationLogic)
             _ = self.sessionData.locationLogic.startTrackingLocation().start()
@@ -109,14 +107,13 @@ struct ChatController: View {
     /// handleOnAppear
     /// Handles synchronisation when the page is loaded
     func handleOnAppear() {
-        guard self.sessionData.mxRestClient != nil else {return}
-        guard self.sessionData.mxRestClient!.credentials.userId != nil else {return}
+        guard self.sessionData.mxRestClient.credentials?.userId != nil else {return}
         
         let userFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserDetails")
-        userFetchRequest.predicate = NSPredicate(format: "userId == %@", self.sessionData.mxRestClient!.credentials.userId!)
+        userFetchRequest.predicate = NSPredicate(format: "userId == %@", self.sessionData.mxRestClient.credentials?.userId ?? "")
         var userFetchedResults = [UserDetails]()
         do {
-            userFetchedResults = try self.context.fetch(userFetchRequest) as! [UserDetails]
+            userFetchedResults = try self.context.fetch(userFetchRequest) as? [UserDetails] ?? []
         } catch {
             print("Unable to find owner user")
         }
@@ -126,10 +123,10 @@ struct ChatController: View {
         }
         let userDetails = userFetchedResults.first!
         self.messagingLogic.sync(
-            mxRestClient: self.sessionData.mxRestClient!,
+            mxRestClient: self.sessionData.mxRestClient,
             context: self.context,
             ownerUser: userDetails,
-            encryptionHandler: self.sessionData.encryptionHandler!).start()
+            encryptionHandler: self.sessionData.encryptionHandler).start()
     }
     
     

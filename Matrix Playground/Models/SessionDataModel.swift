@@ -14,27 +14,23 @@ import CoreData
 
 class SessionData: ObservableObject {
     
-    @Published var loggedInUserDetails: UserDetails? = nil
     @Published var keychain = KeychainSwift()
     @Published var locationLogic = LocationLogic()
-    @Published var crypto = MXCrypto()
-    @Published var encryptionHandler: EncryptionHandler? = nil
-    @Published var mxRestClient: MXRestClient? = nil {
+    @Published var encryptionHandler = EncryptionHandler()
+    @Published var mxRestClient = MXRestClient() {
         didSet {
             handleNewMXRestClient()
         }
     }
     
-    
-    
     /// handleNewMXRestClient
     /// Handles data manipulation when MXRestClient is edited and failure scenarios
     private func handleNewMXRestClient() {
         print("New mxRestClient")
-        if (mxRestClient != nil && mxRestClient?.credentials.userId != nil) {
+        if mxRestClient.credentials?.userId != nil {
             do {
                 print("Creating encryption handler")
-                self.encryptionHandler = try EncryptionHandler(keychain: self.keychain, mxRestClient: self.mxRestClient!)
+                self.encryptionHandler = try EncryptionHandler(keychain: self.keychain, mxRestClient: self.mxRestClient)
             } catch {
                 // This should never fail, but if it does nuke everything and start again.
                 print("Unable to init encryptionHandler")
@@ -43,9 +39,9 @@ class SessionData: ObservableObject {
                 do {
                     let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
                     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chat")
-                    let ownerPredicate = NSPredicate(format: "ownerUser.userId == %@", (mxRestClient?.credentials.userId!)! as String)
+                    let ownerPredicate = NSPredicate(format: "ownerUser.userId == %@", mxRestClient.credentials?.userId ?? "")
                     fetchRequest.predicate = ownerPredicate
-                    let results = try context.fetch(fetchRequest) as! [Chat]
+                    let results = try context.fetch(fetchRequest) as? [Chat] ?? []
                     for chat in results {
                         context.delete(chat)
                     }
@@ -53,13 +49,13 @@ class SessionData: ObservableObject {
                 } catch {
                     print("Unable to delete chats for this user whilst nuking data")
                 }
-                self.keychain.clearAllForPrefix("\(self.mxRestClient!.credentials.userId!)_")
-                self.mxRestClient = nil
+                self.keychain.clearAllForPrefix("\(self.mxRestClient.credentials?.userId ?? "")_")
+                self.mxRestClient = MXRestClient()
             }
             
         } else {
             print("Setting encryption handler to nil")
-            self.encryptionHandler = nil
+            self.encryptionHandler = EncryptionHandler()
         }
     }
     

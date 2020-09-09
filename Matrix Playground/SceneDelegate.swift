@@ -9,11 +9,12 @@
 import UIKit
 import SwiftUI
 import CoreData
+import SwiftMatrixSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var sessionData: SessionData?
+    var sessionData = SessionData()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -30,16 +31,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Unable to read managed object context.")
         }
         // Check a user exists in CoreData to match any in keychain
-        if (sessionData!.mxRestClient != nil && sessionData!.mxRestClient?.credentials.userId != nil) {
+        if (sessionData.mxRestClient.credentials?.userId != nil) {
             let userFetchRequest: NSFetchRequest<UserDetails> = UserDetails.fetchRequest()
             userFetchRequest.sortDescriptors = []
-            userFetchRequest.predicate = NSPredicate(format: "userId == %@", sessionData!.mxRestClient!.credentials.userId!)
+            userFetchRequest.predicate = NSPredicate(format: "userId == %@", sessionData.mxRestClient.credentials?.userId ?? "")
             do {
                 let userFetchedResults = try context.fetch(userFetchRequest)
                 if userFetchedResults.count == 0 {
                     print("Unable to find owner user for details in keycahin - deleting keychain")
-                    sessionData!.keychain.delete("credentials")
-                    sessionData!.mxRestClient = nil
+                    sessionData.keychain.delete("credentials")
+                    sessionData.mxRestClient = MXRestClient()
                 }
             } catch {
                 // Unable to access CoreData for some reason - just return
@@ -54,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: rootView.environmentObject(sessionData!))
+            window.rootViewController = UIHostingController(rootView: rootView.environmentObject(sessionData))
             self.window = window
             window.makeKeyAndVisible()
         }

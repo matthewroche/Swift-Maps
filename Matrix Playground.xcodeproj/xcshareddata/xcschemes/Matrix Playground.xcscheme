@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC339A08248788FA0074D84A"
-               BuildableName = "Matrix Playground.app"
+               BuildableName = "Matrix Maps.app"
                BlueprintName = "Matrix Playground"
                ReferencedContainer = "container:Matrix Playground.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC339A08248788FA0074D84A"
-            BuildableName = "Matrix Playground.app"
+            BuildableName = "Matrix Maps.app"
             BlueprintName = "Matrix Playground"
             ReferencedContainer = "container:Matrix Playground.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC339A08248788FA0074D84A"
-            BuildableName = "Matrix Playground.app"
+            BuildableName = "Matrix Maps.app"
             BlueprintName = "Matrix Playground"
             ReferencedContainer = "container:Matrix Playground.xcodeproj">
          </BuildableReference>

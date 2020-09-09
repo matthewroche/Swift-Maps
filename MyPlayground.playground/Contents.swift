@@ -172,7 +172,7 @@ async {
         let dictionary: NSDictionary = [
             "messageNumber" : i
         ]
-        let contentMap = MXUsersDevicesMap(map: ["@matrix_maps_test2:matrix.org": [recipientMxRestClient.credentials.deviceId!: dictionary]])
+        let contentMap = MXUsersDevicesMap(map: ["@matrix_maps_test2:matrix.org": [recipientmxRestClient.credentials?.deviceId!: dictionary]])
         // Send message
         try await(mxRestClient.sendDirectToDevicePromise(
             eventType: "matrixmaps.location",
@@ -198,7 +198,7 @@ async {
         let dictionary: NSDictionary = [
             "messageNumber" : i
         ]
-        let contentMap = MXUsersDevicesMap(map: ["@matrix_maps_test2:matrix.org": [recipientMxRestClient.credentials.deviceId!: dictionary]])
+        let contentMap = MXUsersDevicesMap(map: ["@matrix_maps_test2:matrix.org": [recipientmxRestClient.credentials?.deviceId!: dictionary]])
         // Send message
         try await(mxRestClient.sendDirectToDevicePromise(
             eventType: "matrixmaps.location",
@@ -299,14 +299,14 @@ public class EncryptionLogic {
     public func initialiseDeviceKeys(account: OLMAccount, mxRestClient: MXRestClient) throws -> Promise<(MXDeviceInfo, [String: NSNumber])> {
         async {
             //Create device
-            let device = try account.generateSignedDeviceKeys(credentials: mxRestClient.credentials)
+            let device = try account.generateSignedDeviceKeys(credentials: mxRestClient.credentials?)
             //Create signed oneTimeKeys
-            let signedKeys = account.generateSignedOneTimeKeys(count: 10, credentials: mxRestClient.credentials)
+            let signedKeys = account.generateSignedOneTimeKeys(count: 10, credentials: mxRestClient.credentials?)
             //Upload keys
             let response = try await(
                 mxRestClient.uploadKeysPromise(device.jsonDictionary() as NSDictionary? as! [String: Any],
                                                oneTimeKeys: signedKeys,
-                                               forDevice: mxRestClient.credentials.deviceId))
+                                               forDevice: mxRestClient.credentials?.deviceId))
             return(device, response.oneTimeKeyCounts)
         }
     }

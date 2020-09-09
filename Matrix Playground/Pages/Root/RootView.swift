@@ -29,7 +29,7 @@ struct RootView: View {
     /// - Parameter newRestClient: The new MXRestCient to act on
     /// - Returns: Void
     func newRestClientReceived(_ newRestClient: MXRestClient?) -> Void {
-        if newRestClient?.credentials.userId != nil {
+        if newRestClient?.credentials?.userId != nil {
             rootState.state = .loggedIn
         } else if rootState.state != .loggedOut {
             rootState.state = .loggedOut
@@ -45,12 +45,11 @@ struct RootView: View {
             async {
                 print("Ready to update location")
                 guard newLocation != nil else {resolve(false); return}
-                guard self.sessionData.mxRestClient != nil else {resolve(false); return}
-                guard self.sessionData.mxRestClient!.credentials.userId != nil else {resolve(false); return}
+                guard self.sessionData.mxRestClient.credentials?.userId != nil else {resolve(false); return}
                 
                 let outcomeForRecipients = try await(self.messagingLogic.updateAllRecipientsWithNewLocation(
                     location: newLocation!,
-                    encryptionHandler: self.sessionData.encryptionHandler!,
+                    encryptionHandler: self.sessionData.encryptionHandler,
                     context: self.context
                 ))
                 
@@ -71,7 +70,7 @@ struct RootView: View {
             let recipientDevicePredicate = NSPredicate(format: "recipientDevice == %@", failedMessage.0.deviceName)
             let ownerPredicate = NSPredicate(
                 format: "ownerUser.userId == %@",
-                (self.sessionData.mxRestClient?.credentials.userId)! as String)
+                self.sessionData.mxRestClient.credentials?.userId ?? "")
             fetchRequest.predicate = NSCompoundPredicate(
                 type: .and,
                 subpredicates: [recipientUserPredicate, recipientDevicePredicate, ownerPredicate])
@@ -81,7 +80,7 @@ struct RootView: View {
             
             try self.messagingLogic.deleteChat(
                 chat: chatToRemove!,
-                ownerUserId: (self.sessionData.mxRestClient?.credentials.userId)!,
+                ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
                 locationLogic: self.sessionData.locationLogic)
             
@@ -96,7 +95,7 @@ struct RootView: View {
         case .loggedIn:
             return NavigationView{AnyView(
                 ZStack {
-                    ContentController(self.sessionData.mxRestClient?.credentials.userId ?? "Unknown User")
+                    ContentController(self.sessionData.mxRestClient.credentials?.userId ?? "Unknown User")
                         .onReceive(self.sessionData.$mxRestClient) { (newData) in
                             self.newRestClientReceived(newData)
                         }

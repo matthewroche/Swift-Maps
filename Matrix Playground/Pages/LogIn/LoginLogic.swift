@@ -35,7 +35,7 @@ class LoginLogic {
             guard homeServerURL != nil else {throw LoginError.invalidServerAddress}
             
             // Create client for log in
-            let mxRestClient = MXRestClient(homeServer: homeServerURL!, unrecognizedCertificateHandler: nil)
+            let mxRestClient = MXRestClient(homeServer: homeServerURL ?? URL.init(string: "https://matrix.org")!, unrecognizedCertificateHandler: nil)
             
             // Log In
             let credentials = try await(mxRestClient.loginPromise(
@@ -85,25 +85,19 @@ class LoginLogic {
         guard credentials.userId != nil else {throw LoginError.invalidServerResponse}
         
         let encodableCredentials = KeychainCredentials(
-            accessToken: credentials.accessToken!,
-            deviceId: credentials.deviceId!,
-            homeServer: credentials.homeServer!,
-            userId: credentials.userId!)
+            accessToken: credentials.accessToken ?? "",
+            deviceId: credentials.deviceId ?? "",
+            homeServer: credentials.homeServer ?? "",
+            userId: credentials.userId ?? "")
         
         return try JSONEncoder().encode(encodableCredentials)
     }
     
     private func setUpEncryption(sessionData: SessionData) throws -> Void {
-        // Needs to be after mxRestClient stored in session data so encryptionHandler is available
-        guard sessionData.encryptionHandler != nil else {
-            print("Encryption handler not available")
-            throw LoginError.unableToSetUpEncryption
-        }
-        
         // If this is a brand new encryption handler, upload keys
-        if (sessionData.encryptionHandler!.account == nil) {
+        if (sessionData.encryptionHandler.account == nil) {
             do {
-                _ = try await(sessionData.encryptionHandler!.createAndUploadDeviceKeys())
+                _ = try await(sessionData.encryptionHandler.createAndUploadDeviceKeys())
             } catch {
                 print(error)
                 throw LoginError.unableToSetUpEncryption

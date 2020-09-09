@@ -172,12 +172,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func startTrackingUpdatesIfRequired(_ sessionData: SessionData, _ persistentContainer: NSPersistentContainer) {
-        guard sessionData.mxRestClient != nil else {return}
-        guard sessionData.mxRestClient?.credentials.userId != nil else {return}
-        
         do {
+            let userId = sessionData.mxRestClient.credentials?.userId ?? ""
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chat")
-            let ownerPredicate = NSPredicate(format: "ownerUser.userId == %@", (sessionData.mxRestClient?.credentials.userId!)! as String)
+            let ownerPredicate = NSPredicate(format: "ownerUser.userId == %@", userId)
             let sendingPredicate = NSPredicate(format: "sending == YES")
             fetchRequest.predicate = NSCompoundPredicate(
                 type: .and,
