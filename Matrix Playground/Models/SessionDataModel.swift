@@ -32,9 +32,10 @@ class SessionData: ObservableObject {
                 print("Creating encryption handler")
                 self.encryptionHandler = try EncryptionHandler(keychain: self.keychain, mxRestClient: self.mxRestClient)
             } catch {
-                // This should never fail, but if it does nuke everything and start again.
+                // This should never fail, but if it does delete everything and start again.
                 print("Unable to init encryptionHandler")
                 print(error)
+                
                 // Delete all stored chats for this user
                 do {
                     let context = (UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext
@@ -49,12 +50,18 @@ class SessionData: ObservableObject {
                 } catch {
                     print("Unable to delete chats for this user whilst nuking data")
                 }
+                
+                // Delete everything stored in Keychain
                 self.keychain.clearAllForPrefix("\(self.mxRestClient.credentials?.userId ?? "")_")
+                
+                // Delete credentials in mxRestClient
                 self.mxRestClient = MXRestClient()
             }
             
         } else {
+            // If the mxRest client doesn't include credentials then remove all device data from the Encryptionhandler as we have logged out
             print("Setting encryption handler to nil")
+            self.encryptionHandler.clearEncryptionState()
             self.encryptionHandler = EncryptionHandler()
         }
     }

@@ -269,11 +269,12 @@ public class MessagingLogic {
     
     
     
+    /// deletesChat
     /// Deletes an existing chat
     /// - Parameters:
     ///   - chat: The chat to delete
     ///   - ownerUserId: A String containing the userID of the local user
-    ///   - context: The NSManagedObjectCOntext for the local device
+    ///   - context: The NSManagedObjectContext for the local device
     ///   - locationLogic: The LocationLogic object providing updates to the user's location
     /// - Returns: Void
     public func deleteChat(chat: Chat, ownerUserId: String, context: NSManagedObjectContext, locationLogic: LocationLogic) throws -> Void {
@@ -285,6 +286,13 @@ public class MessagingLogic {
     }
     
     
+    /// checkLocationTrackingRequired
+    /// Checks whether any chats the user owns require location tracking and stops tracking if there are not any.
+    /// - Parameters:
+    ///   - ownerUserId: A String describing the userId of the owner (local) user
+    ///   - locationLogic: A LocationLogic struct providing access to location updates
+    ///   - context: The NSManagedObjectContext for the local device
+    /// - Returns: Void
     private func checkLocationTrackingRequired(ownerUserId: String, locationLogic: LocationLogic, context: NSManagedObjectContext) throws -> Void {
         guard ownerUserId.count > 0 else {throw MessagingError.noUsername}
         // Check that chats requiring location to be sent still exist

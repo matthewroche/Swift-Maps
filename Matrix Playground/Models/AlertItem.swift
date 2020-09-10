@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 
+/// A wrapper for the properties required to create an Alert.
 struct AlertItem: Identifiable {
     var id = UUID()
     var title: Text

@@ -11,13 +11,15 @@ import SwiftLocation
 import CoreLocation
 import Then
 
+/// Contains the logic for storing location and starting / stopping background location tracking
 public class LocationLogic: ObservableObject {
     
-    init() {}
-    
-    var locationRequest: LocationRequest?
+    private var locationRequest: LocationRequest?
     @Published var currentLocation: CLLocation?
     
+    /// startTrackingLocation
+    /// Sets a LocationRequest up and tracks the location in the background, updating currentLocation appropriately
+    /// - Returns: A promise reolving to true once the first update to currentLocation completes.
     func startTrackingLocation() -> Promise<Bool> {
         return Promise { resolve, reject in
             async {
@@ -44,12 +46,17 @@ public class LocationLogic: ObservableObject {
         }
     }
     
+    /// stopTrackingLocation
+    /// Stops the current locationRequest
+    /// - Returns: Void
     func stopTrackingLocation() -> Void {
         guard locationRequest != nil else {return}
         locationRequest!.stop()
         locationRequest = nil
     }
     
+    /// Returns the current location as a one-shot request, no background tracking is initiated.
+    /// - Returns: A Promise resolving to a CLLocation on success
     func returnCurrentLocation() -> Promise<CLLocation> {
         return Promise { resolve, reject in
             let _ = LocationManager.shared.locateFromGPS(.oneShot, accuracy: .block) { response in

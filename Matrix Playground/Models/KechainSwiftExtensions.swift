@@ -11,6 +11,9 @@ import KeychainSwift
 
 public extension KeychainSwift {
     
+    /// clearAllForPrefix
+    /// Clears all properties stored in keychain with the specified prefix
+    /// - Parameter prefix: A String describing the prefix of the properties to clear from Keychain
     func clearAllForPrefix(_ prefix: String) {
         
         for key in self.allKeys {

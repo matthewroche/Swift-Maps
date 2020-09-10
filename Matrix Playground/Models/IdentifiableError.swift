@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// A wrapper for Error allowing it to conform to the Identifiable protocol for global error handling
 public struct IdentifiableError: Identifiable {
     public let id = UUID()
     let error: Error
