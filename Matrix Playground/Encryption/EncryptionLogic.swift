@@ -74,7 +74,7 @@ public class EncryptionLogic {
             "ciphertext": encryptedPayloadString,
             "senderKey": senderDevice.identityKey,
             "senderDevice": senderDevice.deviceId
-            ] as [String: String]
+        ] as? [String: String] ?? [:]
         return EncryptedMessageWrapper(dictionary: wrapperObject)
     }
     

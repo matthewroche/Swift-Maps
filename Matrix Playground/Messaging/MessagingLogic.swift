@@ -281,7 +281,6 @@ public class MessagingLogic {
         //Delete chat
         context.delete(chat)
         try context.save()
-        
         try checkLocationTrackingRequired(ownerUserId: ownerUserId, locationLogic: locationLogic, context: context)
     }
     

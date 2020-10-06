@@ -1115,30 +1115,30 @@
 		00E3F28B91EC469B37C49050A71A00BE /* MXSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSession.h; path = MatrixSDK/MXSession.h; sourceTree = "<group>"; };
 		01127ED42EF49DDC82A6C0787840C3E7 /* MXEncryptedContentKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEncryptedContentKey.m; path = MatrixSDK/Crypto/Data/MXEncryptedContentKey.m; sourceTree = "<group>"; };
 		01F7F49F090468E6EBCC6E856F3CD9A9 /* RLMSchema_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSchema_Private.h; path = include/RLMSchema_Private.h; sourceTree = "<group>"; };
-		028059EE80AEF9EABE7ACB7FCA0923DB /* session.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = session.hh; path = include/olm/session.hh; sourceTree = "<group>"; };
+		028059EE80AEF9EABE7ACB7FCA0923DB /* session.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = session.hh; path = include/olm/session.hh; sourceTree = "<group>"; };
 		02FEB9886C82454F523E1505FBBA827C /* Mockingjay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mockingjay.swift; path = Sources/Mockingjay/Mockingjay.swift; sourceTree = "<group>"; };
 		031D401A862A0E1D463304D6C22EDDE0 /* MXMemoryRoomStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMemoryRoomStore.h; path = MatrixSDK/Data/Store/MXMemoryStore/MXMemoryRoomStore.h; sourceTree = "<group>"; };
 		0325932E303F14239992EA42CDCE63CB /* MXOlmDecryption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXOlmDecryption.h; path = MatrixSDK/Crypto/Algorithms/Olm/MXOlmDecryption.h; sourceTree = "<group>"; };
 		036E3A394A1B1A3CC532966A0D27C92D /* MXAggregatedReferencesUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAggregatedReferencesUpdater.h; path = MatrixSDK/Aggregations/MXAggregatedReferencesUpdater.h; sourceTree = "<group>"; };
 		03AAFD25C70D11DAD702643F95D2FF5D /* LocationByIPRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationByIPRequest.swift; path = "Sources/SwiftLocation/Locating By IP/LocationByIPRequest.swift"; sourceTree = "<group>"; };
-		03B2B5E9613A8428254F160937DA95CC /* GZIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GZIP.framework; path = GZIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03B2B5E9613A8428254F160937DA95CC /* GZIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GZIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0480D13EFD12AC33D2E47CE38F6DE6E9 /* Realm-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Realm-dummy.m"; sourceTree = "<group>"; };
 		04EF98D4EDAFC3589F3C881669CF534C /* MXKeyVerificationDone.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationDone.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationDone.h; sourceTree = "<group>"; };
 		04F1A2130B12858A8605DAFD972F02D2 /* MXAggregatedReactionsUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAggregatedReactionsUpdater.h; path = MatrixSDK/Aggregations/MXAggregatedReactionsUpdater.h; sourceTree = "<group>"; };
 		0509B8C6267490054EF92661F45ABFFC /* MXDiscoveredClientConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDiscoveredClientConfig.h; path = MatrixSDK/Data/AutoDiscovery/MXDiscoveredClientConfig.h; sourceTree = "<group>"; };
-		054663A724D19E60D9A87EC05F184F8B /* RLMObjectStore.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObjectStore.mm; path = Realm/RLMObjectStore.mm; sourceTree = "<group>"; };
+		054663A724D19E60D9A87EC05F184F8B /* RLMObjectStore.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMObjectStore.mm; path = Realm/RLMObjectStore.mm; sourceTree = "<group>"; };
 		0638CBC78EE38003072F80FD7A3B87A8 /* MXInvite3PID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXInvite3PID.h; path = MatrixSDK/Data/MXInvite3PID.h; sourceTree = "<group>"; };
 		063D77D5273998E364BDD1DE4CBB9F31 /* MXSDKOptions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSDKOptions.h; path = MatrixSDK/MXSDKOptions.h; sourceTree = "<group>"; };
-		0666CCDBCB2F8AD3D764FCBAD928C24F /* RLMOptionalBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMOptionalBase.mm; path = Realm/RLMOptionalBase.mm; sourceTree = "<group>"; };
+		0666CCDBCB2F8AD3D764FCBAD928C24F /* RLMOptionalBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMOptionalBase.mm; path = Realm/RLMOptionalBase.mm; sourceTree = "<group>"; };
 		06C978B52214C3D18805C1ED03FA0FB5 /* MXCallStackCall.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCallStackCall.h; path = MatrixSDK/VoIP/CallStack/MXCallStackCall.h; sourceTree = "<group>"; };
 		06F583DD112B57CBD171327F434AD6B9 /* MXKeyVerificationRequestByDMJSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationRequestByDMJSONModel.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationRequestByDMJSONModel.h; sourceTree = "<group>"; };
 		072F40004FBA86EEE91CB3FCF6E84A80 /* MXReplyEventParts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXReplyEventParts.m; path = MatrixSDK/Data/ReplyEvent/Parser/MXReplyEventParts.m; sourceTree = "<group>"; };
 		07B439B5E7C2F8B809732D94312BFD9D /* MXFileStoreMetaData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXFileStoreMetaData.h; path = MatrixSDK/Data/Store/MXFileStore/MXFileStoreMetaData.h; sourceTree = "<group>"; };
-		07DCD093B10F4E4CD00BD38CFDCEAB02 /* RLMSyncUser.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncUser.mm; path = Realm/RLMSyncUser.mm; sourceTree = "<group>"; };
+		07DCD093B10F4E4CD00BD38CFDCEAB02 /* RLMSyncUser.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncUser.mm; path = Realm/RLMSyncUser.mm; sourceTree = "<group>"; };
 		0813C0593E43F6BAB97CCB8F0611194B /* MXDeviceListOperationsPool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDeviceListOperationsPool.h; path = MatrixSDK/Crypto/Data/MXDeviceListOperationsPool.h; sourceTree = "<group>"; };
-		08838CC34D30FB79827D554E9C85064D /* RLMAccessor.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMAccessor.mm; path = Realm/RLMAccessor.mm; sourceTree = "<group>"; };
-		089A527C934A20B02B8F27C709E2656F /* Then.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Then.framework; path = thenPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		08A28F0FB1F51BDFD48E7CCFE9655021 /* RLMRealm+Sync.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = "RLMRealm+Sync.mm"; path = "Realm/RLMRealm+Sync.mm"; sourceTree = "<group>"; };
+		08838CC34D30FB79827D554E9C85064D /* RLMAccessor.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMAccessor.mm; path = Realm/RLMAccessor.mm; sourceTree = "<group>"; };
+		089A527C934A20B02B8F27C709E2656F /* Then.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Then.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08A28F0FB1F51BDFD48E7CCFE9655021 /* RLMRealm+Sync.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = "RLMRealm+Sync.mm"; path = "Realm/RLMRealm+Sync.mm"; sourceTree = "<group>"; };
 		08D426FF26CABB78EE524F9A4C0BE4DC /* MXRealmMediaScan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmMediaScan.m; path = MatrixSDK/ContentScan/Data/Store/Realm/Media/MXRealmMediaScan.m; sourceTree = "<group>"; };
 		08DB65588732359D69992F85404BA7C9 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		090DC380706FDA148761B951730EC116 /* base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = base64.h; path = include/olm/base64.h; sourceTree = "<group>"; };
@@ -1146,7 +1146,7 @@
 		097748CF87FC7ED71871EC52C4E98671 /* MXEventTimeline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventTimeline.h; path = MatrixSDK/Data/MXEventTimeline.h; sourceTree = "<group>"; };
 		09787A12334FA9624F078A7EA4F7578B /* MXCrossSigningKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCrossSigningKey.m; path = MatrixSDK/Crypto/CrossSigning/JSONModels/MXCrossSigningKey.m; sourceTree = "<group>"; };
 		098A7B11023D68D90CA032997BFF4E70 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		09971D2A6C686B5FE9856F2DEAF90CC3 /* RLMObservation.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObservation.mm; path = Realm/RLMObservation.mm; sourceTree = "<group>"; };
+		09971D2A6C686B5FE9856F2DEAF90CC3 /* RLMObservation.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMObservation.mm; path = Realm/RLMObservation.mm; sourceTree = "<group>"; };
 		09DE247CDF959715B0ABC7899F95B780 /* MXRealmMediaScan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmMediaScan.h; path = MatrixSDK/ContentScan/Data/Store/Realm/Media/MXRealmMediaScan.h; sourceTree = "<group>"; };
 		0A0E951AAD21862CC75549851809661F /* MXScanManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXScanManager.m; path = MatrixSDK/ContentScan/MXScanManager.m; sourceTree = "<group>"; };
 		0A164003BE298042AF4AAFC5D1077E07 /* MXReactionCountChange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXReactionCountChange.h; path = MatrixSDK/Aggregations/Data/MXReactionCountChange.h; sourceTree = "<group>"; };
@@ -1156,7 +1156,7 @@
 		0AC6FC9AF4B22FE21A066415BB044528 /* MXUIKitBackgroundTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXUIKitBackgroundTask.m; path = MatrixSDK/Utils/MXUIKitBackgroundTask.m; sourceTree = "<group>"; };
 		0B2074289DE9DB76A3111023CCDF5062 /* NSObject+sortedKeys.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+sortedKeys.m"; path = "MatrixSDK/Lib/NSObject+sortedKeys.m"; sourceTree = "<group>"; };
 		0BAEF99BCDD97D492B805D47DDA72491 /* Pods-Matrix PlaygroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Matrix PlaygroundTests.release.xcconfig"; sourceTree = "<group>"; };
-		0C1CA247744CC6F0E1318FF3F53343B4 /* outbound_group_session.c */ = {isa = PBXFileReference; includeInIndex = 1; name = outbound_group_session.c; path = src/outbound_group_session.c; sourceTree = "<group>"; };
+		0C1CA247744CC6F0E1318FF3F53343B4 /* outbound_group_session.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = outbound_group_session.c; path = src/outbound_group_session.c; sourceTree = "<group>"; };
 		0C977DD419B033E4F91FFCDFB395265F /* URITemplate-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URITemplate-dummy.m"; sourceTree = "<group>"; };
 		0CF6D3ABCF8DB73238CA85CC3B6EC2D6 /* MXAggregationPaginatedResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAggregationPaginatedResponse.h; path = MatrixSDK/JSONModels/Aggregations/MXAggregationPaginatedResponse.h; sourceTree = "<group>"; };
 		0CF80AA2B6AECB3ACFE595527186FD56 /* MXDeviceInfo_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDeviceInfo_Private.h; path = MatrixSDK/Crypto/Data/MXDeviceInfo_Private.h; sourceTree = "<group>"; };
@@ -1164,14 +1164,14 @@
 		0D4E567217866C60A875A9A210E8F50F /* NSData+MatrixSDK.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+MatrixSDK.m"; path = "MatrixSDK/Utils/Categories/NSData+MatrixSDK.m"; sourceTree = "<group>"; };
 		0D56DE0C93DC88803AFF7B404F23FD7E /* MXAccountData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAccountData.m; path = MatrixSDK/Data/MXAccountData.m; sourceTree = "<group>"; };
 		0DD6DCA5C62145B0ECDF08281FC6656C /* Pods-Matrix PlaygroundTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Matrix PlaygroundTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0DEA3163ED19C06F42CEFC0EDE21B06D /* sync_permission.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_permission.cpp; path = Realm/ObjectStore/src/sync/sync_permission.cpp; sourceTree = "<group>"; };
+		0DEA3163ED19C06F42CEFC0EDE21B06D /* sync_permission.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_permission.cpp; path = Realm/ObjectStore/src/sync/sync_permission.cpp; sourceTree = "<group>"; };
 		0E15CE94BA5311340F504D13D5DA0D07 /* MXRoomPredecessorInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomPredecessorInfo.m; path = MatrixSDK/JSONModels/MXRoomPredecessorInfo.m; sourceTree = "<group>"; };
 		0EAACC7D80B066A642A899D80A39461C /* OLMKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OLMKit-dummy.m"; sourceTree = "<group>"; };
 		0EE300FEB004B71CDBF8B8779165345F /* PlaceMatch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PlaceMatch.swift; path = "Sources/SwiftLocation/Data Models/PlaceMatch.swift"; sourceTree = "<group>"; };
 		0F4EDF4981D6203B9F955F31E64815B3 /* MXEventTimeline.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventTimeline.m; path = MatrixSDK/Data/MXEventTimeline.m; sourceTree = "<group>"; };
 		0F6079066257A249868752220D0651E3 /* MXEventEditsListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventEditsListener.h; path = MatrixSDK/Aggregations/Data/MXEventEditsListener.h; sourceTree = "<group>"; };
 		0FF56889B60332DD51CDDD2E9EF40E87 /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = "lib/crypto-algorithms/aes.h"; sourceTree = "<group>"; };
-		1011756FDC98D606AC8C0754B8FE161E /* sync_session.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_session.cpp; path = Realm/ObjectStore/src/sync/sync_session.cpp; sourceTree = "<group>"; };
+		1011756FDC98D606AC8C0754B8FE161E /* sync_session.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_session.cpp; path = Realm/ObjectStore/src/sync/sync_session.cpp; sourceTree = "<group>"; };
 		105755B1C97B364A78F9E75702DA671A /* Mockingjay.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Mockingjay.modulemap; sourceTree = "<group>"; };
 		107F7ABA9057313FDF1134D5112D1391 /* RLMPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMPlatform.h; path = include/RLMPlatform.h; sourceTree = "<group>"; };
 		10DB56DEB02AE32E20CCBA81EE705808 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1184,13 +1184,13 @@
 		13406E1A7434E0B9DCF81CBA1E675D9D /* PromiseBlocks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PromiseBlocks.swift; path = Source/PromiseBlocks.swift; sourceTree = "<group>"; };
 		13549561125A5B0F33C7C711850185EB /* MXDeviceListOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDeviceListOperation.h; path = MatrixSDK/Crypto/Data/MXDeviceListOperation.h; sourceTree = "<group>"; };
 		13689B182EA8CC3E6ECD696A68E14368 /* MXCall.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCall.m; path = MatrixSDK/VoIP/MXCall.m; sourceTree = "<group>"; };
-		13BEF048E06EDC14A80ACBDB456580A2 /* schema.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = schema.cpp; path = Realm/ObjectStore/src/schema.cpp; sourceTree = "<group>"; };
+		13BEF048E06EDC14A80ACBDB456580A2 /* schema.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = schema.cpp; path = Realm/ObjectStore/src/schema.cpp; sourceTree = "<group>"; };
 		13D21987651A2C15A0071D136AF69A88 /* MXEventUnsignedData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventUnsignedData.h; path = MatrixSDK/JSONModels/Event/MXEventUnsignedData.h; sourceTree = "<group>"; };
-		13ECB1471E72B07F4D20909FADD673AD /* session.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = session.cpp; path = src/session.cpp; sourceTree = "<group>"; };
+		13ECB1471E72B07F4D20909FADD673AD /* session.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = session.cpp; path = src/session.cpp; sourceTree = "<group>"; };
 		14024B7B2FD36AA980D176137D4EE313 /* OLMPkDecryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMPkDecryption.m; path = xcode/OLMKit/OLMPkDecryption.m; sourceTree = "<group>"; };
 		150C131C2F8F6EB49BF238F03D074B25 /* TegKeychainConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TegKeychainConstants.swift; path = Sources/TegKeychainConstants.swift; sourceTree = "<group>"; };
 		16A2A857324509DD1D78C30A84E035E3 /* Pods-Matrix Playground-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Matrix Playground-acknowledgements.plist"; sourceTree = "<group>"; };
-		16C080484F0C275B1943E8C36A9133E8 /* async_open_task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = async_open_task.cpp; path = Realm/ObjectStore/src/sync/async_open_task.cpp; sourceTree = "<group>"; };
+		16C080484F0C275B1943E8C36A9133E8 /* async_open_task.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = async_open_task.cpp; path = Realm/ObjectStore/src/sync/async_open_task.cpp; sourceTree = "<group>"; };
 		16E1B1B145A25F6CE05680910E628C4A /* Mockingjay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Mockingjay.h; path = Sources/Mockingjay/Mockingjay.h; sourceTree = "<group>"; };
 		1775E82241792185633BAF8C60D90F16 /* MXReplyEventBodyParts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXReplyEventBodyParts.h; path = MatrixSDK/Data/ReplyEvent/Parser/MXReplyEventBodyParts.h; sourceTree = "<group>"; };
 		17AA389E4A39E53878361255EE5EB288 /* MXEventListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventListener.h; path = MatrixSDK/Data/MXEventListener.h; sourceTree = "<group>"; };
@@ -1235,31 +1235,31 @@
 		1EC88170A467EFABF88D03727E9ED5F9 /* thenPromise.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = thenPromise.modulemap; sourceTree = "<group>"; };
 		1F72BF8915EA05E953CBF593380111B2 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
 		1FCCD69B8FFA899AE8C334270BFE1638 /* KeychainSwift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainSwift.modulemap; sourceTree = "<group>"; };
-		20078202ABAC6B85A5050F8504805882 /* shared_realm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = shared_realm.cpp; path = Realm/ObjectStore/src/shared_realm.cpp; sourceTree = "<group>"; };
+		20078202ABAC6B85A5050F8504805882 /* shared_realm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = shared_realm.cpp; path = Realm/ObjectStore/src/shared_realm.cpp; sourceTree = "<group>"; };
 		200CDF71230C232F319EC1EC2A5EF4B4 /* MXPushRuleRoomMemberCountConditionChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPushRuleRoomMemberCountConditionChecker.h; path = MatrixSDK/NotificationCenter/Checker/MXPushRuleRoomMemberCountConditionChecker.h; sourceTree = "<group>"; };
 		2046DA8C7E36D3B0E3951074FF7CDC31 /* MXCallManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCallManager.h; path = MatrixSDK/VoIP/MXCallManager.h; sourceTree = "<group>"; };
 		207C89CD905298ED136DDAF9812AE46C /* MXEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEvent.m; path = MatrixSDK/JSONModels/MXEvent.m; sourceTree = "<group>"; };
-		208F71922AEB4F66B7B2EEA1837309AB /* sas.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sas.c; path = src/sas.c; sourceTree = "<group>"; };
+		208F71922AEB4F66B7B2EEA1837309AB /* sas.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = sas.c; path = src/sas.c; sourceTree = "<group>"; };
 		20A3966103EA00C65144DE57B614CB33 /* Pods-Matrix PlaygroundTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Matrix PlaygroundTests-umbrella.h"; sourceTree = "<group>"; };
 		20A95286D2C08B1083ACD284A7158303 /* OpenStreetGeocoderRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenStreetGeocoderRequest.swift; path = Sources/SwiftLocation/Geocoding/Services/OpenStreetGeocoderRequest.swift; sourceTree = "<group>"; };
 		20D3442596F07A6FDB748A67B6F9EA2C /* MXIncomingRoomKeyRequestCancellation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXIncomingRoomKeyRequestCancellation.m; path = MatrixSDK/Crypto/KeySharing/Data/MXIncomingRoomKeyRequestCancellation.m; sourceTree = "<group>"; };
 		2102735B9AA974F8F03FCE91E0FE389C /* NSData+GZIP.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+GZIP.m"; path = "GZIP/NSData+GZIP.m"; sourceTree = "<group>"; };
 		215DB8AE372F6FEEAB805F4804710985 /* MXRecoveryKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRecoveryKey.h; path = MatrixSDK/Crypto/KeyBackup/MXRecoveryKey.h; sourceTree = "<group>"; };
-		215FB31220EBFA94DBB00B77F3DA0E32 /* pickle_encoding.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pickle_encoding.c; path = src/pickle_encoding.c; sourceTree = "<group>"; };
+		215FB31220EBFA94DBB00B77F3DA0E32 /* pickle_encoding.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = pickle_encoding.c; path = src/pickle_encoding.c; sourceTree = "<group>"; };
 		2181F1DE7673E4AC08ADF56C2589905E /* MXLRUCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXLRUCache.h; path = MatrixSDK/Utils/MXLRUCache.h; sourceTree = "<group>"; };
-		2189E4AF048D1E3DF6A508959C1EAD04 /* object_schema.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = object_schema.cpp; path = Realm/ObjectStore/src/object_schema.cpp; sourceTree = "<group>"; };
+		2189E4AF048D1E3DF6A508959C1EAD04 /* object_schema.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = object_schema.cpp; path = Realm/ObjectStore/src/object_schema.cpp; sourceTree = "<group>"; };
 		21C8617F9E89BC3B0CE4C1402F74B535 /* MXRoomNameStringsLocalizable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomNameStringsLocalizable.h; path = MatrixSDK/Data/MXRoomNameStringsLocalizable.h; sourceTree = "<group>"; };
 		21D9263BD3472C07F5E4E63CADFB38D8 /* MXRealmEventScanMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmEventScanMapper.h; path = MatrixSDK/ContentScan/Data/Store/Realm/Event/MXRealmEventScanMapper.h; sourceTree = "<group>"; };
 		21EADF10F53BF91CE04CDC83A3C7FC2B /* MXFilterObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXFilterObject.m; path = MatrixSDK/Data/Filters/MXFilterObject.m; sourceTree = "<group>"; };
-		2225AE529ED156163E87D493212A6A69 /* RLMClassInfo.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMClassInfo.mm; path = Realm/RLMClassInfo.mm; sourceTree = "<group>"; };
-		2249134FCF8144FBD05A12C166AA0D59 /* RLMSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSchema.mm; path = Realm/RLMSchema.mm; sourceTree = "<group>"; };
+		2225AE529ED156163E87D493212A6A69 /* RLMClassInfo.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMClassInfo.mm; path = Realm/RLMClassInfo.mm; sourceTree = "<group>"; };
+		2249134FCF8144FBD05A12C166AA0D59 /* RLMSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSchema.mm; path = Realm/RLMSchema.mm; sourceTree = "<group>"; };
 		226A8C3BB9ED2A9EE075BD66D3F3B558 /* MXSecretShareRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXSecretShareRequest.m; path = MatrixSDK/Crypto/KeySharing/Secret/JSONModels/MXSecretShareRequest.m; sourceTree = "<group>"; };
 		22C61B51F804D55E18C50CA56051C1EC /* MXEventDecryptionResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventDecryptionResult.h; path = MatrixSDK/Crypto/Algorithms/MXEventDecryptionResult.h; sourceTree = "<group>"; };
 		236E60977D72361651F2A810B7841C7D /* MXFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXFilter.h; path = MatrixSDK/Data/Filters/MXFilter.h; sourceTree = "<group>"; };
 		24689A8548B1599BDEF4A3607437779A /* MXServerNotices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXServerNotices.h; path = MatrixSDK/Utils/MXServerNotices.h; sourceTree = "<group>"; };
 		2490A1B7089A56828C7957FFF9AD79E3 /* MXEventRelations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventRelations.h; path = MatrixSDK/JSONModels/Event/MXEventRelations.h; sourceTree = "<group>"; };
 		24986385C03BAECB3EA9EA5224AE4B74 /* RLMResults_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMResults_Private.h; path = include/RLMResults_Private.h; sourceTree = "<group>"; };
-		25215F223ADCBAC733AD71274EC894BE /* index_set.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = index_set.cpp; path = Realm/ObjectStore/src/index_set.cpp; sourceTree = "<group>"; };
+		25215F223ADCBAC733AD71274EC894BE /* index_set.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = index_set.cpp; path = Realm/ObjectStore/src/index_set.cpp; sourceTree = "<group>"; };
 		258947B8F79D1F2CA658F05ADF9A5555 /* MXUsersDevicesMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXUsersDevicesMap.m; path = MatrixSDK/Crypto/Data/MXUsersDevicesMap.m; sourceTree = "<group>"; };
 		2594A37487C1CF7EE8CA5EF798210708 /* MXSelfVerifyingMasterKeyTrustedQRCodeData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSelfVerifyingMasterKeyTrustedQRCodeData.h; path = MatrixSDK/Crypto/Verification/Data/MXSelfVerifyingMasterKeyTrustedQRCodeData.h; sourceTree = "<group>"; };
 		2645E3590F1E9ED197575DE410D769F7 /* MXSASTransaction_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSASTransaction_Private.h; path = MatrixSDK/Crypto/Verification/Transactions/SAS/MXSASTransaction_Private.h; sourceTree = "<group>"; };
@@ -1273,7 +1273,7 @@
 		28B18DA16194C7526BBCEA9C5587D429 /* MXRoomNameDefaultStringLocalizations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomNameDefaultStringLocalizations.m; path = MatrixSDK/Data/MXRoomNameDefaultStringLocalizations.m; sourceTree = "<group>"; };
 		28DEC2373CC824E3CA9FCF92D619A853 /* MXCrypto_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCrypto_Private.h; path = MatrixSDK/Crypto/MXCrypto_Private.h; sourceTree = "<group>"; };
 		293F8464C900AB9BD43E72E901F18658 /* OLMKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = OLMKit.modulemap; sourceTree = "<group>"; };
-		29B2E368F8CADE40C6001FAAE826CD92 /* RLMQueryUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMQueryUtil.mm; path = Realm/RLMQueryUtil.mm; sourceTree = "<group>"; };
+		29B2E368F8CADE40C6001FAAE826CD92 /* RLMQueryUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMQueryUtil.mm; path = Realm/RLMQueryUtil.mm; sourceTree = "<group>"; };
 		2A2A075089EBF3DF473933EF0004A58F /* MXMediaScan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMediaScan.h; path = MatrixSDK/ContentScan/Data/MXMediaScan.h; sourceTree = "<group>"; };
 		2A32859EA619357875105BE6D738A63F /* Realm.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Realm.xcconfig; sourceTree = "<group>"; };
 		2A76EB7493B86749CC953ED1DEA1D6BE /* MXKeyVerificationRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationRequest.m; path = MatrixSDK/Crypto/Verification/Requests/MXKeyVerificationRequest.m; sourceTree = "<group>"; };
@@ -1295,7 +1295,7 @@
 		2F4682ED5E4F6789599968D9955CB73A /* MXSendReplyEventStringsLocalizable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSendReplyEventStringsLocalizable.h; path = MatrixSDK/Data/MXSendReplyEventStringsLocalizable.h; sourceTree = "<group>"; };
 		2F583E84BA9136CE8807B4A756F93E0B /* RLMArray_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMArray_Private.h; path = include/RLMArray_Private.h; sourceTree = "<group>"; };
 		304A0527C18AD43898CBE02CA29A84F1 /* MXVerifyingAnotherUserQRCodeData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXVerifyingAnotherUserQRCodeData.m; path = MatrixSDK/Crypto/Verification/Data/MXVerifyingAnotherUserQRCodeData.m; sourceTree = "<group>"; };
-		3073C03E53BDD6428BE3CB2CD7B26D29 /* thread_safe_reference.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = thread_safe_reference.cpp; path = Realm/ObjectStore/src/thread_safe_reference.cpp; sourceTree = "<group>"; };
+		3073C03E53BDD6428BE3CB2CD7B26D29 /* thread_safe_reference.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = thread_safe_reference.cpp; path = Realm/ObjectStore/src/thread_safe_reference.cpp; sourceTree = "<group>"; };
 		30853FAF4A231C4B80FA9E20CE72F745 /* MXPusher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPusher.h; path = MatrixSDK/JSONModels/Push/MXPusher.h; sourceTree = "<group>"; };
 		30888F63505C8CC27FDFE874F516DD88 /* MXReplyEventParts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXReplyEventParts.h; path = MatrixSDK/Data/ReplyEvent/Parser/MXReplyEventParts.h; sourceTree = "<group>"; };
 		30AB6DCB7C604AA6E08A2E72D607C904 /* MXKeyBackupVersion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyBackupVersion.m; path = MatrixSDK/Crypto/KeyBackup/Data/MXKeyBackupVersion.m; sourceTree = "<group>"; };
@@ -1309,7 +1309,7 @@
 		3229FB9FE5E6AD677BB72F2DC0E7032A /* GZIP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GZIP.modulemap; sourceTree = "<group>"; };
 		325A89C78E2415191DA7643ABC029192 /* MXMediaLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMediaLoader.m; path = MatrixSDK/Utils/Media/MXMediaLoader.m; sourceTree = "<group>"; };
 		32944F0DBAA390C7561F3C8BCB5FD8B6 /* NSURLSessionConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSURLSessionConfiguration.swift; path = Sources/Mockingjay/NSURLSessionConfiguration.swift; sourceTree = "<group>"; };
-		32F173A431F4FF38650780671E363E71 /* sha256.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sha256.c; path = "lib/crypto-algorithms/sha256.c"; sourceTree = "<group>"; };
+		32F173A431F4FF38650780671E363E71 /* sha256.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = sha256.c; path = "lib/crypto-algorithms/sha256.c"; sourceTree = "<group>"; };
 		3332EF9D42C7ED85B432EA76696639F1 /* MXRealmReactionRelation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmReactionRelation.m; path = MatrixSDK/Aggregations/Data/Store/Realm/MXRealmReactionRelation.m; sourceTree = "<group>"; };
 		333FD6FE7AB75D010B41072950AFA9E6 /* MXUserTrustLevel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXUserTrustLevel.m; path = MatrixSDK/Crypto/Data/Trust/MXUserTrustLevel.m; sourceTree = "<group>"; };
 		33462A20CF44A01808B67D9A1EE74682 /* MXMemoryStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMemoryStore.m; path = MatrixSDK/Data/Store/MXMemoryStore/MXMemoryStore.m; sourceTree = "<group>"; };
@@ -1336,7 +1336,7 @@
 		37E815F772650FE67D9027DA0F8D51B4 /* URITemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URITemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3877362F4793E7B192B4E1420E4BDE40 /* OLMUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OLMUtility.h; path = xcode/OLMKit/OLMUtility.h; sourceTree = "<group>"; };
 		38E701139C91500547F3E364EDA1C345 /* MXKeyVerificationStatusResolver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationStatusResolver.m; path = MatrixSDK/Crypto/Verification/Status/MXKeyVerificationStatusResolver.m; sourceTree = "<group>"; };
-		3929A70576D6251A4678B691BB0E1690 /* curve25519-donna.c */ = {isa = PBXFileReference; includeInIndex = 1; name = "curve25519-donna.c"; path = "lib/curve25519-donna/curve25519-donna.c"; sourceTree = "<group>"; };
+		3929A70576D6251A4678B691BB0E1690 /* curve25519-donna.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = "curve25519-donna.c"; path = "lib/curve25519-donna/curve25519-donna.c"; sourceTree = "<group>"; };
 		3950C9E841BE67A7F8A266715D165CAA /* Promise+Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Promise+Error.swift"; path = "Source/Promise+Error.swift"; sourceTree = "<group>"; };
 		3953C4DFF29E2A2A8F097A147D546971 /* MXMediaScanStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMediaScanStore.h; path = MatrixSDK/ContentScan/Data/Store/MXMediaScanStore.h; sourceTree = "<group>"; };
 		398F8F48C4D43482057EE5DDBCBAC4A5 /* MXSASKeyVerificationStart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSASKeyVerificationStart.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXSASKeyVerificationStart.h; sourceTree = "<group>"; };
@@ -1350,13 +1350,13 @@
 		3C235002484E47CD62E6DA6E5DFD7E74 /* MXRoomMember.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXRoomMember.swift; path = MatrixSDK/Contrib/Swift/Data/MXRoomMember.swift; sourceTree = "<group>"; };
 		3C3FBE5F247740B7122ADE6690C9D5D3 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		3C4618647FF157E4FF1762A06C1217B9 /* MXRoomState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomState.h; path = MatrixSDK/Data/MXRoomState.h; sourceTree = "<group>"; };
-		3C601CE83F662E76405B69A76088E702 /* RLMSyncManager.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncManager.mm; path = Realm/RLMSyncManager.mm; sourceTree = "<group>"; };
+		3C601CE83F662E76405B69A76088E702 /* RLMSyncManager.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncManager.mm; path = Realm/RLMSyncManager.mm; sourceTree = "<group>"; };
 		3CE9F9930D893521040E0472E65B1E73 /* MXCrossSigningInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCrossSigningInfo.m; path = MatrixSDK/Crypto/CrossSigning/Data/MXCrossSigningInfo.m; sourceTree = "<group>"; };
-		3D24851DF2A7139150ADCA3F485D00DC /* Mockingjay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Mockingjay.framework; path = Mockingjay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D24851DF2A7139150ADCA3F485D00DC /* Mockingjay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mockingjay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6C427BA068C369F4DE423BF36DFD99 /* MXIdentityService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXIdentityService.m; path = MatrixSDK/IdentityServer/MXIdentityService.m; sourceTree = "<group>"; };
-		3D7E5AB177E8B91229AA4C66F07DE239 /* base64.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = base64.hh; path = include/olm/base64.hh; sourceTree = "<group>"; };
+		3D7E5AB177E8B91229AA4C66F07DE239 /* base64.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = base64.hh; path = include/olm/base64.hh; sourceTree = "<group>"; };
 		3DAB5E13F551D657108B1A135A831F43 /* Promise+Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Promise+Delay.swift"; path = "Source/Promise+Delay.swift"; sourceTree = "<group>"; };
-		3EA5539D37024D5DB95BE33B29D20292 /* RLMMigration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMMigration.mm; path = Realm/RLMMigration.mm; sourceTree = "<group>"; };
+		3EA5539D37024D5DB95BE33B29D20292 /* RLMMigration.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMMigration.mm; path = Realm/RLMMigration.mm; sourceTree = "<group>"; };
 		3EB4FBEC4E41EC16188F350FDCB9E581 /* NSError+RLMSync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+RLMSync.h"; path = "include/NSError+RLMSync.h"; sourceTree = "<group>"; };
 		3F3B613A458B18FE6E76108B1A7A1276 /* RLMSyncCredentials.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSyncCredentials.m; path = Realm/RLMSyncCredentials.m; sourceTree = "<group>"; };
 		3FEDB8EF2D6F93C48AE03CD846ECCA6E /* MXHkdfSha256.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHkdfSha256.m; path = MatrixSDK/Crypto/Utils/MXHkdfSha256.m; sourceTree = "<group>"; };
@@ -1373,17 +1373,17 @@
 		419BFECB29F2120DC6272DD48517B73A /* MXEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXEvent.swift; path = MatrixSDK/Contrib/Swift/JSONModels/MXEvent.swift; sourceTree = "<group>"; };
 		41C7DD3691E8D374C9E3BF6D06B5AFF3 /* pickle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pickle.h; path = include/olm/pickle.h; sourceTree = "<group>"; };
 		425C5DB8E37F3F7797F34D75CBB882BF /* VoidPromise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoidPromise.swift; path = Source/VoidPromise.swift; sourceTree = "<group>"; };
-		434D3E641E4B8E00E16610AC2ABFAA59 /* Pods_Matrix_Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Matrix_Playground.framework; path = "Pods-Matrix Playground.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		434D3E641E4B8E00E16610AC2ABFAA59 /* Pods_Matrix_Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Matrix_Playground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4353CB926187EF3A0473E8113B675657 /* Pods-Matrix Playground-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Matrix Playground-dummy.m"; sourceTree = "<group>"; };
 		4364BDFE04F0F83E0A9DF92A4A48A249 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
 		4399FFB4B4639A4EBA8358BBF08E4F02 /* libbase58.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = libbase58.modulemap; sourceTree = "<group>"; };
-		440BF6BBB06BD634480363FF9038EB3A /* collection_notifications.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = collection_notifications.cpp; path = Realm/ObjectStore/src/collection_notifications.cpp; sourceTree = "<group>"; };
+		440BF6BBB06BD634480363FF9038EB3A /* collection_notifications.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = collection_notifications.cpp; path = Realm/ObjectStore/src/collection_notifications.cpp; sourceTree = "<group>"; };
 		44824D9FE4AFCFA9535E5BD429540C4D /* RLMRealm+Sync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RLMRealm+Sync.h"; path = "include/RLMRealm+Sync.h"; sourceTree = "<group>"; };
-		46404ED4BD6A9953FDB88B53B19117C5 /* primitive_list_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = primitive_list_notifier.cpp; path = Realm/ObjectStore/src/impl/primitive_list_notifier.cpp; sourceTree = "<group>"; };
-		467E717287848A8697D3D6F2C231E52F /* message.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = message.cpp; path = src/message.cpp; sourceTree = "<group>"; };
+		46404ED4BD6A9953FDB88B53B19117C5 /* primitive_list_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = primitive_list_notifier.cpp; path = Realm/ObjectStore/src/impl/primitive_list_notifier.cpp; sourceTree = "<group>"; };
+		467E717287848A8697D3D6F2C231E52F /* message.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = message.cpp; path = src/message.cpp; sourceTree = "<group>"; };
 		470E70E577A1C379B569E04298D2F642 /* MXHkdfSha256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHkdfSha256.h; path = MatrixSDK/Crypto/Utils/MXHkdfSha256.h; sourceTree = "<group>"; };
-		47961C79A1E43BDA546C8CBF0BCF8A67 /* RLMNetworkClient.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMNetworkClient.mm; path = Realm/RLMNetworkClient.mm; sourceTree = "<group>"; };
-		479E5E1D7D2B85A5D9D0AF2FD2316A49 /* RLMPredicateUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMPredicateUtil.mm; path = Realm/RLMPredicateUtil.mm; sourceTree = "<group>"; };
+		47961C79A1E43BDA546C8CBF0BCF8A67 /* RLMNetworkClient.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMNetworkClient.mm; path = Realm/RLMNetworkClient.mm; sourceTree = "<group>"; };
+		479E5E1D7D2B85A5D9D0AF2FD2316A49 /* RLMPredicateUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMPredicateUtil.mm; path = Realm/RLMPredicateUtil.mm; sourceTree = "<group>"; };
 		48278857C19F74A7878D1812D0AE31B0 /* MXMegolmDecryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMegolmDecryption.m; path = MatrixSDK/Crypto/Algorithms/Megolm/MXMegolmDecryption.m; sourceTree = "<group>"; };
 		482D8D86512EBA9D2D2DEE010BB2E4E3 /* MXSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXSession.swift; path = MatrixSDK/Contrib/Swift/MXSession.swift; sourceTree = "<group>"; };
 		483E45434965F731ABE5FC550E5A7806 /* MXRealmMediaScanMapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmMediaScanMapper.h; path = MatrixSDK/ContentScan/Data/Store/Realm/Media/MXRealmMediaScanMapper.h; sourceTree = "<group>"; };
@@ -1394,30 +1394,30 @@
 		4922CC123651E8E4CA37F5756C16262D /* SwiftMatrixSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftMatrixSDK.xcconfig; sourceTree = "<group>"; };
 		493697030E2B46CCD231E05152017335 /* MXRoomSummary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomSummary.h; path = MatrixSDK/Data/MXRoomSummary.h; sourceTree = "<group>"; };
 		494633B6448EFEABADA1512B0BAEC680 /* MXFileStoreMetaData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXFileStoreMetaData.m; path = MatrixSDK/Data/Store/MXFileStore/MXFileStoreMetaData.m; sourceTree = "<group>"; };
-		4970CFF37EE71AD8072A8FFED725044E /* RLMRealmConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealmConfiguration.mm; path = Realm/RLMRealmConfiguration.mm; sourceTree = "<group>"; };
+		4970CFF37EE71AD8072A8FFED725044E /* RLMRealmConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMRealmConfiguration.mm; path = Realm/RLMRealmConfiguration.mm; sourceTree = "<group>"; };
 		49B4D1CAD5B5371C95C35AECA8859E05 /* MXSendReplyEventDefaultStringLocalizations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSendReplyEventDefaultStringLocalizations.h; path = MatrixSDK/Data/MXSendReplyEventDefaultStringLocalizations.h; sourceTree = "<group>"; };
 		49D99C16A6B2BFAEE09AAF8E736994EA /* pk.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pk.h; path = include/olm/pk.h; sourceTree = "<group>"; };
-		4A104B4120443CC9DBDA85537C62CC06 /* RLMSyncUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncUtil.mm; path = Realm/RLMSyncUtil.mm; sourceTree = "<group>"; };
+		4A104B4120443CC9DBDA85537C62CC06 /* RLMSyncUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncUtil.mm; path = Realm/RLMSyncUtil.mm; sourceTree = "<group>"; };
 		4A2481A2837F1F8F8AC3D2D850D9C9DC /* MX3PidAddSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MX3PidAddSession.m; path = MatrixSDK/ThreePidAdd/MX3PidAddSession.m; sourceTree = "<group>"; };
 		4A8627810F502D05F0B2E6725DE5B7B6 /* MXEnumConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXEnumConstants.swift; path = MatrixSDK/Contrib/Swift/MXEnumConstants.swift; sourceTree = "<group>"; };
-		4A95AC934080CCED746ED2F4FE590A67 /* RLMUpdateChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUpdateChecker.mm; path = Realm/RLMUpdateChecker.mm; sourceTree = "<group>"; };
-		4AAAAC4B161D8004CB07A00D0F76A2CA /* collection_change_builder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = collection_change_builder.cpp; path = Realm/ObjectStore/src/impl/collection_change_builder.cpp; sourceTree = "<group>"; };
+		4A95AC934080CCED746ED2F4FE590A67 /* RLMUpdateChecker.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMUpdateChecker.mm; path = Realm/RLMUpdateChecker.mm; sourceTree = "<group>"; };
+		4AAAAC4B161D8004CB07A00D0F76A2CA /* collection_change_builder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = collection_change_builder.cpp; path = Realm/ObjectStore/src/impl/collection_change_builder.cpp; sourceTree = "<group>"; };
 		4ACF1E395477756E02EEF85E6B5C5C08 /* MXOutgoingRoomKeyRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXOutgoingRoomKeyRequest.m; path = MatrixSDK/Crypto/KeySharing/Data/MXOutgoingRoomKeyRequest.m; sourceTree = "<group>"; };
 		4B38FC815C046F7332C5C6EBAC43BE0E /* MXKeyVerification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerification.h; path = MatrixSDK/Crypto/Verification/Status/MXKeyVerification.h; sourceTree = "<group>"; };
 		4B439C2058388DBB38C648B95796AF5E /* MXRealmMediaScanStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmMediaScanStore.h; path = MatrixSDK/ContentScan/Data/Store/Realm/Media/MXRealmMediaScanStore.h; sourceTree = "<group>"; };
 		4B49596CC1FF0F0D2F31AE29AE572426 /* MXContentScanResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXContentScanResult.m; path = MatrixSDK/ContentScan/JSONModels/MXContentScanResult.m; sourceTree = "<group>"; };
-		4B97238D0C70CA5973756D0CE852FF07 /* sync_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_config.cpp; path = Realm/ObjectStore/src/sync/sync_config.cpp; sourceTree = "<group>"; };
-		4C1A55A560A9E74321C475832AB0C360 /* Pods_Matrix_PlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Matrix_PlaygroundTests.framework; path = "Pods-Matrix PlaygroundTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B97238D0C70CA5973756D0CE852FF07 /* sync_config.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_config.cpp; path = Realm/ObjectStore/src/sync/sync_config.cpp; sourceTree = "<group>"; };
+		4C1A55A560A9E74321C475832AB0C360 /* Pods_Matrix_PlaygroundTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Matrix_PlaygroundTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2959E192BA77D038559E4C8B7BCDED /* MXOlmEncryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXOlmEncryption.m; path = MatrixSDK/Crypto/Algorithms/Olm/MXOlmEncryption.m; sourceTree = "<group>"; };
 		4C54F3F8D9D2D8DA2FB59F1063C0FBC9 /* MXRestClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRestClient.m; path = MatrixSDK/MXRestClient.m; sourceTree = "<group>"; };
-		4C678B4A8CAADE71D75DA8311295097A /* SwiftLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftLocation.framework; path = SwiftLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C91C9850FA5B641F1265CB7804079A9 /* pickle.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = pickle.hh; path = include/olm/pickle.hh; sourceTree = "<group>"; };
+		4C678B4A8CAADE71D75DA8311295097A /* SwiftLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C91C9850FA5B641F1265CB7804079A9 /* pickle.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = pickle.hh; path = include/olm/pickle.hh; sourceTree = "<group>"; };
 		4C9EFC356F71CE0A9D621A42C30E2037 /* MXEmojiRepresentation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEmojiRepresentation.m; path = MatrixSDK/Crypto/Verification/Data/MXEmojiRepresentation.m; sourceTree = "<group>"; };
 		4CAE831AA7DA56E992447BE8EA0FB655 /* libbase58.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libbase58.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1AB81A438BCFE7F6F7935118E38518 /* libbase58-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "libbase58-Info.plist"; sourceTree = "<group>"; };
 		4D803CD5E2FDB0039AE62A7AB9BB5E36 /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
 		4DB1256C85A587A30DF49DB78E6CA79B /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"; sourceTree = "<group>"; };
-		4DFDEC41BF236D275673585CE0BBCBCE /* ratchet.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = ratchet.hh; path = include/olm/ratchet.hh; sourceTree = "<group>"; };
+		4DFDEC41BF236D275673585CE0BBCBCE /* ratchet.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = ratchet.hh; path = include/olm/ratchet.hh; sourceTree = "<group>"; };
 		4E045C821AB3A9552F3C72660902C147 /* MXVerifyingAnotherUserQRCodeData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXVerifyingAnotherUserQRCodeData.h; path = MatrixSDK/Crypto/Verification/Data/MXVerifyingAnotherUserQRCodeData.h; sourceTree = "<group>"; };
 		4E06D39F3A50839A755ED21E35A929E3 /* MXQueuedEncryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXQueuedEncryption.m; path = MatrixSDK/Crypto/Data/MXQueuedEncryption.m; sourceTree = "<group>"; };
 		4E6FBC8FA1D352AEA47D69919DB86A10 /* MXHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTTPClient.h; path = MatrixSDK/Utils/MXHTTPClient.h; sourceTree = "<group>"; };
@@ -1425,32 +1425,32 @@
 		4EC518E25A8E138660CDF0BE6D2B1C9D /* MXRoom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoom.m; path = MatrixSDK/Data/MXRoom.m; sourceTree = "<group>"; };
 		4F072770A5ECF993D45DBEDF202A63C2 /* MXKeyBackup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyBackup.m; path = MatrixSDK/Crypto/KeyBackup/MXKeyBackup.m; sourceTree = "<group>"; };
 		4F0E6623708D57DB0F858AECED38A872 /* MXKeyVerificationTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationTransaction.h; path = MatrixSDK/Crypto/Verification/Transactions/MXKeyVerificationTransaction.h; sourceTree = "<group>"; };
-		4F51E9CE08A12E69F4CF4443F54EE781 /* partial_sync.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = partial_sync.cpp; path = Realm/ObjectStore/src/sync/partial_sync.cpp; sourceTree = "<group>"; };
+		4F51E9CE08A12E69F4CF4443F54EE781 /* partial_sync.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = partial_sync.cpp; path = Realm/ObjectStore/src/sync/partial_sync.cpp; sourceTree = "<group>"; };
 		503F187D68F3540EA83405D490396512 /* MXOlmInboundGroupSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXOlmInboundGroupSession.h; path = MatrixSDK/Crypto/Data/MXOlmInboundGroupSession.h; sourceTree = "<group>"; };
 		5042BE4E88C3E272FA3478769FB338F6 /* OLMKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMKit.m; path = xcode/OLMKit/OLMKit.m; sourceTree = "<group>"; };
 		508875842400E738206D72215BBAC49E /* MXRealmEventScan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmEventScan.m; path = MatrixSDK/ContentScan/Data/Store/Realm/Event/MXRealmEventScan.m; sourceTree = "<group>"; };
 		50962118F38973BA96658E7340D8CF3E /* KeychainSwift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeychainSwift-Info.plist"; sourceTree = "<group>"; };
 		509CA30C979BED550FABBE48920E34AD /* MXError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXError.m; path = MatrixSDK/MXError.m; sourceTree = "<group>"; };
 		50A12284327D33727C2AF0CA37667C44 /* MXPendingSecretShareRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPendingSecretShareRequest.h; path = MatrixSDK/Crypto/KeySharing/Secret/Data/MXPendingSecretShareRequest.h; sourceTree = "<group>"; };
-		511808FA1F31CF6E3FD7CB0385ED8F6F /* RLMObjectSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObjectSchema.mm; path = Realm/RLMObjectSchema.mm; sourceTree = "<group>"; };
+		511808FA1F31CF6E3FD7CB0385ED8F6F /* RLMObjectSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMObjectSchema.mm; path = Realm/RLMObjectSchema.mm; sourceTree = "<group>"; };
 		516CEFB162AED452081C4498958A7CE6 /* MXKeyVerificationByDMRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationByDMRequest.m; path = MatrixSDK/Crypto/Verification/Requests/MXKeyVerificationByDMRequest.m; sourceTree = "<group>"; };
 		518F3831CBA9E26A7533FBC7A6702897 /* MXSDKOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXSDKOptions.m; path = MatrixSDK/MXSDKOptions.m; sourceTree = "<group>"; };
 		51A070E86DF6BA3A9DC7DAF6062EEA22 /* MXRealmHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmHelper.h; path = MatrixSDK/Utils/Realm/MXRealmHelper.h; sourceTree = "<group>"; };
 		51CD497CF589BF6C68B7192D73D142AC /* MXJSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXJSONModel.m; path = MatrixSDK/JSONModels/MXJSONModel.m; sourceTree = "<group>"; };
 		51E1C359C25256A338A3832A85DBBCB1 /* MXPushRuleEventMatchConditionChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPushRuleEventMatchConditionChecker.h; path = MatrixSDK/NotificationCenter/Checker/MXPushRuleEventMatchConditionChecker.h; sourceTree = "<group>"; };
-		5264880BE58F0C36A9984F74A114F9EE /* pk.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = pk.cpp; path = src/pk.cpp; sourceTree = "<group>"; };
+		5264880BE58F0C36A9984F74A114F9EE /* pk.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = pk.cpp; path = src/pk.cpp; sourceTree = "<group>"; };
 		529CD1FF522E679B07916A2D3AE5640E /* HeadingRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeadingRequest.swift; path = Sources/SwiftLocation/Heading/HeadingRequest.swift; sourceTree = "<group>"; };
 		53206F35CED205516A15232BC61C03FB /* LocationByIPRequest+Support.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LocationByIPRequest+Support.swift"; path = "Sources/SwiftLocation/Locating By IP/LocationByIPRequest+Support.swift"; sourceTree = "<group>"; };
 		53339D9E44DA55DB4016381BEFE88E89 /* RLMSwiftSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSwiftSupport.m; path = Realm/RLMSwiftSupport.m; sourceTree = "<group>"; };
 		542D8FA7465EBB3876CA84AF03AC4123 /* MXAllowedCertificates.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAllowedCertificates.m; path = MatrixSDK/Utils/MXAllowedCertificates.m; sourceTree = "<group>"; };
 		54347DD07DC0BE362E3FAF4FE120FADF /* OLMOutboundGroupSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMOutboundGroupSession.m; path = xcode/OLMKit/OLMOutboundGroupSession.m; sourceTree = "<group>"; };
-		5479082C8BB32AB360FDDE7FCF657FCE /* collection_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = collection_notifier.cpp; path = Realm/ObjectStore/src/impl/collection_notifier.cpp; sourceTree = "<group>"; };
+		5479082C8BB32AB360FDDE7FCF657FCE /* collection_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = collection_notifier.cpp; path = Realm/ObjectStore/src/impl/collection_notifier.cpp; sourceTree = "<group>"; };
 		54F27DFFBF58F6746A659CE19A9373F8 /* MXPusherData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPusherData.h; path = MatrixSDK/JSONModels/Push/MXPusherData.h; sourceTree = "<group>"; };
 		550BB48F8346C64B73E2A5D83E2E0133 /* MXAggregatedReferencesUpdater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAggregatedReferencesUpdater.m; path = MatrixSDK/Aggregations/MXAggregatedReferencesUpdater.m; sourceTree = "<group>"; };
 		553CFB4B72D2F9DAF46EE2266FCD2AEC /* MXAggregations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAggregations.h; path = MatrixSDK/Aggregations/MXAggregations.h; sourceTree = "<group>"; };
 		55CFC55E53FEDACF951180F800D911F6 /* MXReactionCountChangeListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXReactionCountChangeListener.h; path = MatrixSDK/Aggregations/Data/MXReactionCountChangeListener.h; sourceTree = "<group>"; };
-		562A008D7375C147FCCABEEA56274AA3 /* results.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = results.cpp; path = Realm/ObjectStore/src/results.cpp; sourceTree = "<group>"; };
-		5650CE8C9EBA4780765D8BCCC7369933 /* message.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = message.hh; path = include/olm/message.hh; sourceTree = "<group>"; };
+		562A008D7375C147FCCABEEA56274AA3 /* results.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = results.cpp; path = Realm/ObjectStore/src/results.cpp; sourceTree = "<group>"; };
+		5650CE8C9EBA4780765D8BCCC7369933 /* message.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = message.hh; path = include/olm/message.hh; sourceTree = "<group>"; };
 		57112D7C0F242052A712059057D1461F /* MXKeyVerificationJSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationJSONModel.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationJSONModel.h; sourceTree = "<group>"; };
 		57584FFCEBF489949D65797B04289E99 /* MXScanManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXScanManager.h; path = MatrixSDK/ContentScan/MXScanManager.h; sourceTree = "<group>"; };
 		576534E114577AB9A0DED98D01AEF02B /* MXUserTrustLevel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXUserTrustLevel.h; path = MatrixSDK/Crypto/Data/Trust/MXUserTrustLevel.h; sourceTree = "<group>"; };
@@ -1460,18 +1460,18 @@
 		58826AA4440265327C656187566D5630 /* MXEventReferenceChunk.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventReferenceChunk.m; path = MatrixSDK/JSONModels/Event/MXEventReferenceChunk.m; sourceTree = "<group>"; };
 		58C936935744D8EF0E3F9B3FB321946B /* MXEmojiRepresentation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEmojiRepresentation.h; path = MatrixSDK/Crypto/Verification/Data/MXEmojiRepresentation.h; sourceTree = "<group>"; };
 		58D88948DE9C5E1E417D533011052FFD /* MXKeyVerificationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationManager.m; path = MatrixSDK/Crypto/Verification/MXKeyVerificationManager.m; sourceTree = "<group>"; };
-		590DA37EAFA5217A128B59B337438868 /* list.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = list.cpp; path = Realm/ObjectStore/src/list.cpp; sourceTree = "<group>"; };
+		590DA37EAFA5217A128B59B337438868 /* list.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = list.cpp; path = Realm/ObjectStore/src/list.cpp; sourceTree = "<group>"; };
 		59486DDC22DB318C533B76BEAD299E3F /* MXQRCodeDataCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXQRCodeDataCoder.m; path = MatrixSDK/Crypto/Verification/Data/MXQRCodeDataCoder.m; sourceTree = "<group>"; };
 		594F524E50B8B21C174B25A3F38C662C /* MXKeyVerificationKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationKey.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationKey.h; sourceTree = "<group>"; };
-		5A0C5EBA537F3339745D0D1EBF3DF5AF /* RLMRealmConfiguration+Sync.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = "RLMRealmConfiguration+Sync.mm"; path = "Realm/RLMRealmConfiguration+Sync.mm"; sourceTree = "<group>"; };
+		5A0C5EBA537F3339745D0D1EBF3DF5AF /* RLMRealmConfiguration+Sync.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = "RLMRealmConfiguration+Sync.mm"; path = "Realm/RLMRealmConfiguration+Sync.mm"; sourceTree = "<group>"; };
 		5A227814F7421CFF888EE9846CF1283F /* MXEventAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventAnnotation.m; path = MatrixSDK/JSONModels/Event/MXEventAnnotation.m; sourceTree = "<group>"; };
 		5A99C4312B3871AE06217C5E7111D5F2 /* MXCrossSigning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCrossSigning.h; path = MatrixSDK/Crypto/CrossSigning/MXCrossSigning.h; sourceTree = "<group>"; };
 		5AC89C9C0A2AEB9AAE5D23BF1844A40C /* MXUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXUser.m; path = MatrixSDK/Data/MXUser.m; sourceTree = "<group>"; };
 		5B14A8621336448D6750DF928BACAE1C /* MXKeyVerificationTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationTransaction.m; path = MatrixSDK/Crypto/Verification/Transactions/MXKeyVerificationTransaction.m; sourceTree = "<group>"; };
 		5C9AB9841F7523515387824EF48ED92F /* OLMKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OLMKit-prefix.pch"; sourceTree = "<group>"; };
-		5C9B6AB118CEAD4AD5E18871B2C9D803 /* sync_user.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_user.cpp; path = Realm/ObjectStore/src/sync/sync_user.cpp; sourceTree = "<group>"; };
+		5C9B6AB118CEAD4AD5E18871B2C9D803 /* sync_user.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_user.cpp; path = Realm/ObjectStore/src/sync/sync_user.cpp; sourceTree = "<group>"; };
 		5D4F035BA632DC82D93770A91E526224 /* OLMPkDecryption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OLMPkDecryption.h; path = xcode/OLMKit/OLMPkDecryption.h; sourceTree = "<group>"; };
-		5D78CDA48A9CAAF47765FAE6E72096BA /* account.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = account.hh; path = include/olm/account.hh; sourceTree = "<group>"; };
+		5D78CDA48A9CAAF47765FAE6E72096BA /* account.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = account.hh; path = include/olm/account.hh; sourceTree = "<group>"; };
 		5D8462DAEE750CB6D99B05AF4475C05B /* KeychainSwift.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainSwift.swift; path = Sources/KeychainSwift.swift; sourceTree = "<group>"; };
 		5DB6ED30AE7E37C2D1DCBC8937381D84 /* MXKeyVerificationMac.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationMac.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationMac.m; sourceTree = "<group>"; };
 		5DD7252B77605BA3C280E55A406D17B9 /* MXReplyEventBodyParts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXReplyEventBodyParts.m; path = MatrixSDK/Data/ReplyEvent/Parser/MXReplyEventBodyParts.m; sourceTree = "<group>"; };
@@ -1487,24 +1487,24 @@
 		6126BCEC6A33B665622A4CE2B6A45D7E /* MXDeviceTrustLevel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXDeviceTrustLevel.m; path = MatrixSDK/Crypto/Data/Trust/MXDeviceTrustLevel.m; sourceTree = "<group>"; };
 		6137D8EE760E83224F807C899A31A1F0 /* memory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = memory.h; path = include/olm/memory.h; sourceTree = "<group>"; };
 		613DE88ACBB340829F32805F6BE153C5 /* AFNetworking-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AFNetworking-Info.plist"; sourceTree = "<group>"; };
-		615370D3FE03733FB0B1DC13F2B0EF78 /* utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = utility.cpp; path = src/utility.cpp; sourceTree = "<group>"; };
+		615370D3FE03733FB0B1DC13F2B0EF78 /* utility.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = utility.cpp; path = src/utility.cpp; sourceTree = "<group>"; };
 		61C51DF2FAC1D28BAFD9615EE1CBF001 /* MXIncomingRoomKeyRequestManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXIncomingRoomKeyRequestManager.m; path = MatrixSDK/Crypto/KeySharing/MXIncomingRoomKeyRequestManager.m; sourceTree = "<group>"; };
-		6271731CF29AB4310EB8BDA541A5B790 /* SwiftMatrixSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftMatrixSDK.framework; path = SwiftMatrixSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6271731CF29AB4310EB8BDA541A5B790 /* SwiftMatrixSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftMatrixSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C27D8C570502C86515EE29A50B086D /* MXRealmReactionCount.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmReactionCount.m; path = MatrixSDK/Aggregations/Data/Store/Realm/MXRealmReactionCount.m; sourceTree = "<group>"; };
 		62E98F31E0D48D73531F3E9CBCF1E0BE /* MXWellKnown.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXWellKnown.m; path = MatrixSDK/JSONModels/AutoDiscovery/MXWellKnown.m; sourceTree = "<group>"; };
 		631852DA627BC1808D606B20A4304E46 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		640AA2C770269BA550B3BAC97AD7257D /* MXFileRoomStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXFileRoomStore.m; path = MatrixSDK/Data/Store/MXFileStore/MXFileRoomStore.m; sourceTree = "<group>"; };
-		642A4FEBB48B287D347763DC724D03AA /* transact_log_handler.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = transact_log_handler.cpp; path = Realm/ObjectStore/src/impl/transact_log_handler.cpp; sourceTree = "<group>"; };
+		642A4FEBB48B287D347763DC724D03AA /* transact_log_handler.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = transact_log_handler.cpp; path = Realm/ObjectStore/src/impl/transact_log_handler.cpp; sourceTree = "<group>"; };
 		64FFB6A536D4B005D0FBBADB42456001 /* MXFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXFilter.m; path = MatrixSDK/Data/Filters/MXFilter.m; sourceTree = "<group>"; };
-		652B8BF74A51AF890EEA5D677F2656C3 /* list_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = list_notifier.cpp; path = Realm/ObjectStore/src/impl/list_notifier.cpp; sourceTree = "<group>"; };
-		65A447EA6239DD061AB7509FA2551152 /* RLMSyncPermission.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncPermission.mm; path = Realm/RLMSyncPermission.mm; sourceTree = "<group>"; };
+		652B8BF74A51AF890EEA5D677F2656C3 /* list_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = list_notifier.cpp; path = Realm/ObjectStore/src/impl/list_notifier.cpp; sourceTree = "<group>"; };
+		65A447EA6239DD061AB7509FA2551152 /* RLMSyncPermission.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncPermission.mm; path = Realm/RLMSyncPermission.mm; sourceTree = "<group>"; };
 		65DA840983424EA4B8F23F294C571D9E /* MXCrossSigning_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCrossSigning_Private.h; path = MatrixSDK/Crypto/CrossSigning/MXCrossSigning_Private.h; sourceTree = "<group>"; };
 		65EE3CA220477DBD83246F989179DF4B /* Pods-Matrix Playground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Matrix Playground.release.xcconfig"; sourceTree = "<group>"; };
 		661101E23A2AE661DFC26DA19D9269B7 /* MXTransactionCancelCode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXTransactionCancelCode.m; path = MatrixSDK/Crypto/Verification/Data/MXTransactionCancelCode.m; sourceTree = "<group>"; };
 		66770474731F76D5B46A8B259CB78B6E /* MXCallKitAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCallKitAdapter.h; path = MatrixSDK/VoIP/CallKit/MXCallKitAdapter.h; sourceTree = "<group>"; };
 		66DD5632C13555FD48FAF549FA878D71 /* MXEventAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventAnnotation.h; path = MatrixSDK/JSONModels/Event/MXEventAnnotation.h; sourceTree = "<group>"; };
 		670B9F83DFED3D9713B884F2A8C78E57 /* MXCrossSigningTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCrossSigningTools.m; path = MatrixSDK/Crypto/CrossSigning/MXCrossSigningTools.m; sourceTree = "<group>"; };
-		6723D20AD5C1FD80C2933CD9EAFCBFCE /* system_configuration.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = system_configuration.cpp; path = Realm/ObjectStore/src/sync/impl/apple/system_configuration.cpp; sourceTree = "<group>"; };
+		6723D20AD5C1FD80C2933CD9EAFCBFCE /* system_configuration.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = system_configuration.cpp; path = Realm/ObjectStore/src/sync/impl/apple/system_configuration.cpp; sourceTree = "<group>"; };
 		677BB9ED8A46DA55AA95C4447BA23F26 /* MXRoomMember.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomMember.h; path = MatrixSDK/Data/MXRoomMember.h; sourceTree = "<group>"; };
 		678FB83689EB6ABC29B05F37309A2CFC /* MXOlmInboundGroupSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXOlmInboundGroupSession.m; path = MatrixSDK/Crypto/Data/MXOlmInboundGroupSession.m; sourceTree = "<group>"; };
 		6847CFB9E72E460E3B508B7672D11071 /* MXEventReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventReference.m; path = MatrixSDK/JSONModels/Event/MXEventReference.m; sourceTree = "<group>"; };
@@ -1515,7 +1515,7 @@
 		6919B1BD713FA45D83739504A0294E51 /* librealmcore-ios.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "librealmcore-ios.a"; path = "core/librealmcore-ios.a"; sourceTree = "<group>"; };
 		693A15343CC06030B3B2B05D7FF8C08C /* RLMSyncPermission.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncPermission.h; path = include/RLMSyncPermission.h; sourceTree = "<group>"; };
 		697144DC64DD0812160D19A126D9EF00 /* MXIncomingRoomKeyRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXIncomingRoomKeyRequest.h; path = MatrixSDK/Crypto/KeySharing/Data/MXIncomingRoomKeyRequest.h; sourceTree = "<group>"; };
-		6A92D13ACA76A198281BA4FC0F5CBAD0 /* URITemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URITemplate.framework; path = URITemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A92D13ACA76A198281BA4FC0F5CBAD0 /* URITemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URITemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE6FFFB6A04A4C7A71B4A8787CCC8FC /* MXDeviceList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDeviceList.h; path = MatrixSDK/Crypto/Data/MXDeviceList.h; sourceTree = "<group>"; };
 		6B878B7F025125DE50AAE0D84DDA1CDD /* MXKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKey.m; path = MatrixSDK/Crypto/Data/MXKey.m; sourceTree = "<group>"; };
 		6BC385243E26E116A72F2F93CCCB49BB /* MXNotificationCenter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXNotificationCenter.h; path = MatrixSDK/NotificationCenter/MXNotificationCenter.h; sourceTree = "<group>"; };
@@ -1547,14 +1547,14 @@
 		74C23F7E2637F548BFF6D2E7552D732B /* MXEventScan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventScan.h; path = MatrixSDK/ContentScan/Data/MXEventScan.h; sourceTree = "<group>"; };
 		74FE69BDC6089BE605819B70ED14C36A /* MXKeyVerificationRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationRequest.h; path = MatrixSDK/Crypto/Verification/Requests/MXKeyVerificationRequest.h; sourceTree = "<group>"; };
 		758B12EF567DC087F225858AF499D4C2 /* Promise+Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Promise+Helpers.swift"; path = "Source/Promise+Helpers.swift"; sourceTree = "<group>"; };
-		77A58E22535C9C46A76CC015D7A070F5 /* RLMThreadSafeReference.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMThreadSafeReference.mm; path = Realm/RLMThreadSafeReference.mm; sourceTree = "<group>"; };
+		77A58E22535C9C46A76CC015D7A070F5 /* RLMThreadSafeReference.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMThreadSafeReference.mm; path = Realm/RLMThreadSafeReference.mm; sourceTree = "<group>"; };
 		77BD4EA9B934A4FBF56925DE87EC7A3C /* RLMResults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMResults.h; path = include/RLMResults.h; sourceTree = "<group>"; };
 		77EDCFB8B8C5F9FD8526644039F71508 /* MXMediaScanStoreDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMediaScanStoreDelegate.h; path = MatrixSDK/ContentScan/Data/Store/MXMediaScanStoreDelegate.h; sourceTree = "<group>"; };
 		796CE7C5F849843797005272939092FF /* MXSessionEventListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXSessionEventListener.swift; path = MatrixSDK/Contrib/Swift/Data/MXSessionEventListener.swift; sourceTree = "<group>"; };
 		79F86D75BC741211E701794C6924172F /* MXRoomAccountData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomAccountData.h; path = MatrixSDK/Data/MXRoomAccountData.h; sourceTree = "<group>"; };
 		7A43EC4EBB55E96E7DCF42227CA141C2 /* MXMediaLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMediaLoader.h; path = MatrixSDK/Utils/Media/MXMediaLoader.h; sourceTree = "<group>"; };
 		7A68E91C9B6BF7A90F3C32BE045BC096 /* MXRoomCreateContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomCreateContent.m; path = MatrixSDK/JSONModels/MXRoomCreateContent.m; sourceTree = "<group>"; };
-		7A90633C4807221709C0D5998A6C1C26 /* object.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = object.cpp; path = Realm/ObjectStore/src/object.cpp; sourceTree = "<group>"; };
+		7A90633C4807221709C0D5998A6C1C26 /* object.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = object.cpp; path = Realm/ObjectStore/src/object.cpp; sourceTree = "<group>"; };
 		7A9A224D9A667869C0F2D41A3C94A8B9 /* MXRealmEventScanMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmEventScanMapper.m; path = MatrixSDK/ContentScan/Data/Store/Realm/Event/MXRealmEventScanMapper.m; sourceTree = "<group>"; };
 		7AB0DA87B9AAE1E14B71D5A77D3530F2 /* Pods-Matrix PlaygroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Matrix PlaygroundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7AC85AD1BC4C58AD005BDE9F0A2B9587 /* megolm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = megolm.h; path = include/olm/megolm.h; sourceTree = "<group>"; };
@@ -1567,14 +1567,14 @@
 		7CDAD43EF1BC5C57111E2B62B97A1CC7 /* MXKeyBackupVersionTrust.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyBackupVersionTrust.h; path = MatrixSDK/Crypto/KeyBackup/Data/MXKeyBackupVersionTrust.h; sourceTree = "<group>"; };
 		7DF9CC760C66AE8E88A54A9588751163 /* MXBase64Tools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXBase64Tools.h; path = MatrixSDK/Utils/MXBase64Tools.h; sourceTree = "<group>"; };
 		7E7891C9DFC3A54C25599CFB9B041EA7 /* MXKeyVerificationMac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationMac.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationMac.h; sourceTree = "<group>"; };
-		7E8C8362E6C944A94515F0B7BD6BD3C5 /* RLMObject.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObject.mm; path = Realm/RLMObject.mm; sourceTree = "<group>"; };
-		7EC26C90A652F4A927DDB5D65321F941 /* ratchet.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = ratchet.cpp; path = src/ratchet.cpp; sourceTree = "<group>"; };
+		7E8C8362E6C944A94515F0B7BD6BD3C5 /* RLMObject.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMObject.mm; path = Realm/RLMObject.mm; sourceTree = "<group>"; };
+		7EC26C90A652F4A927DDB5D65321F941 /* ratchet.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = ratchet.cpp; path = src/ratchet.cpp; sourceTree = "<group>"; };
 		7EE25340080EF4C3A62D56CD8A0A59AD /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		7F2AE4ADC2FA6C86405A1A2A52E49599 /* MXKeyVerificationDone.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationDone.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationDone.m; sourceTree = "<group>"; };
 		7FE369A590BE0FCFF1D64339A6226A1D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		80DEEDF1B629C5EA6CEC276E868E7E14 /* URITemplate-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URITemplate-umbrella.h"; sourceTree = "<group>"; };
 		817B279BB256B6CD6DC635FE2464817C /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		81F4F8BBBA1FF774C8F850E62A880E44 /* inbound_group_session.c */ = {isa = PBXFileReference; includeInIndex = 1; name = inbound_group_session.c; path = src/inbound_group_session.c; sourceTree = "<group>"; };
+		81F4F8BBBA1FF774C8F850E62A880E44 /* inbound_group_session.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = inbound_group_session.c; path = src/inbound_group_session.c; sourceTree = "<group>"; };
 		82D8A3A1C34F751377C75E280C895936 /* Observers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Observers.swift; path = "Sources/SwiftLocation/Data Models/Observers.swift"; sourceTree = "<group>"; };
 		82F91D86D7308151A20B6831C8F0889D /* MXQRCodeDataCodable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXQRCodeDataCodable.h; path = MatrixSDK/Crypto/Verification/Data/MXQRCodeDataCodable.h; sourceTree = "<group>"; };
 		83688E3962AE47FCCD5C013906241FAE /* thenPromise-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "thenPromise-dummy.m"; sourceTree = "<group>"; };
@@ -1585,20 +1585,20 @@
 		84CC0FC0CE42234C4B48FAFC221F761B /* OLMSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OLMSession.h; path = xcode/OLMKit/OLMSession.h; sourceTree = "<group>"; };
 		84CCEC16D67E9ED6C3498A57EA9217C0 /* GZIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GZIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D424762F6239921FBE88B38C76E994 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		8513D1D99F4DD9028A2D5AC5218B03F9 /* RLMManagedArray.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMManagedArray.mm; path = Realm/RLMManagedArray.mm; sourceTree = "<group>"; };
+		8513D1D99F4DD9028A2D5AC5218B03F9 /* RLMManagedArray.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMManagedArray.mm; path = Realm/RLMManagedArray.mm; sourceTree = "<group>"; };
 		8547DFF553B5ABC53D471F8CF45A35A6 /* MXJSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXJSONModel.h; path = MatrixSDK/JSONModels/MXJSONModel.h; sourceTree = "<group>"; };
 		85E48DE75A8DA14C33A3539B6FC1B890 /* MXKeyVerificationStart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationStart.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationStart.m; sourceTree = "<group>"; };
 		860290CBD62BB6C7FA8BBE129D570B55 /* MXQRCodeTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXQRCodeTransaction.m; path = MatrixSDK/Crypto/Verification/Transactions/QRCode/MXQRCodeTransaction.m; sourceTree = "<group>"; };
-		860BAB64EF6AB374F4F97FE1D6F3F70C /* RLMRealmUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealmUtil.mm; path = Realm/RLMRealmUtil.mm; sourceTree = "<group>"; };
+		860BAB64EF6AB374F4F97FE1D6F3F70C /* RLMRealmUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMRealmUtil.mm; path = Realm/RLMRealmUtil.mm; sourceTree = "<group>"; };
 		869259A898172EC5FBACDC2B2E247D98 /* MXMemoryRoomStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMemoryRoomStore.m; path = MatrixSDK/Data/Store/MXMemoryStore/MXMemoryRoomStore.m; sourceTree = "<group>"; };
-		86E239870AEF673B319C0BAE31830443 /* crypto.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = crypto.cpp; path = src/crypto.cpp; sourceTree = "<group>"; };
+		86E239870AEF673B319C0BAE31830443 /* crypto.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = crypto.cpp; path = src/crypto.cpp; sourceTree = "<group>"; };
 		87977599AC9D124C2CBBEA1E4884FCFA /* XCTest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCTest.swift; path = Sources/Mockingjay/XCTest.swift; sourceTree = "<group>"; };
 		882116C52FA7F1C027469888FE1CE82A /* MXMatrixVersions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatrixVersions.m; path = MatrixSDK/JSONModels/MXMatrixVersions.m; sourceTree = "<group>"; };
 		88354E4880B39672B3FDE6AE8D319710 /* MXLoginPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXLoginPolicy.m; path = MatrixSDK/JSONModels/Authentication/MXLoginPolicy.m; sourceTree = "<group>"; };
-		883CA7F200FF40EE2D6F8CF2A264FCAF /* RLMCollection.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMCollection.mm; path = Realm/RLMCollection.mm; sourceTree = "<group>"; };
-		8840EC32BCCFFFF216BF33AFAC6C7B28 /* olm.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = olm.hh; path = include/olm/olm.hh; sourceTree = "<group>"; };
+		883CA7F200FF40EE2D6F8CF2A264FCAF /* RLMCollection.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMCollection.mm; path = Realm/RLMCollection.mm; sourceTree = "<group>"; };
+		8840EC32BCCFFFF216BF33AFAC6C7B28 /* olm.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = olm.hh; path = include/olm/olm.hh; sourceTree = "<group>"; };
 		889BAF0F12B837E53AC3448B7A829052 /* MXEncryptedSecretContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEncryptedSecretContent.h; path = MatrixSDK/Crypto/SecretStorage/JSONModels/MXEncryptedSecretContent.h; sourceTree = "<group>"; };
-		88EC0ABA0C6059509703037A3D4971BB /* utility.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = utility.hh; path = include/olm/utility.hh; sourceTree = "<group>"; };
+		88EC0ABA0C6059509703037A3D4971BB /* utility.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = utility.hh; path = include/olm/utility.hh; sourceTree = "<group>"; };
 		88FA2DD69BA21F7D81BF20DF24CD2601 /* MXRealmEventScanStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmEventScanStore.m; path = MatrixSDK/ContentScan/Data/Store/Realm/Event/MXRealmEventScanStore.m; sourceTree = "<group>"; };
 		893F6B649D0E5A03AB79273E8C794979 /* MXKeyVerificationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationManager.h; path = MatrixSDK/Crypto/Verification/MXKeyVerificationManager.h; sourceTree = "<group>"; };
 		8A489EC05E8B224180CFC9D0BFFC147D /* MXStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXStore.h; path = MatrixSDK/Data/Store/MXStore.h; sourceTree = "<group>"; };
@@ -1611,7 +1611,7 @@
 		8C08289EF62F6E7C35125827CAC550D6 /* MXDecryptionResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDecryptionResult.h; path = MatrixSDK/Crypto/Algorithms/MXDecryptionResult.h; sourceTree = "<group>"; };
 		8CE5018FACC2ADE353274EBCBEF8C2C8 /* Mockingjay-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mockingjay-umbrella.h"; sourceTree = "<group>"; };
 		8D18F459AF51E7234EEACA5360C774BD /* MXIncomingRoomKeyRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXIncomingRoomKeyRequestManager.h; path = MatrixSDK/Crypto/KeySharing/MXIncomingRoomKeyRequestManager.h; sourceTree = "<group>"; };
-		8D5BD83CF155DC1E24FC108C9A8774A6 /* megolm.c */ = {isa = PBXFileReference; includeInIndex = 1; name = megolm.c; path = src/megolm.c; sourceTree = "<group>"; };
+		8D5BD83CF155DC1E24FC108C9A8774A6 /* megolm.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = megolm.c; path = src/megolm.c; sourceTree = "<group>"; };
 		8D7F5E9C495472B30BF8A73B1E76A809 /* MXEncryptedContentKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEncryptedContentKey.h; path = MatrixSDK/Crypto/Data/MXEncryptedContentKey.h; sourceTree = "<group>"; };
 		8E010DA1AF27588F5862C1C7B6FA4DF3 /* RLMObjectBase_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectBase_Private.h; path = include/RLMObjectBase_Private.h; sourceTree = "<group>"; };
 		8E4C6DE3D6E1D1D9C4338DF5247735AA /* MXMatrixVersions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatrixVersions.h; path = MatrixSDK/JSONModels/MXMatrixVersions.h; sourceTree = "<group>"; };
@@ -1621,9 +1621,9 @@
 		8F49CFE7B82EB0CAF37840D7EE3BA2B1 /* OLMSAS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OLMSAS.h; path = xcode/OLMKit/OLMSAS.h; sourceTree = "<group>"; };
 		8F560A971C150493E1DE45CE81D849F7 /* MXAggregatedReactions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAggregatedReactions.h; path = MatrixSDK/Aggregations/Data/MXAggregatedReactions.h; sourceTree = "<group>"; };
 		8F8341C82B200D0DBB010881AF7838F8 /* libbase58-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "libbase58-prefix.pch"; sourceTree = "<group>"; };
-		8FA7418C682E7B15EBE0EC493277FE93 /* weak_realm_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = weak_realm_notifier.cpp; path = Realm/ObjectStore/src/impl/weak_realm_notifier.cpp; sourceTree = "<group>"; };
+		8FA7418C682E7B15EBE0EC493277FE93 /* weak_realm_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = weak_realm_notifier.cpp; path = Realm/ObjectStore/src/impl/weak_realm_notifier.cpp; sourceTree = "<group>"; };
 		902FFF719BC64713AD80904F34798A69 /* MXOlmSessionResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXOlmSessionResult.m; path = MatrixSDK/Crypto/Data/MXOlmSessionResult.m; sourceTree = "<group>"; };
-		904921C02894C4EC36A0633D5CCE966E /* RLMSyncSession.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSession.mm; path = Realm/RLMSyncSession.mm; sourceTree = "<group>"; };
+		904921C02894C4EC36A0633D5CCE966E /* RLMSyncSession.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncSession.mm; path = Realm/RLMSyncSession.mm; sourceTree = "<group>"; };
 		904CBA2E1C01B6FFE30DB7E62D2D08D7 /* MXFilterJSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXFilterJSONModel.h; path = MatrixSDK/Data/Filters/MXFilterJSONModel.h; sourceTree = "<group>"; };
 		906BBF3906C2FED7A33F8E265765B79B /* OLMUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMUtility.m; path = xcode/OLMKit/OLMUtility.m; sourceTree = "<group>"; };
 		9081CC3A868ED5C24B7BD28CB19A4A57 /* RLMListBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMListBase.h; path = include/RLMListBase.h; sourceTree = "<group>"; };
@@ -1636,8 +1636,8 @@
 		917EF7296F56D5375C18612C3D5AFD3F /* MXRestClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRestClient.h; path = MatrixSDK/MXRestClient.h; sourceTree = "<group>"; };
 		91D1FC7C3D8E812E561F494C003C20F1 /* MXServiceTermsRestClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXServiceTermsRestClient.m; path = MatrixSDK/NotificationCenter/ServiceTerms/MXServiceTermsRestClient.m; sourceTree = "<group>"; };
 		921637BA74DC4CEFE0C094669F22E867 /* RLMSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSchema.h; path = include/RLMSchema.h; sourceTree = "<group>"; };
-		921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Realm.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9233EC9E96EE03A216C1EA42347D0E4A /* RLMSyncConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncConfiguration.mm; path = Realm/RLMSyncConfiguration.mm; sourceTree = "<group>"; };
+		921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9233EC9E96EE03A216C1EA42347D0E4A /* RLMSyncConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncConfiguration.mm; path = Realm/RLMSyncConfiguration.mm; sourceTree = "<group>"; };
 		924DD8DC66BD3FD9CEDFB7D7EB2BAF04 /* MXScanRealmInMemoryProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXScanRealmInMemoryProvider.h; path = MatrixSDK/ContentScan/Data/Store/Realm/RealmProvider/MXScanRealmInMemoryProvider.h; sourceTree = "<group>"; };
 		92702EFF6572435D582481661417B4E3 /* MXHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTTPClient.m; path = MatrixSDK/Utils/MXHTTPClient.m; sourceTree = "<group>"; };
 		929A0F1135439617940CEEE346E6C913 /* NSArray+MatrixSDK.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MatrixSDK.m"; path = "MatrixSDK/Utils/Categories/NSArray+MatrixSDK.m"; sourceTree = "<group>"; };
@@ -1664,14 +1664,14 @@
 		97B72C403B489C913933C3C2DEAC9B43 /* NSData+MatrixSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+MatrixSDK.h"; path = "MatrixSDK/Utils/Categories/NSData+MatrixSDK.h"; sourceTree = "<group>"; };
 		980E2B73B156A4C717F760D370190829 /* thenPromise-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "thenPromise-prefix.pch"; sourceTree = "<group>"; };
 		982CA1BEFBC9F69D207444E0AB6328C5 /* MXSecretStorage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXSecretStorage.m; path = MatrixSDK/Crypto/SecretStorage/MXSecretStorage.m; sourceTree = "<group>"; };
-		989FB2942503829C7D4673596C023C5F /* account.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = account.cpp; path = src/account.cpp; sourceTree = "<group>"; };
+		989FB2942503829C7D4673596C023C5F /* account.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = account.cpp; path = src/account.cpp; sourceTree = "<group>"; };
 		994BE8D24C80B62C606BB4C9BECB50A1 /* MXEventDecryptionResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventDecryptionResult.m; path = MatrixSDK/Crypto/Algorithms/MXEventDecryptionResult.m; sourceTree = "<group>"; };
 		994D2C51B2E4824A36383A25D529585F /* Place.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Place.swift; path = "Sources/SwiftLocation/Data Models/Place.swift"; sourceTree = "<group>"; };
 		995073EF9403F5062FE5AFE68BE0AA47 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		99A2550FDF67070FE3B6E305B1FFFBE5 /* external_commit_helper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = external_commit_helper.cpp; path = Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp; sourceTree = "<group>"; };
-		99DF185970B192A5016AEF03AC2EED40 /* results_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = results_notifier.cpp; path = Realm/ObjectStore/src/impl/results_notifier.cpp; sourceTree = "<group>"; };
+		99A2550FDF67070FE3B6E305B1FFFBE5 /* external_commit_helper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = external_commit_helper.cpp; path = Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp; sourceTree = "<group>"; };
+		99DF185970B192A5016AEF03AC2EED40 /* results_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = results_notifier.cpp; path = Realm/ObjectStore/src/impl/results_notifier.cpp; sourceTree = "<group>"; };
 		9A151F111F8BC4FFE1503F732EC118BC /* MXUIKitBackgroundTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXUIKitBackgroundTask.h; path = MatrixSDK/Utils/MXUIKitBackgroundTask.h; sourceTree = "<group>"; };
-		9A325FD179B88A3E27C98B568420354F /* RLMSyncSessionRefreshHandle.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSessionRefreshHandle.mm; path = Realm/RLMSyncSessionRefreshHandle.mm; sourceTree = "<group>"; };
+		9A325FD179B88A3E27C98B568420354F /* RLMSyncSessionRefreshHandle.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncSessionRefreshHandle.mm; path = Realm/RLMSyncSessionRefreshHandle.mm; sourceTree = "<group>"; };
 		9A7D99D932F4C40DC1F83BDAABD9B010 /* MXAllowedCertificates.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAllowedCertificates.h; path = MatrixSDK/Utils/MXAllowedCertificates.h; sourceTree = "<group>"; };
 		9AD6B8E8A52C295691CA751A8C5CA921 /* Pods-Matrix PlaygroundTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Matrix PlaygroundTests.modulemap"; sourceTree = "<group>"; };
 		9AFE261A3B061240F73CA60CFA2AC2FB /* MXMegolmSessionData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMegolmSessionData.m; path = MatrixSDK/Crypto/Data/MXMegolmSessionData.m; sourceTree = "<group>"; };
@@ -1684,26 +1684,26 @@
 		9C58E05B197D204AE015DC0275F28CC9 /* MXCallManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCallManager.m; path = MatrixSDK/VoIP/MXCallManager.m; sourceTree = "<group>"; };
 		9D2AA00989756E0F7ED105AAD2474F32 /* URITemplate.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URITemplate.xcconfig; sourceTree = "<group>"; };
 		9D47C2DF1BF5D66E402894D9735DE7D4 /* MXRoomFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomFilter.h; path = MatrixSDK/Data/Filters/MXRoomFilter.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E008BDFF42FDD905036D9C5D0620D91 /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
-		9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainSwift.framework; path = KeychainSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3E5F5070F39227F39373DC348F2A55 /* MXDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXDeviceInfo.m; path = MatrixSDK/Crypto/Data/MXDeviceInfo.m; sourceTree = "<group>"; };
 		9F16C7DF7B81BFCAE62F3AFEF19CA54D /* MXSecretShareManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSecretShareManager.h; path = MatrixSDK/Crypto/KeySharing/Secret/MXSecretShareManager.h; sourceTree = "<group>"; };
 		9FFCF7A7AFD2C017E2B070C92F360CFA /* OLMMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OLMMessage.h; path = xcode/OLMKit/OLMMessage.h; sourceTree = "<group>"; };
-		A0E565E66B13009D1BC7B8C4CA03A956 /* RLMAnalytics.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMAnalytics.mm; path = Realm/RLMAnalytics.mm; sourceTree = "<group>"; };
+		A0E565E66B13009D1BC7B8C4CA03A956 /* RLMAnalytics.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMAnalytics.mm; path = Realm/RLMAnalytics.mm; sourceTree = "<group>"; };
 		A116C10DBC32B692FA95B6198A140842 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		A1C68CFD40BC90EC3A34EE1A509D2C49 /* MXMediaManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMediaManager.m; path = MatrixSDK/Utils/Media/MXMediaManager.m; sourceTree = "<group>"; };
-		A220A9318F295B290762BBC5AE81C69F /* olm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = olm.cpp; path = src/olm.cpp; sourceTree = "<group>"; };
+		A220A9318F295B290762BBC5AE81C69F /* olm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = olm.cpp; path = src/olm.cpp; sourceTree = "<group>"; };
 		A224A61833CABD1704369620FDA3EEE2 /* MXFilterJSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXFilterJSONModel.m; path = MatrixSDK/Data/Filters/MXFilterJSONModel.m; sourceTree = "<group>"; };
 		A2A5BA7BF96D57688AA9812A1E2A23F3 /* MXDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXDeviceInfo.h; path = MatrixSDK/Crypto/Data/MXDeviceInfo.h; sourceTree = "<group>"; };
 		A2C4CF26719A7420B6D74306EEC928B5 /* MXPushRuleSenderNotificationPermissionConditionChecker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPushRuleSenderNotificationPermissionConditionChecker.m; path = MatrixSDK/NotificationCenter/Checker/MXPushRuleSenderNotificationPermissionConditionChecker.m; sourceTree = "<group>"; };
 		A2EA4C4DC29434E20D0B44F41B23D629 /* LocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Sources/SwiftLocation/LocationManager.swift; sourceTree = "<group>"; };
-		A38C567E594B39489D249B9DCA7F926E /* OLMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = OLMKit.framework; path = OLMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38C567E594B39489D249B9DCA7F926E /* OLMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OLMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3960929DED877D871CFC5424852F967 /* cipher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cipher.h; path = include/olm/cipher.h; sourceTree = "<group>"; };
 		A4908D6AEB5F0C707F452EAE701BDE28 /* MXServiceTerms.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXServiceTerms.h; path = MatrixSDK/NotificationCenter/ServiceTerms/MXServiceTerms.h; sourceTree = "<group>"; };
 		A4C98B03C32807E6D688DE1C9325D8BC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		A4EB20247E50EBDBF1A7A1CBA13FB5F8 /* MXIdentityServerHashDetails.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXIdentityServerHashDetails.h; path = MatrixSDK/JSONModels/IdentityServer/MXIdentityServerHashDetails.h; sourceTree = "<group>"; };
-		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FA15D44DF6BAC7550EDEED10862AA3 /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A501720A973850B7158C3CD05BDAE505 /* Pods-Matrix PlaygroundTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Matrix PlaygroundTests-dummy.m"; sourceTree = "<group>"; };
 		A5994700D303200B6208A0B7D0D13DE1 /* MXBugReportRestClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXBugReportRestClient.h; path = MatrixSDK/Utils/MXBugReportRestClient.h; sourceTree = "<group>"; };
 		A5AB77B0C7BB1AFEC124B74A7E100F36 /* MXRealmEventScanStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmEventScanStore.h; path = MatrixSDK/ContentScan/Data/Store/Realm/Event/MXRealmEventScanStore.h; sourceTree = "<group>"; };
@@ -1713,12 +1713,12 @@
 		A733B18AD9A410101F1CEF6658462B55 /* Mockingjay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Mockingjay-dummy.m"; sourceTree = "<group>"; };
 		A76C30468912DF1D120FC96B3F913FDB /* SwiftMatrixSDK-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftMatrixSDK-Info.plist"; sourceTree = "<group>"; };
 		A7BF0A67850CB08515A1E518392D58DC /* MXEncryptedAttachments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEncryptedAttachments.m; path = MatrixSDK/Crypto/Data/MXEncryptedAttachments.m; sourceTree = "<group>"; };
-		A7E00B9CCA1FA3B445C67F16F711F478 /* placeholder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = placeholder.cpp; path = Realm/ObjectStore/src/placeholder.cpp; sourceTree = "<group>"; };
+		A7E00B9CCA1FA3B445C67F16F711F478 /* placeholder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = placeholder.cpp; path = Realm/ObjectStore/src/placeholder.cpp; sourceTree = "<group>"; };
 		A838BB0010BB3076F7CDBFA9AE1336DE /* GoogleAutoCompleteRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleAutoCompleteRequest.swift; path = "Sources/SwiftLocation/Auto Complete/Services/GoogleAutoCompleteRequest.swift"; sourceTree = "<group>"; };
 		A84D9D9E591A691881381BB2471F5FC3 /* MXQRCodeData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXQRCodeData.h; path = MatrixSDK/Crypto/Verification/Data/MXQRCodeData.h; sourceTree = "<group>"; };
 		A8AED68ECD19CB470D1402F466AC37F5 /* Promise+NoMatterWhat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Promise+NoMatterWhat.swift"; path = "Source/Promise+NoMatterWhat.swift"; sourceTree = "<group>"; };
 		A8C0A168D4D241CBC56A9E8423217DC0 /* MXMegolmExportEncryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMegolmExportEncryption.m; path = MatrixSDK/Crypto/Utils/MXMegolmExportEncryption.m; sourceTree = "<group>"; };
-		A8C60E2746A562096EF7569114DB4816 /* realm_coordinator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = realm_coordinator.cpp; path = Realm/ObjectStore/src/impl/realm_coordinator.cpp; sourceTree = "<group>"; };
+		A8C60E2746A562096EF7569114DB4816 /* realm_coordinator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = realm_coordinator.cpp; path = Realm/ObjectStore/src/impl/realm_coordinator.cpp; sourceTree = "<group>"; };
 		A8D7332A09976CD7E1FDC366E6E0AAF5 /* MXAggregations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAggregations.m; path = MatrixSDK/Aggregations/MXAggregations.m; sourceTree = "<group>"; };
 		A8DF5A063597AFEFD14AE26D48867226 /* MXEventsEnumeratorOnArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventsEnumeratorOnArray.m; path = MatrixSDK/Data/EventsEnumerator/MXEventsEnumeratorOnArray.m; sourceTree = "<group>"; };
 		A8EB5AF1B57F6E98A03ECE58097C0B3C /* MXIdentityServerRestClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXIdentityServerRestClient.swift; path = MatrixSDK/Contrib/Swift/MXIdentityServerRestClient.swift; sourceTree = "<group>"; };
@@ -1726,18 +1726,18 @@
 		A9C10349973B262EB7E9929F33CE332E /* MXRealmReactionCount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRealmReactionCount.h; path = MatrixSDK/Aggregations/Data/Store/Realm/MXRealmReactionCount.h; sourceTree = "<group>"; };
 		A9C37D521A62C152F0B66034CCCB123B /* MXKeyVerificationRequestByToDeviceJSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationRequestByToDeviceJSONModel.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationRequestByToDeviceJSONModel.h; sourceTree = "<group>"; };
 		A9CF50DFD04FF0F07178E8FFE4738537 /* OLMSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMSession.m; path = xcode/OLMKit/OLMSession.m; sourceTree = "<group>"; };
-		A9D0BADB06506F7BCA5D8E64A43AE716 /* object_store.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = object_store.cpp; path = Realm/ObjectStore/src/object_store.cpp; sourceTree = "<group>"; };
+		A9D0BADB06506F7BCA5D8E64A43AE716 /* object_store.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = object_store.cpp; path = Realm/ObjectStore/src/object_store.cpp; sourceTree = "<group>"; };
 		A9E144AAF89D822F20A48450FD1A79B8 /* MXSecretStorage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSecretStorage.h; path = MatrixSDK/Crypto/SecretStorage/MXSecretStorage.h; sourceTree = "<group>"; };
 		AA35659ED5FD930F9BE80B9BE8ED6C66 /* MXEventsByTypesEnumeratorOnArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventsByTypesEnumeratorOnArray.m; path = MatrixSDK/Data/EventsEnumerator/MXEventsByTypesEnumeratorOnArray.m; sourceTree = "<group>"; };
-		AA50BFCDB921B06DD2C46B3540730FF4 /* cipher.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = cipher.cpp; path = src/cipher.cpp; sourceTree = "<group>"; };
+		AA50BFCDB921B06DD2C46B3540730FF4 /* cipher.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = cipher.cpp; path = src/cipher.cpp; sourceTree = "<group>"; };
 		AAC0350DAD0C721B29872D1F543C4A14 /* thenPromise-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "thenPromise-Info.plist"; sourceTree = "<group>"; };
-		AAF55DA3767E479A340432CA715F3A6A /* uuid.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = uuid.cpp; path = Realm/ObjectStore/src/util/uuid.cpp; sourceTree = "<group>"; };
+		AAF55DA3767E479A340432CA715F3A6A /* uuid.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = uuid.cpp; path = Realm/ObjectStore/src/util/uuid.cpp; sourceTree = "<group>"; };
 		ABA97ABC59D50BA86C3CC2804985F0C0 /* MXHTTPOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTTPOperation.h; path = MatrixSDK/Utils/MXHTTPOperation.h; sourceTree = "<group>"; };
 		ABD8BEAAA54895E9044DFD8BD4822991 /* MXRealmMediaScanMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRealmMediaScanMapper.m; path = MatrixSDK/ContentScan/Data/Store/Realm/Media/MXRealmMediaScanMapper.m; sourceTree = "<group>"; };
 		AC62E10F241C552EFF09C6E9FDEC95A5 /* MXSASTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXSASTransaction.m; path = MatrixSDK/Crypto/Verification/Transactions/SAS/MXSASTransaction.m; sourceTree = "<group>"; };
-		ACDB642D0333D3ED694CCF1DA66BDF58 /* pickle.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = pickle.cpp; path = src/pickle.cpp; sourceTree = "<group>"; };
+		ACDB642D0333D3ED694CCF1DA66BDF58 /* pickle.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = pickle.cpp; path = src/pickle.cpp; sourceTree = "<group>"; };
 		ACF2FF7B17E163551754A74785456612 /* MXQRCodeData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXQRCodeData.m; path = MatrixSDK/Crypto/Verification/Data/MXQRCodeData.m; sourceTree = "<group>"; };
-		AD196BC1A711224ACE934325E7584038 /* sync_metadata.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_metadata.cpp; path = Realm/ObjectStore/src/sync/impl/sync_metadata.cpp; sourceTree = "<group>"; };
+		AD196BC1A711224ACE934325E7584038 /* sync_metadata.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_metadata.cpp; path = Realm/ObjectStore/src/sync/impl/sync_metadata.cpp; sourceTree = "<group>"; };
 		AD971E5394F12A1ABDA5F54328754B1A /* MXMediaScan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMediaScan.m; path = MatrixSDK/ContentScan/Data/MXMediaScan.m; sourceTree = "<group>"; };
 		ADAD32B1A7D6D96A707D22C4E75D9B7E /* MXKeyVerificationCancel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationCancel.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationCancel.h; sourceTree = "<group>"; };
 		ADCDEEE9788D16D08C3CE1E712010B16 /* RLMRealmConfiguration_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealmConfiguration_Private.h; path = include/RLMRealmConfiguration_Private.h; sourceTree = "<group>"; };
@@ -1750,7 +1750,7 @@
 		AEBFC58B86C7E2C7091DF4CC59D1BF9B /* MXServerNotices.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXServerNotices.m; path = MatrixSDK/Utils/MXServerNotices.m; sourceTree = "<group>"; };
 		AEE7EBB16B45CB1FE48E6EFD67DB7F01 /* Timeout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeout.swift; path = Sources/SwiftLocation/Support/Timeout.swift; sourceTree = "<group>"; };
 		AEF15D4B219F45E32B86238ED30740C1 /* MXWellKnownBaseConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXWellKnownBaseConfig.m; path = MatrixSDK/JSONModels/AutoDiscovery/MXWellKnownBaseConfig.m; sourceTree = "<group>"; };
-		AF14D806228235D7D398FE52CBF3414E /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = memory.cpp; path = src/memory.cpp; sourceTree = "<group>"; };
+		AF14D806228235D7D398FE52CBF3414E /* memory.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = memory.cpp; path = src/memory.cpp; sourceTree = "<group>"; };
 		AF6C654853131ACB4E1C62BBBA6AD6FE /* MXKeyBackupData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyBackupData.m; path = MatrixSDK/Crypto/KeyBackup/Data/MXKeyBackupData.m; sourceTree = "<group>"; };
 		AFA81DB1A173B9403DA114EAA8AB45E4 /* MXEnumConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEnumConstants.h; path = MatrixSDK/MXEnumConstants.h; sourceTree = "<group>"; };
 		AFD15A86CED47869DB7FB59458A1A917 /* MXKeyVerificationByToDeviceRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationByToDeviceRequest.h; path = MatrixSDK/Crypto/Verification/Requests/MXKeyVerificationByToDeviceRequest.h; sourceTree = "<group>"; };
@@ -1759,19 +1759,19 @@
 		B09022E786D8107017504B1E164238D8 /* MXLoginPolicyData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXLoginPolicyData.h; path = MatrixSDK/JSONModels/Authentication/MXLoginPolicyData.h; sourceTree = "<group>"; };
 		B0C2566084C2F4AF2A84341255207222 /* MXCallKitConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXCallKitConfiguration.h; path = MatrixSDK/VoIP/CallKit/MXCallKitConfiguration.h; sourceTree = "<group>"; };
 		B18768FFFB27803454DC4FFC039C88C2 /* MXRoomMembersCount.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomMembersCount.m; path = MatrixSDK/Data/MXRoomMembersCount.m; sourceTree = "<group>"; };
-		B18971CF6B349DAABF23D61AF12E3312 /* network_reachability_observer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = network_reachability_observer.cpp; path = Realm/ObjectStore/src/sync/impl/apple/network_reachability_observer.cpp; sourceTree = "<group>"; };
+		B18971CF6B349DAABF23D61AF12E3312 /* network_reachability_observer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = network_reachability_observer.cpp; path = Realm/ObjectStore/src/sync/impl/apple/network_reachability_observer.cpp; sourceTree = "<group>"; };
 		B18EB6FC72A75AA6D82DE0618AE58BE7 /* crypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypto.h; path = include/olm/crypto.h; sourceTree = "<group>"; };
 		B1B26143E26C40770B4ED9A039D8A1E2 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFAutoPurgingImageCache.h; path = "UIKit+AFNetworking/AFAutoPurgingImageCache.h"; sourceTree = "<group>"; };
 		B22E03A9A27FB1B4C87232CB1CDFBC3B /* MXMemoryStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMemoryStore.h; path = MatrixSDK/Data/Store/MXMemoryStore/MXMemoryStore.h; sourceTree = "<group>"; };
 		B24399DBE293449B8AE3F73D803ADD90 /* MXIdentityServerRestClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXIdentityServerRestClient.h; path = MatrixSDK/IdentityServer/MXIdentityServerRestClient.h; sourceTree = "<group>"; };
 		B24B691D85987A26B8D0193748C1A1D5 /* MXRoomOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomOperation.m; path = MatrixSDK/Data/MXRoomOperation.m; sourceTree = "<group>"; };
 		B2C4790B0222EC00117DE162738A8DFF /* MXPendingSecretShareRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPendingSecretShareRequest.m; path = MatrixSDK/Crypto/KeySharing/Secret/Data/MXPendingSecretShareRequest.m; sourceTree = "<group>"; };
-		B31604A83FFE0AC6250AE2AD15392C91 /* keychain_helper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = keychain_helper.cpp; path = Realm/ObjectStore/src/impl/apple/keychain_helper.cpp; sourceTree = "<group>"; };
+		B31604A83FFE0AC6250AE2AD15392C91 /* keychain_helper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = keychain_helper.cpp; path = Realm/ObjectStore/src/impl/apple/keychain_helper.cpp; sourceTree = "<group>"; };
 		B337EDAFB041234A64B85AE31E92FE3C /* OLMInboundGroupSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMInboundGroupSession.m; path = xcode/OLMKit/OLMInboundGroupSession.m; sourceTree = "<group>"; };
 		B352417327D4EC67DC11DBD0AC64E50C /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
-		B3669CCBB1B1942979D14D0349DEE821 /* sync_file.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_file.cpp; path = Realm/ObjectStore/src/sync/impl/sync_file.cpp; sourceTree = "<group>"; };
+		B3669CCBB1B1942979D14D0349DEE821 /* sync_file.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_file.cpp; path = Realm/ObjectStore/src/sync/impl/sync_file.cpp; sourceTree = "<group>"; };
 		B39C0CBBC76FCB8278E47DB247F1C891 /* MXMegolmEncryption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMegolmEncryption.h; path = MatrixSDK/Crypto/Algorithms/Megolm/MXMegolmEncryption.h; sourceTree = "<group>"; };
-		B3D95952C1C70AFD44236CE5A6F7588B /* binding_callback_thread_observer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = binding_callback_thread_observer.cpp; path = Realm/ObjectStore/src/binding_callback_thread_observer.cpp; sourceTree = "<group>"; };
+		B3D95952C1C70AFD44236CE5A6F7588B /* binding_callback_thread_observer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = binding_callback_thread_observer.cpp; path = Realm/ObjectStore/src/binding_callback_thread_observer.cpp; sourceTree = "<group>"; };
 		B40CBAA0E1AEBE71A782FADFB02B9C2A /* MXQRCodeKeyVerificationStart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXQRCodeKeyVerificationStart.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXQRCodeKeyVerificationStart.m; sourceTree = "<group>"; };
 		B422BF44AF3AB686C581542860289C5D /* MXLoginTerms.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXLoginTerms.h; path = MatrixSDK/JSONModels/Authentication/MXLoginTerms.h; sourceTree = "<group>"; };
 		B47C0C1C0F7092BBCB4DFD344E8C95F1 /* MX3PidAddManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MX3PidAddManager.m; path = MatrixSDK/ThreePidAdd/MX3PidAddManager.m; sourceTree = "<group>"; };
@@ -1795,11 +1795,11 @@
 		B8A28A732B304A0A2239E3283A46B433 /* MX3PidAddSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MX3PidAddSession.h; path = MatrixSDK/ThreePidAdd/MX3PidAddSession.h; sourceTree = "<group>"; };
 		B91A564395D944D408B173E4D720ED7F /* MXRoomTombStoneContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomTombStoneContent.m; path = MatrixSDK/JSONModels/MXRoomTombStoneContent.m; sourceTree = "<group>"; };
 		B962E36F6E8EC67D399146CAABEBE817 /* MXCryptoAlgorithms.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCryptoAlgorithms.m; path = MatrixSDK/Crypto/Algorithms/MXCryptoAlgorithms.m; sourceTree = "<group>"; };
-		BA3BA2C9749CF9AFE200D40091412F7E /* aes.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aes.c; path = "lib/crypto-algorithms/aes.c"; sourceTree = "<group>"; };
+		BA3BA2C9749CF9AFE200D40091412F7E /* aes.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = aes.c; path = "lib/crypto-algorithms/aes.c"; sourceTree = "<group>"; };
 		BA593D8FF54DA0FD0E03A503AEF0C052 /* MXAntivirusScanStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAntivirusScanStatus.h; path = MatrixSDK/ContentScan/Data/MXAntivirusScanStatus.h; sourceTree = "<group>"; };
 		BA595A404F402546F3705200A17C201B /* MXWellKnown.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXWellKnown.h; path = MatrixSDK/JSONModels/AutoDiscovery/MXWellKnown.h; sourceTree = "<group>"; };
-		BA7DC9AFBBBAADFBA18CD7409152CB93 /* RLMUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUtil.mm; path = Realm/RLMUtil.mm; sourceTree = "<group>"; };
-		BAA2CE670AFB37918E89C290031E24D1 /* libbase58.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = libbase58.framework; path = libbase58.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA7DC9AFBBBAADFBA18CD7409152CB93 /* RLMUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMUtil.mm; path = Realm/RLMUtil.mm; sourceTree = "<group>"; };
+		BAA2CE670AFB37918E89C290031E24D1 /* libbase58.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = libbase58.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAD68D2D6A720BF0D6A5C8240A643B3D /* MXSecretShareSend.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXSecretShareSend.m; path = MatrixSDK/Crypto/KeySharing/Secret/JSONModels/MXSecretShareSend.m; sourceTree = "<group>"; };
 		BB604E2DC34CEB3670EA3AF0695FF75E /* MXRecoveryKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRecoveryKey.m; path = MatrixSDK/Crypto/KeyBackup/MXRecoveryKey.m; sourceTree = "<group>"; };
 		BB745149F4F77491A8B4AFAEB7A2D23A /* GZIP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GZIP-umbrella.h"; sourceTree = "<group>"; };
@@ -1818,7 +1818,7 @@
 		BDC243B1FECC73DF6DA3C0D9EE1129CC /* OLMMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OLMMessage.m; path = xcode/OLMKit/OLMMessage.m; sourceTree = "<group>"; };
 		BE0D26A3C46525B59A8347CEF4DDDAD7 /* MXCrossSigning.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCrossSigning.m; path = MatrixSDK/Crypto/CrossSigning/MXCrossSigning.m; sourceTree = "<group>"; };
 		BF6C1306EDB1EBB0F15E79207A87419A /* MXMegolmEncryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMegolmEncryption.m; path = MatrixSDK/Crypto/Algorithms/Megolm/MXMegolmEncryption.m; sourceTree = "<group>"; };
-		BF9703ACF8DE5E66CB4F9C3317902E58 /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; name = error.c; path = src/error.c; sourceTree = "<group>"; };
+		BF9703ACF8DE5E66CB4F9C3317902E58 /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = error.c; path = src/error.c; sourceTree = "<group>"; };
 		BFDAB61BE8BA5295E0A784750A23EBE5 /* KeychainSwift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainSwift-dummy.m"; sourceTree = "<group>"; };
 		BFF03977F68991433A14DD2423F8D890 /* MXCredentials.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCredentials.m; path = MatrixSDK/Data/MXCredentials.m; sourceTree = "<group>"; };
 		C008C10EAD5C109185106BBFDDD2CEC3 /* MXRoomAccountData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomAccountData.m; path = MatrixSDK/Data/MXRoomAccountData.m; sourceTree = "<group>"; };
@@ -1853,7 +1853,7 @@
 		CA0BBEF1333784047D98B08CD1430A0B /* MXRoom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MXRoom.swift; path = MatrixSDK/Contrib/Swift/Data/MXRoom.swift; sourceTree = "<group>"; };
 		CA4A3A4725F2922E82993F496EA23570 /* MXPushRuleDisplayNameCondtionChecker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPushRuleDisplayNameCondtionChecker.h; path = MatrixSDK/NotificationCenter/Checker/MXPushRuleDisplayNameCondtionChecker.h; sourceTree = "<group>"; };
 		CAAF59AEF9066D779377C73CFB767374 /* libbase58.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = libbase58.xcconfig; sourceTree = "<group>"; };
-		CB7111EB801FABA93F4BF0C8D4EFBDF0 /* RLMObjectBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObjectBase.mm; path = Realm/RLMObjectBase.mm; sourceTree = "<group>"; };
+		CB7111EB801FABA93F4BF0C8D4EFBDF0 /* RLMObjectBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMObjectBase.mm; path = Realm/RLMObjectBase.mm; sourceTree = "<group>"; };
 		CBD8DD61B347C3D3325C48A145ABBA52 /* Matchers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Matchers.swift; path = Sources/Mockingjay/Matchers.swift; sourceTree = "<group>"; };
 		CC1D5935B223DBC54D2F9A196D842C98 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		CC2081ACA5838F7B2D88F523B2DC1D3C /* MXEventUnsignedData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXEventUnsignedData.m; path = MatrixSDK/JSONModels/Event/MXEventUnsignedData.m; sourceTree = "<group>"; };
@@ -1894,9 +1894,9 @@
 		D9ACA771F7534B68F4DE50F82BC967B2 /* MXScanRealmInMemoryProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXScanRealmInMemoryProvider.m; path = MatrixSDK/ContentScan/Data/Store/Realm/RealmProvider/MXScanRealmInMemoryProvider.m; sourceTree = "<group>"; };
 		D9DA8BF70FCDB725B53BB0F0FB0A457B /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		D9DF338DA8AB5D30687F0A65113995CC /* MXRoomCreationParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomCreationParameters.h; path = MatrixSDK/JSONModels/MXRoomCreationParameters.h; sourceTree = "<group>"; };
-		D9DFD780D5B8A2338C0D4F2369F0A5CD /* sync_manager.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_manager.cpp; path = Realm/ObjectStore/src/sync/sync_manager.cpp; sourceTree = "<group>"; };
+		D9DFD780D5B8A2338C0D4F2369F0A5CD /* sync_manager.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = sync_manager.cpp; path = Realm/ObjectStore/src/sync/sync_manager.cpp; sourceTree = "<group>"; };
 		DA184297521DE167B02EEC343F34CF3C /* RLMThreadSafeReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMThreadSafeReference.h; path = include/RLMThreadSafeReference.h; sourceTree = "<group>"; };
-		DA426CB1495B344672726D6BF2516F21 /* RLMArray.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMArray.mm; path = Realm/RLMArray.mm; sourceTree = "<group>"; };
+		DA426CB1495B344672726D6BF2516F21 /* RLMArray.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMArray.mm; path = Realm/RLMArray.mm; sourceTree = "<group>"; };
 		DA933345027A9945768748D04E3A9E2B /* MXAesHmacSha2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAesHmacSha2.h; path = MatrixSDK/Crypto/Utils/MXAesHmacSha2.h; sourceTree = "<group>"; };
 		DAE14782A2772875B1ED975F4CF68195 /* GZIP-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "GZIP-Info.plist"; sourceTree = "<group>"; };
 		DAF9BB7C0A13E46EF9E317699AFA5D1A /* MXEventContentRelatesTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventContentRelatesTo.h; path = MatrixSDK/JSONModels/Event/Content/MXEventContentRelatesTo.h; sourceTree = "<group>"; };
@@ -1917,12 +1917,12 @@
 		DDE4EE411804E1B4D58B5EC429E2C8D2 /* RLMSyncUtil_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncUtil_Private.h; path = include/RLMSyncUtil_Private.h; sourceTree = "<group>"; };
 		DDE6A3D08DE0571594901D1D11218738 /* MXEncryptedContentFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEncryptedContentFile.h; path = MatrixSDK/Crypto/Data/MXEncryptedContentFile.h; sourceTree = "<group>"; };
 		DE1B67E12485985AC0BF0FB47C4443FB /* MXServerNoticeContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXServerNoticeContent.h; path = MatrixSDK/JSONModels/MXServerNoticeContent.h; sourceTree = "<group>"; };
-		DE541AFB9425BD44C9B4AF1090648CFE /* base64.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = base64.cpp; path = src/base64.cpp; sourceTree = "<group>"; };
+		DE541AFB9425BD44C9B4AF1090648CFE /* base64.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = base64.cpp; path = src/base64.cpp; sourceTree = "<group>"; };
 		DE614EFF5E0B107A97F1FACABD88D2CE /* MXQRCodeDataBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXQRCodeDataBuilder.m; path = MatrixSDK/Crypto/Verification/Data/MXQRCodeDataBuilder.m; sourceTree = "<group>"; };
 		DF342AEF6D34C2E3BDF8D76B8C7D6315 /* MXSessionEventListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSessionEventListener.h; path = MatrixSDK/Data/MXSessionEventListener.h; sourceTree = "<group>"; };
 		DF3D0586D97B7F97108C3FFF13F8F025 /* MXKeyVerificationReady.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationReady.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationReady.h; sourceTree = "<group>"; };
 		DF6759AC0A23FBCD8681D26CD6BB8815 /* MXMyUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMyUser.h; path = MatrixSDK/Data/MXMyUser.h; sourceTree = "<group>"; };
-		DF711E7233C39110490688A3F7F9ECC2 /* ed25519.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ed25519.c; path = src/ed25519.c; sourceTree = "<group>"; };
+		DF711E7233C39110490688A3F7F9ECC2 /* ed25519.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ed25519.c; path = src/ed25519.c; sourceTree = "<group>"; };
 		DFA3F26F3E0663CB0B8AB95B6416FF29 /* OLMAccount.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OLMAccount.h; path = xcode/OLMKit/OLMAccount.h; sourceTree = "<group>"; };
 		DFF7B1ACDA49C3C1009C459640DE2569 /* MXKeyVerificationKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationKey.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationKey.m; sourceTree = "<group>"; };
 		E04DA44BEFD546B14387D13AE6C6CC2A /* MXAggregatedReactions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAggregatedReactions.m; path = MatrixSDK/Aggregations/Data/MXAggregatedReactions.m; sourceTree = "<group>"; };
@@ -1937,16 +1937,16 @@
 		E25971287A34E154ACD53D80488DE8FF /* RLMProperty_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMProperty_Private.h; path = include/RLMProperty_Private.h; sourceTree = "<group>"; };
 		E2637371B5F9528B01DFC0DADC500011 /* LocationRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationRequest.swift; path = Sources/SwiftLocation/Locating/LocationRequest.swift; sourceTree = "<group>"; };
 		E2864FAE09925E1D84B7807A6E685E95 /* MXAggregatedReactionsUpdater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAggregatedReactionsUpdater.m; path = MatrixSDK/Aggregations/MXAggregatedReactionsUpdater.m; sourceTree = "<group>"; };
-		E2FCE59EA88E386CE4D05B6B316C341E /* object_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = object_notifier.cpp; path = Realm/ObjectStore/src/impl/object_notifier.cpp; sourceTree = "<group>"; };
+		E2FCE59EA88E386CE4D05B6B316C341E /* object_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = object_notifier.cpp; path = Realm/ObjectStore/src/impl/object_notifier.cpp; sourceTree = "<group>"; };
 		E337F2945E0E94A69D6A196DB3DD32A1 /* MXKeyVerificationAccept.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXKeyVerificationAccept.h; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationAccept.h; sourceTree = "<group>"; };
-		E3820A74F8284ED4E2462E436BCB7DA2 /* RLMSyncSubscription.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSubscription.mm; path = Realm/RLMSyncSubscription.mm; sourceTree = "<group>"; };
+		E3820A74F8284ED4E2462E436BCB7DA2 /* RLMSyncSubscription.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncSubscription.mm; path = Realm/RLMSyncSubscription.mm; sourceTree = "<group>"; };
 		E38EBE6B1D1EF0581B5353FCD1324A61 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		E3F6FC2FB4DB536A95F564966916D3A5 /* RLMConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMConstants.h; path = include/RLMConstants.h; sourceTree = "<group>"; };
 		E4235C1FFE9CD9C9ECB912D43B2B18CA /* MXContentScanResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXContentScanResult.h; path = MatrixSDK/ContentScan/JSONModels/MXContentScanResult.h; sourceTree = "<group>"; };
 		E4356212727C7E12E71931725E3D2506 /* MXDeviceListOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXDeviceListOperation.m; path = MatrixSDK/Crypto/Data/MXDeviceListOperation.m; sourceTree = "<group>"; };
 		E48F15049C8A7B939EF6ABAD6108E063 /* AFURLSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		E4D6E7F63A0999E73C62A61C3714C0A3 /* RLMObjectSchema_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectSchema_Private.h; path = include/RLMObjectSchema_Private.h; sourceTree = "<group>"; };
-		E4DECCCC6F24DBDD2EDBB055845F2302 /* RLMResults.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMResults.mm; path = Realm/RLMResults.mm; sourceTree = "<group>"; };
+		E4DECCCC6F24DBDD2EDBB055845F2302 /* RLMResults.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMResults.mm; path = Realm/RLMResults.mm; sourceTree = "<group>"; };
 		E50B1052D0A79DCF6798D46DBAFFBD0A /* MXLoginTerms.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXLoginTerms.m; path = MatrixSDK/JSONModels/Authentication/MXLoginTerms.m; sourceTree = "<group>"; };
 		E6A9FE677ADBD20B2F80C2C1EDEE00C7 /* MXReactionOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXReactionOperation.m; path = MatrixSDK/Aggregations/Data/MXReactionOperation.m; sourceTree = "<group>"; };
 		E6DA8EA89CABB7CA26326322CF07FF42 /* Pods-Matrix Playground.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Matrix Playground.modulemap"; sourceTree = "<group>"; };
@@ -1956,12 +1956,12 @@
 		E7F7B9F8B4159570916F413338F04239 /* MXSASKeyVerificationStart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXSASKeyVerificationStart.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXSASKeyVerificationStart.m; sourceTree = "<group>"; };
 		E81F69924834D4274344D3CF8124B9EE /* LocationManager+Support.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "LocationManager+Support.swift"; path = "Sources/SwiftLocation/LocationManager+Support.swift"; sourceTree = "<group>"; };
 		E86290FEB9D20045F90092DBA01E5644 /* AFImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFImageDownloader.m; path = "UIKit+AFNetworking/AFImageDownloader.m"; sourceTree = "<group>"; };
-		E8807993D35DF3203B0CB843DDB72234 /* base58.c */ = {isa = PBXFileReference; includeInIndex = 1; path = base58.c; sourceTree = "<group>"; };
+		E8807993D35DF3203B0CB843DDB72234 /* base58.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
 		E882D4B9401D642F2EB273921BB4FFB0 /* SwiftLocation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftLocation-dummy.m"; sourceTree = "<group>"; };
 		EA32208356BE37F28A209AF5865AABAF /* MXFileRoomStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXFileRoomStore.h; path = MatrixSDK/Data/Store/MXFileStore/MXFileRoomStore.h; sourceTree = "<group>"; };
 		EA44CEA036159FFDADE53865747295D6 /* MXKeyVerificationAccept.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyVerificationAccept.m; path = MatrixSDK/Crypto/Verification/JSONModels/MXKeyVerificationAccept.m; sourceTree = "<group>"; };
 		EA6B321AB2EB9D77A4F49B799C7B7689 /* MXCrypto.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXCrypto.m; path = MatrixSDK/Crypto/MXCrypto.m; sourceTree = "<group>"; };
-		EA7CD805B56B0B5E98E48BD99C8CF66D /* memory.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = memory.hh; path = include/olm/memory.hh; sourceTree = "<group>"; };
+		EA7CD805B56B0B5E98E48BD99C8CF66D /* memory.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = memory.hh; path = include/olm/memory.hh; sourceTree = "<group>"; };
 		EA8513970B422A94C6014D1C2E3F1AD5 /* RLMSyncManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncManager.h; path = include/RLMSyncManager.h; sourceTree = "<group>"; };
 		EAD59629EE253FA5FC704E9351C40309 /* OLMKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OLMKit.xcconfig; sourceTree = "<group>"; };
 		EB06B6AC59EBF4E0C871EB8ECB58B89F /* MXThrottler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXThrottler.m; path = MatrixSDK/Utils/MXThrottler.m; sourceTree = "<group>"; };
@@ -1983,8 +1983,8 @@
 		EF2D88BC7FAE8FA8D72E44D11F62B413 /* MXEventsEnumerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEventsEnumerator.h; path = MatrixSDK/Data/EventsEnumerator/MXEventsEnumerator.h; sourceTree = "<group>"; };
 		EFED2B8DD47632820A077AF428FFC5ED /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		F04617B5251AA1A31ECCCD553A833F87 /* libbase58.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = libbase58.h; sourceTree = "<group>"; };
-		F0C4EE895E4D9720F4B4331292679DD0 /* list.hh */ = {isa = PBXFileReference; includeInIndex = 1; name = list.hh; path = include/olm/list.hh; sourceTree = "<group>"; };
-		F0E00F457136C79D6CE17630678D154F /* RLMListBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMListBase.mm; path = Realm/RLMListBase.mm; sourceTree = "<group>"; };
+		F0C4EE895E4D9720F4B4331292679DD0 /* list.hh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.h; name = list.hh; path = include/olm/list.hh; sourceTree = "<group>"; };
+		F0E00F457136C79D6CE17630678D154F /* RLMListBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMListBase.mm; path = Realm/RLMListBase.mm; sourceTree = "<group>"; };
 		F1CA830D79CEFB634CA3AD8D4468B8A2 /* MXRoomThirdPartyInvite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXRoomThirdPartyInvite.h; path = MatrixSDK/Data/MXRoomThirdPartyInvite.h; sourceTree = "<group>"; };
 		F1D29C769C12CAA5EBBAFCE0359B368C /* MXEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXEvent.h; path = MatrixSDK/JSONModels/MXEvent.h; sourceTree = "<group>"; };
 		F23697C9CD3FB88C90F488124ADE6127 /* MXOlmEncryption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXOlmEncryption.h; path = MatrixSDK/Crypto/Algorithms/Olm/MXOlmEncryption.h; sourceTree = "<group>"; };
@@ -1992,7 +1992,7 @@
 		F289874014AB08E0B22A9DDA32CE10DF /* olm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = olm.h; path = include/olm/olm.h; sourceTree = "<group>"; };
 		F2DEC7215F9EDD2FEADAFA25148F4D35 /* MXPeekingRoom.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPeekingRoom.m; path = MatrixSDK/Data/MXPeekingRoom.m; sourceTree = "<group>"; };
 		F31804E9A7394C9E4FA4D9E5406DBC6A /* MXSecretShareManager_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXSecretShareManager_Private.h; path = MatrixSDK/Crypto/KeySharing/Secret/MXSecretShareManager_Private.h; sourceTree = "<group>"; };
-		F32AB25B2AFC02BBE7176B19193BAC4D /* RLMRealm.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealm.mm; path = Realm/RLMRealm.mm; sourceTree = "<group>"; };
+		F32AB25B2AFC02BBE7176B19193BAC4D /* RLMRealm.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMRealm.mm; path = Realm/RLMRealm.mm; sourceTree = "<group>"; };
 		F3603091B051B2BC8DB3D05607A47A85 /* Promise+Zip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Promise+Zip.swift"; path = "Source/Promise+Zip.swift"; sourceTree = "<group>"; };
 		F3A5C9AD60B617B64AD3C35B5974BABB /* MXOlmDecryption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXOlmDecryption.m; path = MatrixSDK/Crypto/Algorithms/Olm/MXOlmDecryption.m; sourceTree = "<group>"; };
 		F3D7EDC601AD83F867D61805D1BB6AB6 /* AutoComplete+Support.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "AutoComplete+Support.swift"; path = "Sources/SwiftLocation/Auto Complete/AutoComplete+Support.swift"; sourceTree = "<group>"; };
@@ -2010,7 +2010,7 @@
 		F729522B39BDFAE771CE28BE3FED2CF9 /* MXAesHmacSha2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAesHmacSha2.m; path = MatrixSDK/Crypto/Utils/MXAesHmacSha2.m; sourceTree = "<group>"; };
 		F72BBC367246907458571D63608366A3 /* URITemplate-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "URITemplate-Info.plist"; sourceTree = "<group>"; };
 		F749A9666EDBFAA70A0670D4925B7483 /* MXThrottler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXThrottler.h; path = MatrixSDK/Utils/MXThrottler.h; sourceTree = "<group>"; };
-		F75814144650DC9AB1EAE7DABE775E68 /* work_queue.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = work_queue.cpp; path = Realm/ObjectStore/src/sync/impl/work_queue.cpp; sourceTree = "<group>"; };
+		F75814144650DC9AB1EAE7DABE775E68 /* work_queue.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = work_queue.cpp; path = Realm/ObjectStore/src/sync/impl/work_queue.cpp; sourceTree = "<group>"; };
 		F776D8C74E74B5B1719A5283DFF4579E /* MX3PidAddManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MX3PidAddManager.swift; path = MatrixSDK/Contrib/Swift/ThreePidAdd/MX3PidAddManager.swift; sourceTree = "<group>"; };
 		F86A439B1DB6C4D9D30CC9460DD80A54 /* thenPromise-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "thenPromise-umbrella.h"; sourceTree = "<group>"; };
 		F9036649BD844260CB370F502632F7F5 /* MXAggregations_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAggregations_Private.h; path = MatrixSDK/Aggregations/MXAggregations_Private.h; sourceTree = "<group>"; };
@@ -2031,7 +2031,7 @@
 		FE8A3D7C3F47449864ADCF3D89C6496C /* MXRoomMembers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomMembers.m; path = MatrixSDK/Data/MXRoomMembers.m; sourceTree = "<group>"; };
 		FE900F5A3E92FA25DC4BAAE97EF15A74 /* MXRoomFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXRoomFilter.m; path = MatrixSDK/Data/Filters/MXRoomFilter.m; sourceTree = "<group>"; };
 		FEE516887A2AAE6EC8D647DCBCBB77B7 /* MXKeyBackupVersionTrust.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXKeyBackupVersionTrust.m; path = MatrixSDK/Crypto/KeyBackup/Data/MXKeyBackupVersionTrust.m; sourceTree = "<group>"; };
-		FFAADE520E0035AB09C352BA906C5C4D /* RLMProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMProperty.mm; path = Realm/RLMProperty.mm; sourceTree = "<group>"; };
+		FFAADE520E0035AB09C352BA906C5C4D /* RLMProperty.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMProperty.mm; path = Realm/RLMProperty.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2173,7 +2173,6 @@
 				F04617B5251AA1A31ECCCD553A833F87 /* libbase58.h */,
 				2A646610B3A2A6E6D56BC79FF1375B55 /* Support Files */,
 			);
-			name = libbase58;
 			path = libbase58;
 			sourceTree = "<group>";
 		};
@@ -2286,7 +2285,6 @@
 				5A8420862CE9A5BE2C528E6EE7BAB423 /* Headers */,
 				9B2AE601D0A4F0975DACB3A6DF31EBBE /* Support Files */,
 			);
-			name = Realm;
 			path = Realm;
 			sourceTree = "<group>";
 		};
@@ -2329,7 +2327,6 @@
 				60AC6D88D24EA1BAF8EC53FFE3F82D0F /* Support Files */,
 				9F1C8EDB17CE928E545BEF47934EBFD0 /* UIKit */,
 			);
-			name = AFNetworking;
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
@@ -2366,7 +2363,6 @@
 				DD5C8FA997651029938F2BD4C0D7FB95 /* WhenAll.swift */,
 				F06910D04DF636C1331B3D847013067D /* Support Files */,
 			);
-			name = thenPromise;
 			path = thenPromise;
 			sourceTree = "<group>";
 		};
@@ -2421,7 +2417,6 @@
 				8F0B3259BBCD1C2C466A2E75A16CE04E /* URITemplate.swift */,
 				21BB306A8F58AE2E2C9740CA7A9CF62A /* Support Files */,
 			);
-			name = URITemplate;
 			path = URITemplate;
 			sourceTree = "<group>";
 		};
@@ -2451,7 +2446,6 @@
 				150C131C2F8F6EB49BF238F03D074B25 /* TegKeychainConstants.swift */,
 				F7930750C4946AB8B33C9C5695864035 /* Support Files */,
 			);
-			name = KeychainSwift;
 			path = KeychainSwift;
 			sourceTree = "<group>";
 		};
@@ -2469,7 +2463,6 @@
 				010899307FF7261B517EA5C45A890AB3 /* Support Files */,
 				DDF812619EED5C8A1709ACCF03415A9F /* XCTest */,
 			);
-			name = Mockingjay;
 			path = Mockingjay;
 			sourceTree = "<group>";
 		};
@@ -2491,7 +2484,6 @@
 				2102735B9AA974F8F03FCE91E0FE389C /* NSData+GZIP.m */,
 				1D20A432DEE068AA56148060BC891340 /* Support Files */,
 			);
-			name = GZIP;
 			path = GZIP;
 			sourceTree = "<group>";
 		};
@@ -3043,7 +3035,6 @@
 				D3E21525BB37F621B369DFE31C481943 /* SwiftMatrixSDK.h */,
 				54BB6E58B0D8DC8877E822503BE92479 /* Support Files */,
 			);
-			name = SwiftMatrixSDK;
 			path = SwiftMatrixSDK;
 			sourceTree = "<group>";
 		};
@@ -3269,7 +3260,6 @@
 				46244474C0A12C3B98EFC5CFA66119DD /* olmcpp */,
 				EF09274C2250EC9C5AE970E970B4404E /* Support Files */,
 			);
-			name = OLMKit;
 			path = OLMKit;
 			sourceTree = "<group>";
 		};
@@ -3313,7 +3303,6 @@
 				AEE7EBB16B45CB1FE48E6EFD67DB7F01 /* Timeout.swift */,
 				3457420867835D1DE8275C90E2F3E326 /* Support Files */,
 			);
-			name = SwiftLocation;
 			path = SwiftLocation;
 			sourceTree = "<group>";
 		};
@@ -4169,7 +4158,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -4964,7 +4953,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftLocation/SwiftLocation-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftLocation/SwiftLocation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5000,7 +4989,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OLMKit/OLMKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OLMKit/OLMKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5036,7 +5025,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/GZIP/GZIP-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GZIP/GZIP-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5073,7 +5062,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftLocation/SwiftLocation-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftLocation/SwiftLocation-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5108,7 +5097,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AFNetworking/AFNetworking-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5143,7 +5132,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainSwift/KeychainSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainSwift/KeychainSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5178,7 +5167,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/AFNetworking/AFNetworking-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/AFNetworking/AFNetworking-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5253,7 +5242,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Realm/Realm-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Realm/Realm-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5289,7 +5278,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/thenPromise/thenPromise-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/thenPromise/thenPromise-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5324,7 +5313,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/OLMKit/OLMKit-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/OLMKit/OLMKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5359,7 +5348,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftMatrixSDK/SwiftMatrixSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftMatrixSDK/SwiftMatrixSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5395,7 +5384,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Mockingjay/Mockingjay-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Mockingjay/Mockingjay-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5431,7 +5420,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/URITemplate/URITemplate-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/URITemplate/URITemplate-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5476,6 +5465,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -5530,7 +5520,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Realm/Realm-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Realm/Realm-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5575,6 +5565,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -5625,7 +5616,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Mockingjay/Mockingjay-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Mockingjay/Mockingjay-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5660,7 +5651,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/libbase58/libbase58-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/libbase58/libbase58-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5696,7 +5687,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/URITemplate/URITemplate-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/URITemplate/URITemplate-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5809,7 +5800,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/GZIP/GZIP-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GZIP/GZIP-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5844,7 +5835,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/thenPromise/thenPromise-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/thenPromise/thenPromise-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5880,7 +5871,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftMatrixSDK/SwiftMatrixSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftMatrixSDK/SwiftMatrixSDK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5915,7 +5906,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainSwift/KeychainSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainSwift/KeychainSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5989,7 +5980,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/libbase58/libbase58-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/libbase58/libbase58-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
