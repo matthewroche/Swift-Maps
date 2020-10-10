@@ -26,12 +26,13 @@ public class LocationLogic: ObservableObject {
                 guard (self.locationRequest == nil) else {resolve(true); return}
                 LocationManager.shared.requireUserAuthorization(.always)
                 print("startTrackingLocation")
-                self.currentLocation = try await(self.returnCurrentLocation())
+                let currentLocation = try await(self.returnCurrentLocation())
+                DispatchQueue.main.async {
+                    self.currentLocation = currentLocation
+                }
                 self.locationRequest = LocationManager.shared.locateFromGPS(.significant, accuracy: .block) { response in
-                    print(response)
                     switch response {
                         case .success(let session):
-                            print("Location: \(session.coordinate.latitude), \(session.coordinate.longitude)")
                             self.currentLocation = session
                             resolve(true)
                         case .failure(let error):

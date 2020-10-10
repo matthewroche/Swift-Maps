@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import SwiftMatrixSDK
+import MatrixSDK
 import CoreLocation
 import Then
 import CoreData

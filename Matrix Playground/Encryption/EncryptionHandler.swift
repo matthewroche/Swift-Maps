@@ -9,7 +9,7 @@
 import Foundation
 import OLMKit
 import Then
-import SwiftMatrixSDK
+import MatrixSDK
 import KeychainSwift
 import OLMKit
 

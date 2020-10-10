@@ -9,7 +9,7 @@
 import UIKit
 import SwiftUI
 import CoreData
-import SwiftMatrixSDK
+import MatrixSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

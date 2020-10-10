@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreData
 import MapKit
-import SwiftMatrixSDK
+import MatrixSDK
 
 struct ChatController: View {
     

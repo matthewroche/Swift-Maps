@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import SwiftMatrixSDK
+import MatrixSDK
 import CoreLocation
 import SwiftLocation
 import KeychainSwift

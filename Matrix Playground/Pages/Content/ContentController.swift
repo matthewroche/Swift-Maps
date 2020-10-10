@@ -8,7 +8,7 @@
 
 import SwiftUI
 import Then
-import SwiftMatrixSDK
+import MatrixSDK
 
 struct ContentController: View {
     
@@ -59,10 +59,10 @@ struct ContentController: View {
             async {
                 self.syncInProgress = true
                 try await(self.contentLogic.sync(
-                    mxRestClient: self.sessionData.mxRestClient ?? MXRestClient(),
+                            mxRestClient: self.sessionData.mxRestClient ,
                     context: self.context,
                     ownerUser: self.userDetails ?? UserDetails(),
-                    encryptionHandler: self.sessionData.encryptionHandler ?? EncryptionHandler(keychain: self.sessionData.keychain, mxRestClient: MXRestClient())))
+                            encryptionHandler: self.sessionData.encryptionHandler ))
                 DispatchQueue.main.sync {
                     self.syncInProgress = false
                 }
@@ -87,7 +87,7 @@ struct ContentController: View {
                     invitedDevice: self.inviteDevice,
                     userDetails: self.userDetails ?? UserDetails(),
                     context: self.context,
-                    encryptionHandler: self.sessionData.encryptionHandler ?? EncryptionHandler(keychain: self.sessionData.keychain, mxRestClient: MXRestClient()),
+                    encryptionHandler: self.sessionData.encryptionHandler ,
                     locationLogic: self.sessionData.locationLogic
                 ))
                 try await(self.sessionData.locationLogic.startTrackingLocation())
@@ -156,7 +156,7 @@ struct ContentController: View {
     /// - Parameter newMXRestClient: The new rest client
     /// - Returns: Void
     func handleNewRestClient(_ newMXRestClient: MXRestClient?) -> Void {
-        if (newMXRestClient != nil && newMXRestClient!.credentials.deviceId != nil) {
+        if (newMXRestClient != nil && newMXRestClient!.credentials != nil) {
             self.deviceName = newMXRestClient!.credentials.deviceId!
         }
     }

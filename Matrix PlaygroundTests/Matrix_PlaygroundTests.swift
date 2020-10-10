@@ -11,7 +11,7 @@ import XCTest
 @testable import Matrix_Maps
 
 import Mockingjay
-import SwiftMatrixSDK
+import MatrixSDK
 import CoreLocation
 import CoreData
 import Then

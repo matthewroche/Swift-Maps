@@ -44,7 +44,7 @@ struct ChatRow: View {
                     }
                 }
                 
-            }.padding()
+            }.padding().background(Color(UIColor.systemBackground))
         }
     }
 }

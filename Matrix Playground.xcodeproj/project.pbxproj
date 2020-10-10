@@ -768,6 +768,7 @@
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=*]" = "";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -864,19 +865,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/GZIP\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/KeychainSwift\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/OLMKit\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Realm\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftLocation\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftMatrixSDK\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/libbase58\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/thenPromise\"",
-					"$(SRCROOT)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Matrix Playground/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -904,6 +893,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Matrix Playground/Preview Content\"";
 				DEVELOPMENT_TEAM = A4G3Y5XC83;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Matrix Playground/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -927,19 +917,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(PLATFORM_DIR)/Developer/Library/Frameworks\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/GZIP\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/KeychainSwift\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Mockingjay\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/OLMKit\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Realm\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftLocation\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/SwiftMatrixSDK\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/URITemplate\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/libbase58\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/thenPromise\"",
-					"$(SRCROOT)/**",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking",
+					"${PODS_CONFIGURATION_BUILD_DIR}/thenPromise",
+					"${PODS_CONFIGURATION_BUILD_DIR}/KeychainSwift",
+					"${PODS_CONFIGURATION_BUILD_DIR}/URITemplate",
+					"${PODS_CONFIGURATION_BUILD_DIR}/GZIP",
+					"${PODS_CONFIGURATION_BUILD_DIR}/OLMKit",
+					"${PODS_CONFIGURATION_BUILD_DIR}/Realm",
+					"${PODS_CONFIGURATION_BUILD_DIR}/SwiftLocation",
+					"${PODS_CONFIGURATION_BUILD_DIR}/MatrixSDK",
+					"${PODS_CONFIGURATION_BUILD_DIR}/libbase58",
+					"${PODS_CONFIGURATION_BUILD_DIR}/Mockingjay",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "Matrix PlaygroundTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -963,6 +953,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Matrix PlaygroundTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (

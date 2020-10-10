@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-import SwiftMatrixSDK
+import MatrixSDK
 import Then
 import OLMKit
 

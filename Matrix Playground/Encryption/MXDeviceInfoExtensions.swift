@@ -1,5 +1,5 @@
 import Foundation
-import SwiftMatrixSDK
+import MatrixSDK
 
 // Extend MXDeviceInfo to enable initialisation from a JSON String
 public extension MXDeviceInfo {

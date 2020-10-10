@@ -1,5 +1,5 @@
 import UIKit
-import SwiftMatrixSDK
+import MatrixSDK
 import Then
 import OLMKit
 

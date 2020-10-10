@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftMatrixSDK
+import MatrixSDK
 import CoreData
 import CoreLocation
 import Then

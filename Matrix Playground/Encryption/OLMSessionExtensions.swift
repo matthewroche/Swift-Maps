@@ -2,7 +2,7 @@ import Foundation
 
 import Foundation
 import OLMKit
-import SwiftMatrixSDK
+import MatrixSDK
 
 public extension OLMSession {
     

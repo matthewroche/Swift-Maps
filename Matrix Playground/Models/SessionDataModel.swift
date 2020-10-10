@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftMatrixSDK
+import MatrixSDK
 import KeychainSwift
 import SwiftLocation
 import CoreData

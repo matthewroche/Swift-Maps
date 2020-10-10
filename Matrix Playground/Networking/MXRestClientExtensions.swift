@@ -9,7 +9,7 @@
 import Foundation
 
 import Foundation
-import SwiftMatrixSDK
+import MatrixSDK
 import Then
 
 public extension MXRestClient {

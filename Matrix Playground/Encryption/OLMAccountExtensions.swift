@@ -1,6 +1,6 @@
 import Foundation
 import OLMKit
-import SwiftMatrixSDK
+import MatrixSDK
 import Then
 
 // Extending OLMAccount to make creation and signage of keys easier

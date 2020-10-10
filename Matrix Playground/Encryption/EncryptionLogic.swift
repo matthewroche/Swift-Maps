@@ -1,6 +1,6 @@
 import Foundation
 import OLMKit
-import SwiftMatrixSDK
+import MatrixSDK
 import Then
 
 // Conveniance functions to properly wrap an OLMMessage for transmission
