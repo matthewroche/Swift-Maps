@@ -485,6 +485,10 @@ public class EncryptionHandler {
                 // Download prekeys
                 let downloadedPreKeys = try await(self.mxRestClient.claimOneTimeKeysPromise(for: preKeysRequestDetails))
                 
+                print(recipient.userName)
+                print(downloadedPreKeys.oneTimeKeys.deviceIds(forUser: recipient.userName))
+                print(recipient.deviceName)
+                
                 // Check rqeuested keys exist for specified device
                 if !((downloadedPreKeys.oneTimeKeys.deviceIds(forUser: recipient.userName) ?? []).contains(recipient.deviceName)) {
                     throw EncryptionError.noPreKeysAvailable

@@ -22,6 +22,7 @@ enum EncryptionError: LocalizedError {
     case noSignature
     case invalidCombinedName
     case storedSessionsAndRecipientDevicesDoNotMatch
+    case keyUploadFailed
 }
 
 extension EncryptionError {
@@ -53,6 +54,8 @@ extension EncryptionError {
                 return NSLocalizedString("The combined name provided was invalid", comment: "")
             case .storedSessionsAndRecipientDevicesDoNotMatch:
                 return NSLocalizedString("There was an issue with the sotred data", comment: "")
+            case .keyUploadFailed:
+                return NSLocalizedString("An invalid response was returned from the server when uploading the encryption keys", comment: "")
         }
     }
 }

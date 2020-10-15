@@ -30,6 +30,7 @@ public class EncryptionLogic {
                 mxRestClient.uploadKeysPromise(device.jsonDictionary() as NSDictionary? as! [String: Any],
                                                oneTimeKeys: signedKeys,
                                                forDevice: mxRestClient.credentials?.deviceId))
+            guard response.oneTimeKeyCounts != nil else {throw EncryptionError.keyUploadFailed}
             return(device, response.oneTimeKeyCounts)
         }
     }

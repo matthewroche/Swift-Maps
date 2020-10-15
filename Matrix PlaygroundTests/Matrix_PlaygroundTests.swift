@@ -27,6 +27,43 @@ public extension NSManagedObject {
 
 }
 
+func createCredentialsKeychainAndRestClient(userId: String, accessToken: String, deviceName: String) -> (MXCredentials, KeychainSwift, MXRestClient) {
+    let credentials = MXCredentials(homeServer: "https://matrix-client.matrix.org", userId: userId, accessToken: accessToken)
+    credentials.deviceId = deviceName
+    credentials.homeServer = "https://matrix-client.matrix.org"
+    let keychain = KeychainSwift.init(keyPrefix: userId)
+    let mxRestClient = MXRestClient(credentials: credentials, unrecognizedCertificateHandler: nil)
+    return (credentials, keychain, mxRestClient)
+}
+
+func createUserAccountDeviceAndKeys(credentials: MXCredentials) throws -> (EncryptedMessageRecipient, OLMAccount, MXDeviceInfo) {
+    let user = EncryptedMessageRecipient.init(userName: credentials.userId!, deviceName: credentials.deviceId!)
+    let account = OLMAccount.init(newAccount: ())
+    let device = try account!.generateSignedDeviceKeys(credentials: credentials)
+    return (user, account!, device)
+}
+
+func createSignedKeys(account: OLMAccount, credentials: MXCredentials) -> [String: [String: Any]] {
+    let signedKeys = account.generateSignedOneTimeKeys(count: 1, credentials: credentials)
+    let signedKeyName = signedKeys.first?.key ?? ""
+    return [
+        signedKeyName: signedKeys[signedKeyName]!
+    ]
+}
+
+func createEncryptionAccountAndDevice(credentials: MXCredentials) throws -> (OLMAccount, MXDeviceInfo) {
+    let senderAccount = OLMAccount.init(newAccount: ())!
+    let senderDevice = try senderAccount.generateSignedDeviceKeys(credentials: credentials)
+    return (senderAccount, senderDevice)
+}
+
+func createEncryptionSession(localAccount: OLMAccount, remoteIdentityKey: String, remoteOTKey: String) throws -> OLMSession {
+    return try OLMSession.init(
+        outboundSessionWith: localAccount,
+        theirIdentityKey: remoteIdentityKey,
+        theirOneTimeKey: remoteOTKey)
+}
+
 class Matrix_PlaygroundTests: XCTestCase {
     
     let accessToken = "fakeAccessToken"
@@ -57,8 +94,6 @@ class Matrix_PlaygroundTests: XCTestCase {
     }()
 
     override func setUpWithError() throws {
-        
-        //self.clearAllData()
         
         credentials = MXCredentials(homeServer: "https://matrix-client.matrix.org", userId: "@testUser1:matrix.org", accessToken: "fakeAccessToken")
         credentials!.deviceId = "testdevice"
@@ -119,88 +154,117 @@ class Matrix_PlaygroundTests: XCTestCase {
         }
     }
     
+    func createStub(uriValue: String, data: NSDictionary, status: Int) {
+        self.stub(uri(uriValue), json(data, status: status))
+    }
+    
+    func createKeysUploadStub() {
+        let uri = "https://matrix-client.matrix.org/_matrix/client/r0/keys/upload/testDevice"
+        let data: NSDictionary = [
+            "one_time_key_counts": [
+              "curve25519": 10,
+              "signed_curve25519": 20
+            ]
+        ]
+        self.createStub(uriValue: uri, data: data, status: 200)
+    }
+    
+    func createKeysQueryStub(credentials: MXCredentials, device: MXDeviceInfo) {
+        let uri = "https://matrix-client.matrix.org/_matrix/client/r0/keys/query"
+        let data: NSDictionary = [
+            "device_keys": [
+                credentials.userId: [
+                    credentials.deviceId: device.jsonDictionary()
+                ]
+            ],
+            "failures": [:]
+        ]
+        self.createStub(uriValue: uri, data: data, status: 200)
+    }
+    
+    func createKeysClaimStub(credentials: MXCredentials, signedKey: [String: [String: Any]]) {
+        let uri = "https://matrix-client.matrix.org/_matrix/client/r0/keys/claim"
+        let data: NSDictionary = [
+            "failures": [:],
+            "one_time_keys": [
+                credentials.userId: [
+                    credentials.deviceId: signedKey
+                ]
+            ]
+        ]
+        self.createStub(uriValue: uri, data: data, status: 200)
+    }
+    
+    func createSendToDeviceStub(txnId: String) {
+        let uri = "https://matrix-client.matrix.org/_matrix/client/r0/sendToDevice/matrixmaps.location/\(txnId)"
+        let data: NSDictionary = [:]
+        self.createStub(uriValue: uri, data: data, status: 200)
+    }
+    
+    func createSyncStub(wrappedMessage: EncryptedMessageWrapper, senderDevice: MXDeviceInfo) {
+        let uri = "https://matrix-client.matrix.org/_matrix/client/r0/sync?timeout=5000"
+        let data: NSDictionary = [
+            "account_data": [:],
+            "next_batch": "s72595_4483_1934",
+            "presence": [:],
+            "rooms": [
+                "invite": [:],
+                "join": [:],
+                "leave":[:]
+            ],
+            "to_device": [
+                "events": [
+                    [
+                        "content": wrappedMessage.nsDictionary,
+                        "sender": senderDevice.userId!,
+                        "type": "matrixmaps.location"
+                    ]
+                ]
+            ],
+            "device_one_time_keys_count": [
+                "signed_curve25519": 1
+            ]
+        ]
+        self.createStub(uriValue: uri, data: data, status: 200)
+    }
+    
     func testEncryptingAMessage() throws {
         self.clearAllData()
         let expectation = XCTestExpectation(description: "Successfully encrypts a message")
         
-        self.clearAllData()
-        
         async {
             
-            let recipient = EncryptedMessageRecipient.init(userName: self.secondCredentials!.userId!, deviceName: "testdevice")
-            let recipientAccount = OLMAccount.init(newAccount: ())
-            let recipientDevice = try recipientAccount?.generateSignedDeviceKeys(credentials: self.secondCredentials!)
-            let recipientSignedKeys = recipientAccount?.generateSignedOneTimeKeys(count: 1, credentials: (self.secondCredentials)!)
-            let recipientSignedKeyName = recipientSignedKeys?.first?.key
-            let recipientSignedKey = [
-                recipientSignedKeyName!: recipientSignedKeys![recipientSignedKeyName!]!
-            ]
+            let (recipientCredentials, recipientKeychain, recipientMXRestClient) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser1:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
             
-            // Fake API response for keys upload
-            let uploadUriValue = "https://matrix-client.matrix.org/_matrix/client/r0/keys/upload/testdevice"
-            let uploadMessageData: NSDictionary = [
-              "one_time_key_counts": [
-                "curve25519": 10,
-                "signed_curve25519": 20
-              ]
-            ]
-            self.stub(uri(uploadUriValue), json(uploadMessageData, status: 200))
+            let (recipientUser, recipientAccount, recipientDevice) = try createUserAccountDeviceAndKeys(
+                credentials: recipientCredentials)
             
+            let recipientSignedKey = createSignedKeys(account: recipientAccount, credentials: recipientCredentials)
             
-            // Fake API response for keys query
-            let claimUriValue = "https://matrix-client.matrix.org/_matrix/client/r0/keys/query"
-            let claimMessageData: NSDictionary = [
-                "device_keys": [
-                    recipient.userName: [
-                        recipient.deviceName: recipientDevice?.jsonDictionary()
-                    ]
-                ],
-                "failures": []
-            ]
-            self.stub(uri(claimUriValue), json(claimMessageData, status: 200))
-            
-            // Fake API response for keys claim
-            let queryUriValue = "https://matrix-client.matrix.org/_matrix/client/r0/keys/claim"
-            let queryMessageData: NSDictionary = [
-              "failures": [],
-              "one_time_keys": [
-                recipient.userName: [
-                  "testdevice": recipientSignedKey
-                ]
-              ]
-            ]
-            self.stub(uri(queryUriValue), json(queryMessageData, status: 200))
-            
-            // Fake API response for message sent
+            // Fake API response for keys upload and query
+            self.createKeysUploadStub()
+            self.createKeysQueryStub(credentials: recipientCredentials, device: recipientDevice)
+            self.createKeysClaimStub(credentials: recipientCredentials, signedKey: recipientSignedKey)
             let txnId = "32"
-            let sendUriValue = "https://matrix-client.matrix.org/_matrix/client/r0/sendToDevice/matrixmaps.location/\(txnId)"
-            let sendMessageData: NSDictionary = [:]
-            self.stub(uri(sendUriValue), json(sendMessageData, status: 200))
+            self.createSendToDeviceStub(txnId: txnId)
             
             let encryptionHandler = try EncryptionHandler.init(
-                keychain: self.keychain ,
-                mxRestClient: self.mxRestClient!)
-            
-            print("Init complete")
+                keychain: recipientKeychain,
+                mxRestClient: recipientMXRestClient)
             
             // Test device creation
             let boolResult = try await(encryptionHandler.createAndUploadDeviceKeys())
             XCTAssertEqual(boolResult, true)
             
-            print("Device creation complete")
-            
             // Test sending message
-            let outcome = try await(encryptionHandler.handleSendMessage(recipients: [recipient], message: "Test Message", txnId: txnId))
+            let outcome = try await(encryptionHandler.handleSendMessage(recipients: [recipientUser], message: "Test Message", txnId: txnId))
             let successUsers = outcome.success.map {$0.userName}
-            print(successUsers)
-            XCTAssertEqual(successUsers.contains((self.secondMXRestClient?.credentials.userId)!), true)
-            
-            print("Message send complete")
+            XCTAssertEqual(successUsers.contains(recipientCredentials.userId!), true)
             
             expectation.fulfill()
-            
-            
-                
         }.onError { (error) in
             print(error)
         }
@@ -217,85 +281,50 @@ class Matrix_PlaygroundTests: XCTestCase {
             
             let testMessageContent = "Test message content"
             
-            // Fake API response for keys upload
-            let uploadUriValue = "https://matrix-client.matrix.org/_matrix/client/r0/keys/upload/testdevice"
-            let uploadMessageData: NSDictionary = [
-              "one_time_key_counts": [
-                "curve25519": 10,
-                "signed_curve25519": 20
-              ]
-            ]
-            self.stub(uri(uploadUriValue), json(uploadMessageData, status: 200))
-            
-            let encryptionHandler = try EncryptionHandler.init(
-                keychain: self.keychain ,
-                mxRestClient: self.mxRestClient!)
-            
-            // Test device creation
-            let boolResult = try await(encryptionHandler.createAndUploadDeviceKeys())
-            XCTAssertEqual(boolResult, true)
-            
-            // Find recipient keys
-            let recipientIdentityKey = encryptionHandler.device?.identityKey
+            // Set up recipient
+            self.createKeysUploadStub()
+            let (_, recipientKeychain, recipientMxRestClient) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser1:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
+            let encryptionHandler = try EncryptionHandler.init(keychain: recipientKeychain, mxRestClient: recipientMxRestClient)
+            try await(encryptionHandler.createAndUploadDeviceKeys())
+            let recipientIdentityKey = (encryptionHandler.device?.identityKey)!
             // An AAAAAQ OTK is always created in the first round
             let recipientOTKey = ((encryptionHandler.account?.oneTimeKeys()["curve25519"]! as! [String: String])["AAAAAQ"])! as String
             
-            // Set up sender and encrypt message
-            let senderAccount = OLMAccount.init(newAccount: ())
-            let senderDevice = try senderAccount?.generateSignedDeviceKeys(credentials: self.secondCredentials!)
-            let senderSession = try OLMSession.init(
-                outboundSessionWith: senderAccount,
-                theirIdentityKey: recipientIdentityKey,
-                theirOneTimeKey: recipientOTKey)
+            // Set up sender
+            let (senderCredentials, _, senderMXRestClient) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser2:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
+            let (senderAccount, senderDevice) = try createEncryptionAccountAndDevice(credentials: senderCredentials)
+            let senderSession = try createEncryptionSession(
+                localAccount: senderAccount,
+                remoteIdentityKey: recipientIdentityKey,
+                remoteOTKey: recipientOTKey)
+            
+            // Encrypt Message
             let senderMessage = try senderSession.encryptMessageWithPayload(
                 testMessageContent,
-                senderDevice: senderDevice!,
+                senderDevice: senderDevice,
                 recipientDevice: encryptionHandler.device!)
             let encryptionLogic = EncryptionLogic()
-            let wrappedSenderMessage = try encryptionLogic.wrapOLMMessage(senderMessage, senderDevice: senderDevice!)
+            let wrappedSenderMessage = try encryptionLogic.wrapOLMMessage(senderMessage, senderDevice: senderDevice)
             
-            // Fake API response for sync
-            let syncUriValue = "https://matrix-client.matrix.org/_matrix/client/r0/sync?timeout=5000"
-            let syncMessageData: NSDictionary = [
-                "account_data": [],
-                "next_batch": "s72595_4483_1934",
-                "presence": [],
-                "rooms": [
-                  "invite": [],
-                  "join": [],
-                  "leave":[]
-                ],
-                "to_device": [
-                    "events": [
-                        [
-                            "content": wrappedSenderMessage.nsDictionary,
-                            "sender": senderDevice!.userId!,
-                            "type": "matrixmaps.location"
-                        ]
-                    ]
-                ],
-                "device_one_time_keys_count": [
-                    "signed_curve25519": 1
-                ]
-            ]
-            self.stub(uri(syncUriValue), json(syncMessageData, status: 200))
-            
-            let syncResponse = try await((self.mxRestClient?.syncPromise(
+            // Fake API response for sync then perform sync
+            self.createSyncStub(wrappedMessage: wrappedSenderMessage, senderDevice: senderDevice)
+            let syncResponse = try await(senderMXRestClient.syncPromise(
                 fromToken: nil,
                 serverTimeout: 5000,
                 clientTimeout: 5000,
-                setPresence: nil))!)
-            
+                setPresence: nil))
             let decryptedMessage = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
             
-            XCTAssertEqual(decryptedMessage[EncryptedMessageRecipient(userName: senderDevice!.userId!, deviceName: senderDevice!.deviceId)], testMessageContent)
+            XCTAssertEqual(decryptedMessage[EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId)], testMessageContent)
             XCTAssertEqual(encryptionHandler.oneTimeKeyCount, 1)
             
-            print("Message decrypt complete")
-            
             expectation.fulfill()
-            
-            
         }.onError { (error) in
             print(error)
         }
