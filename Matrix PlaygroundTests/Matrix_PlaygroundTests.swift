@@ -64,10 +64,14 @@ func createSignedKeys(account: OLMAccount, credentials: MXCredentials) -> [Strin
     ]
 }
 
-func createEncryptionAccountAndDevice(credentials: MXCredentials) throws -> (OLMAccount, MXDeviceInfo) {
+func createEncryptionAccountDeviceAndSession(credentials: MXCredentials, recipientIdentityKey: String, recipientOTKey: String) throws -> (OLMAccount, MXDeviceInfo, OLMSession) {
     let senderAccount = OLMAccount.init(newAccount: ())!
     let senderDevice = try senderAccount.generateSignedDeviceKeys(credentials: credentials)
-    return (senderAccount, senderDevice)
+    let senderSession = try createEncryptionSession(
+        localAccount: senderAccount,
+        remoteIdentityKey: recipientIdentityKey,
+        remoteOTKey: recipientOTKey)
+    return (senderAccount, senderDevice, senderSession)
 }
 
 func createEncryptionSession(localAccount: OLMAccount, remoteIdentityKey: String, remoteOTKey: String) throws -> OLMSession {
@@ -86,12 +90,29 @@ func createEncryptionHandlerAndObtainKeys(keychain: KeychainSwift, mxRestClient:
     return (encryptionHandler, identityKey, otKey)
 }
 
+func e2eSendMessageFromUserToUser(recipient: EncryptedMessageRecipient, sendersHandler: EncryptionHandler,
+                                  recipientsMxRestClient: MXRestClient, recipientsHandler: EncryptionHandler,
+                                  messages: [String], lastSyncToken: String?) throws -> Promise<([EncryptedMessageRecipient: String], String)> {
+    async {
+        for message in messages {
+            try await(sendersHandler.handleSendMessage(recipients: [recipient], message: message, txnId: nil))
+        }
+        // Receive message
+        let syncResponse = try await(recipientsMxRestClient.syncPromise(
+            fromToken: lastSyncToken ?? nil,
+            serverTimeout: 5000,
+            clientTimeout: 5000,
+            setPresence: nil))
+        return (try await(recipientsHandler.handleSyncResponse(syncResponse: syncResponse)), syncResponse.nextBatch)
+    }
+}
+
 class Matrix_PlaygroundTests: XCTestCase {
     
     let container = NSPersistentContainer(name: "UserModel", managedObjectModel: managedObjectModel)
     var storeDescription = NSPersistentStoreDescription()
-    
     var testUser: UserDetails?
+    var lastE2ESyncToken: String?
     
     static let managedObjectModel: NSManagedObjectModel = {
         let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle(for: UserDetails.self)])!
@@ -129,7 +150,7 @@ class Matrix_PlaygroundTests: XCTestCase {
     
     func clearAllData() {
         let keychain = KeychainSwift()
-        let allKeychainEntries = keychain.clear()
+        keychain.clear()
         do {
             let chatFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chat")
             chatFetchRequest.includesPropertyValues = false // Only fetch the managedObjectID (not the full object structure)
@@ -285,11 +306,10 @@ class Matrix_PlaygroundTests: XCTestCase {
                 userId: "@testUser2:matrix.org",
                 accessToken: "fakeAccessToken",
                 deviceName: "testDevice")
-            let (senderAccount, senderDevice) = try createEncryptionAccountAndDevice(credentials: senderCredentials)
-            let senderSession = try createEncryptionSession(
-                localAccount: senderAccount,
-                remoteIdentityKey: recipientIdentityKey,
-                remoteOTKey: recipientOTKey)
+            let (_, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
             
             // Encrypt Message
             let senderMessage = try senderSession.encryptMessageWithPayload(
@@ -335,17 +355,15 @@ class Matrix_PlaygroundTests: XCTestCase {
             let recipient = EncryptedMessageRecipient.init(
                 userName: secondCredentials.userId!,
                 deviceName: secondCredentials.deviceId!)
-            try await(firstHandler.handleSendMessage(recipients: [recipient], message: "Test message", txnId: nil))
-            
-            // Receive message
-            let syncResponse = try await(secondMxRestClient.syncPromise(
-                fromToken: nil,
-                serverTimeout: 5000,
-                clientTimeout: 5000,
-                setPresence: nil))
-            let decrypedMessages = try await(secondHandler.handleSyncResponse(syncResponse: syncResponse))
-            
-            XCTAssertEqual(decrypedMessages[EncryptedMessageRecipient(userName: firstCredentials.userId!, deviceName: firstCredentials.deviceId!)], "Test message")
+            let (decryptedMessages, newE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: recipient,
+                                         sendersHandler: firstHandler,
+                                         recipientsMxRestClient: secondMxRestClient,
+                                         recipientsHandler: secondHandler,
+                                         messages: ["Test message"],
+                                         lastSyncToken: self.lastE2ESyncToken))
+            self.lastE2ESyncToken = newE2ESyncToken
+            print(decryptedMessages)
+            XCTAssertEqual(decryptedMessages[EncryptedMessageRecipient(userName: firstCredentials.userId!, deviceName: firstCredentials.deviceId!)], "Test message")
             
             print("Message decrypt complete")
             
@@ -374,19 +392,16 @@ class Matrix_PlaygroundTests: XCTestCase {
             let recipient = EncryptedMessageRecipient.init(
                 userName: secondCredentials.userId!,
                 deviceName: secondCredentials.deviceId!)
-            try await(firstHandler.handleSendMessage(recipients: [recipient], message: "Test message", txnId: nil))
-            try await(firstHandler.handleSendMessage(recipients: [recipient], message: "Second test message", txnId: nil))
-            
-            // Receive message
-            let syncResponse = try await(secondMxRestClient.syncPromise(
-                fromToken: nil,
-                serverTimeout: 5000,
-                clientTimeout: 5000,
-                setPresence: nil))
-            let decrypedMessages = try await(secondHandler.handleSyncResponse(syncResponse: syncResponse))
+            let (decryptedMessages, newE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: recipient,
+                                         sendersHandler: firstHandler,
+                                         recipientsMxRestClient: secondMxRestClient,
+                                         recipientsHandler: secondHandler,
+                                         messages: ["Test message", "Second test message"],
+                                         lastSyncToken: self.lastE2ESyncToken))
+            self.lastE2ESyncToken = newE2ESyncToken
             
             // Note only most recent message is outputted, as we only want the most recent location
-            XCTAssertEqual(decrypedMessages[EncryptedMessageRecipient(userName: firstCredentials.userId!, deviceName: firstCredentials.deviceId!)], "Second test message")
+            XCTAssertEqual(decryptedMessages[EncryptedMessageRecipient(userName: firstCredentials.userId!, deviceName: firstCredentials.deviceId!)], "Second test message")
             
             print("Message decrypt complete")
             
@@ -418,36 +433,29 @@ class Matrix_PlaygroundTests: XCTestCase {
                 deviceName: secondCredentials.deviceId!)
             
             // Send message from first device to second
-            try await(firstHandler.handleSendMessage(recipients: [secondRecipient], message: "Test message", txnId: nil))
-            
-            // Receive message
-            let firstSyncResponse = try await(secondMxRestClient.syncPromise(
-                fromToken: nil,
-                serverTimeout: 5000,
-                clientTimeout: 5000,
-                setPresence: nil))
-            let firstDecrypedMessages = try await(secondHandler.handleSyncResponse(syncResponse: firstSyncResponse))
+            let (firstDecryptedMessages, newE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: secondRecipient,
+                                                                         sendersHandler: firstHandler,
+                                                                         recipientsMxRestClient: secondMxRestClient,
+                                                                         recipientsHandler: secondHandler,
+                                                                         messages: ["Test message"],
+                                                                         lastSyncToken: self.lastE2ESyncToken))
+            self.lastE2ESyncToken = newE2ESyncToken
             
             // Note only most recent message is outputted, as we only want the most recent location
-            print(firstDecrypedMessages)
-            XCTAssertEqual(firstDecrypedMessages[firstRecipient], "Test message")
+            print(firstDecryptedMessages)
+            XCTAssertEqual(firstDecryptedMessages[firstRecipient], "Test message")
             
             // Send message from second device to first
-            try await(secondHandler.handleSendMessage(
-                recipients: [firstRecipient],
-                message: "Another test message",
-                txnId: nil))
-            
-            // Receive message
-            let secondSyncResponse = try await(firstMXRestClient.syncPromise(
-                fromToken: nil,
-                serverTimeout: 5000,
-                clientTimeout: 5000,
-                setPresence: nil))
-            let secondDecrypedMessages = try await(firstHandler.handleSyncResponse(syncResponse: secondSyncResponse))
+            let (secondDecryptedMessages, secondE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: firstRecipient,
+                                                                         sendersHandler: secondHandler,
+                                                                         recipientsMxRestClient: firstMXRestClient,
+                                                                         recipientsHandler: firstHandler,
+                                                                         messages: ["Another test message"],
+                                                                         lastSyncToken: self.lastE2ESyncToken))
+            self.lastE2ESyncToken = secondE2ESyncToken
             
             // Note only most recent message is outputted, as we only want the most recent location
-            XCTAssertEqual(secondDecrypedMessages[secondRecipient], "Another test message")
+            XCTAssertEqual(secondDecryptedMessages[secondRecipient], "Another test message")
             
             expectation.fulfill()
             
@@ -459,7 +467,7 @@ class Matrix_PlaygroundTests: XCTestCase {
         
     }
     
-    func testAlteredSenderDevice() throws {
+    func testAlteredE2ESenderDevice() throws {
         
         let expectation = XCTestExpectation(description: "Successfully sends and receives a unidirectional message through Matrix after the sender has altered their device")
         
@@ -477,22 +485,19 @@ class Matrix_PlaygroundTests: XCTestCase {
                 deviceName: secondCredentials.deviceId!)
             
             // Send message from first device to second
-            try await(firstHandler.handleSendMessage(recipients: [secondRecipient], message: "Test message", txnId: nil))
-            
-            // Receive message
-            let firstSyncResponse = try await(secondMxRestClient.syncPromise(
-                fromToken: nil,
-                serverTimeout: 5000,
-                clientTimeout: 5000,
-                setPresence: nil))
-            let firstDecrypedMessages = try await(secondHandler.handleSyncResponse(syncResponse: firstSyncResponse))
+            let (firstDecryptedMessages, newE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: secondRecipient,
+                                                                         sendersHandler: firstHandler,
+                                                                         recipientsMxRestClient: secondMxRestClient,
+                                                                         recipientsHandler: secondHandler,
+                                                                         messages: ["Test message"],
+                                                                         lastSyncToken: self.lastE2ESyncToken))
+            self.lastE2ESyncToken = newE2ESyncToken
             
             // Note only most recent message is outputted, as we only want the most recent location
-            print(firstDecrypedMessages)
-            XCTAssertEqual(firstDecrypedMessages[firstRecipient], "Test message")
+            print(firstDecryptedMessages)
+            XCTAssertEqual(firstDecryptedMessages[firstRecipient], "Test message")
             
             let initialFirstDeviceId = firstCredentials.deviceId
-            let initialFromToken = firstSyncResponse.nextBatch
             
             // Alter senders device
             firstKeychain.delete(firstCredentials.userId!+"_encryptionAccount")
@@ -508,17 +513,15 @@ class Matrix_PlaygroundTests: XCTestCase {
             XCTAssertNotEqual(initialFirstDeviceId, firstCredentials.deviceId)
             
             // Send another message
-            try await(firstHandler.handleSendMessage(recipients: [secondRecipient], message: "Another test message", txnId: nil))
+            let (repeatDecryptedMessages, secondE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: secondRecipient,
+                                                                         sendersHandler: firstHandler,
+                                                                         recipientsMxRestClient: secondMxRestClient,
+                                                                         recipientsHandler: secondHandler,
+                                                                         messages: ["Another test message"],
+                                                                         lastSyncToken: self.lastE2ESyncToken))
+            self.lastE2ESyncToken = secondE2ESyncToken
             
-            // Receive message
-            let repeatSyncResponse = try await(secondMxRestClient.syncPromise(
-                fromToken: initialFromToken,
-                serverTimeout: 5000,
-                clientTimeout: 5000,
-                setPresence: nil))
-            let repeatDecrypedMessages = try await(secondHandler.handleSyncResponse(syncResponse: repeatSyncResponse))
-            
-            XCTAssertEqual(repeatDecrypedMessages[firstRecipient], "Another test message")
+            XCTAssertEqual(repeatDecryptedMessages[firstRecipient], "Another test message")
             
             expectation.fulfill()
             
@@ -551,11 +554,10 @@ class Matrix_PlaygroundTests: XCTestCase {
                 userId: "@testUser2:matrix.org",
                 accessToken: "fakeAccessToken",
                 deviceName: "testDevice")
-            let (senderAccount, senderDevice) = try createEncryptionAccountAndDevice(credentials: senderCredentials)
-            let senderSession = try createEncryptionSession(
-                localAccount: senderAccount,
-                remoteIdentityKey: recipientIdentityKey,
-                remoteOTKey: recipientOTKey)
+            let (_, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
             
             // Encrypt Message
             let senderMessage = try senderSession.encryptMessageWithPayload(
@@ -611,11 +613,10 @@ class Matrix_PlaygroundTests: XCTestCase {
                 userId: "@testUser2:matrix.org",
                 accessToken: "fakeAccessToken",
                 deviceName: "testDevice")
-            let (senderAccount, senderDevice) = try createEncryptionAccountAndDevice(credentials: senderCredentials)
-            let senderSession = try createEncryptionSession(
-                localAccount: senderAccount,
-                remoteIdentityKey: recipientIdentityKey,
-                remoteOTKey: recipientOTKey)
+            let (_, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
             
             // Encrypt Message
             let senderMessage = try senderSession.encryptMessageWithPayload(
@@ -696,11 +697,10 @@ class Matrix_PlaygroundTests: XCTestCase {
                 userId: "@testUser2:matrix.org",
                 accessToken: "fakeAccessToken",
                 deviceName: "testDevice")
-            let (senderAccount, senderDevice) = try createEncryptionAccountAndDevice(credentials: senderCredentials)
-            let senderSession = try createEncryptionSession(
-                localAccount: senderAccount,
-                remoteIdentityKey: recipientIdentityKey,
-                remoteOTKey: recipientOTKey)
+            let (_, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
             
             // Mutate Message
             let mutatedSenderDevice = MXDeviceInfo.init(fromJSON: senderDevice.jsonDictionary())!
@@ -760,11 +760,10 @@ class Matrix_PlaygroundTests: XCTestCase {
                 userId: "@testUser2:matrix.org",
                 accessToken: "fakeAccessToken",
                 deviceName: "testDevice")
-            let (senderAccount, senderDevice) = try createEncryptionAccountAndDevice(credentials: senderCredentials)
-            let senderSession = try createEncryptionSession(
-                localAccount: senderAccount,
-                remoteIdentityKey: recipientIdentityKey,
-                remoteOTKey: recipientOTKey)
+            let (_, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
             
             // Encrypt Message
             let senderMessage = try senderSession.encryptMessageWithPayload(
