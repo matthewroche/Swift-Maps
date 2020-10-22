@@ -128,7 +128,7 @@ public class MessagingLogic {
                 }
                 
                 // Decrypt events
-                let decryptedEvents = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
+                let (decryptedEvents, alteredSessions) = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
                 
                 // For each message
                 for (sender, eventContent) in decryptedEvents {
@@ -149,6 +149,7 @@ public class MessagingLogic {
                         existingChat!.lastReceivedLatitude = content!.location[0]
                         existingChat!.lastReceivedLongitude = content!.location[1]
                         existingChat!.receiving = true
+                        existingChat!.alteredSession = alteredSessions.contains(sender)
                         try context.save()
                     }
                     

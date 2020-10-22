@@ -30,7 +30,8 @@
 30) Fix allow multiple openings of set server dialog :white_check_mark: 
 31) Fix location pin only shows once :white_check_mark: 
 32) Fix location pin doesn't update :white_check_mark: 
-33) Fix doesn't stop location tracking when deleting last transmitting chat
+33) Fix doesn't stop location tracking when deleting last transmitting chat :white_check_mark:
+34) Allow dismissal of altered chat alert
 
 
 Note:

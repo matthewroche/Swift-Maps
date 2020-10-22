@@ -107,7 +107,7 @@ class Matrix_PlaygroundTests: XCTestCase {
         self.createStub(uriValue: uri, data: data, status: 200)
     }
     
-    func fakeMessageSend(senderSession: OLMSession, messageContent: String, senderDevice: MXDeviceInfo, recipientMXRestClient: MXRestClient, recipientEncryptionHandler: EncryptionHandler, mutateSenderKey: Bool = false, mutateSenderDevice: Bool = false) throws -> [EncryptedMessageRecipient: String] {
+    func fakeMessageSend(senderSession: OLMSession, messageContent: String, senderDevice: MXDeviceInfo, recipientMXRestClient: MXRestClient, recipientEncryptionHandler: EncryptionHandler, mutateSenderKey: Bool = false, mutateSenderDevice: Bool = false) throws -> ([EncryptedMessageRecipient: String], [EncryptedMessageRecipient]){
         
         // Mutate sender device for use if necessary
         let mutatedSenderDevice = MXDeviceInfo.init(fromJSON: senderDevice.jsonDictionary())!
@@ -222,7 +222,7 @@ class Matrix_PlaygroundTests: XCTestCase {
                 serverTimeout: 5000,
                 clientTimeout: 5000,
                 setPresence: nil))
-            let decryptedMessage = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
+            let (decryptedMessage, _) = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
             
             XCTAssertEqual(decryptedMessage[EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId)], testMessageContent)
             XCTAssertEqual(encryptionHandler.oneTimeKeyCount, 1)
@@ -455,7 +455,7 @@ class Matrix_PlaygroundTests: XCTestCase {
                 recipientIdentityKey: recipientIdentityKey,
                 recipientOTKey: recipientOTKey)
             
-            let decryptedMessage = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderKey: true)
+            let (decryptedMessage, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderKey: true)
             
             XCTAssertEqual(decryptedMessage.keys.contains(EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)), false)
             expectation.fulfill()
@@ -502,7 +502,7 @@ class Matrix_PlaygroundTests: XCTestCase {
             // Finally, start creating mutated standard message
             let _ = try senderSession.decryptMessage(standardReply)
             
-            let decryptedMessages = try self.fakeMessageSend(senderSession: senderSession, messageContent: "A mutated reply", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderKey: true)
+            let (decryptedMessages, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: "A mutated reply", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderKey: true)
             
             XCTAssertEqual(decryptedMessages.keys.contains(EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)), false)
             
@@ -540,7 +540,7 @@ class Matrix_PlaygroundTests: XCTestCase {
                 recipientIdentityKey: recipientIdentityKey,
                 recipientOTKey: recipientOTKey)
             
-            let decryptedMessage = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderDevice: true)
+            let (decryptedMessage, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderDevice: true)
             
             XCTAssertEqual(decryptedMessage.keys.contains(EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)), false)
             expectation.fulfill()
@@ -585,7 +585,7 @@ class Matrix_PlaygroundTests: XCTestCase {
             let standardReply = try recipientSession.encryptMessage("A reply")
             let _ = try senderSession.decryptMessage(standardReply)
             
-            let decryptedMessages = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderDevice: true)
+            let (decryptedMessages, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, mutateSenderDevice: true)
             
             XCTAssertEqual(decryptedMessages.keys.contains(EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)), false)
             
@@ -622,7 +622,7 @@ class Matrix_PlaygroundTests: XCTestCase {
                 recipientOTKey: recipientOTKey)
             
             for i in 1..<100 {
-                let decryptedMessages = try self.fakeMessageSend(senderSession: senderSession, messageContent: "testMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+                let (decryptedMessages, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: "testMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
                 XCTAssertEqual(decryptedMessages[EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)], "testMessageContent_\(i)")
                 print("Decypted message \(i)")
             }
@@ -635,7 +635,7 @@ class Matrix_PlaygroundTests: XCTestCase {
             print(standardDecryptedReply)
             
             for i in 1..<10 {
-                let decryptedMessages = try self.fakeMessageSend(senderSession: senderSession, messageContent: "testMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+                let (decryptedMessages, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: "testMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
                 XCTAssertEqual(decryptedMessages[EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)], "testMessageContent_\(i)")
                 print("Decypted standard message \(i)")
             }
@@ -672,7 +672,7 @@ class Matrix_PlaygroundTests: XCTestCase {
             
             // Unidirectional
             for i in 1..<10 {
-                let decryptedMessages = try self.fakeMessageSend(senderSession: senderSession, messageContent: "testMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+                let (decryptedMessages, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: "testMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
                 XCTAssertEqual(decryptedMessages[EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)], "testMessageContent_\(i)")
                 print("Decypted message \(i)")
             }
@@ -685,7 +685,7 @@ class Matrix_PlaygroundTests: XCTestCase {
                 let standardReply = try recipientSession.encryptMessage("A reply no: \(i)")
                 let standardDecryptedReply = try senderSession.decryptMessage(standardReply)
                 XCTAssertEqual(standardDecryptedReply, "A reply no: \(i)")
-                let decryptedMessages = try self.fakeMessageSend(senderSession: senderSession, messageContent: "standardTestMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+                let (decryptedMessages, _) = try self.fakeMessageSend(senderSession: senderSession, messageContent: "standardTestMessageContent_\(i)", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
                 XCTAssertEqual(decryptedMessages[EncryptedMessageRecipient(userName: senderDevice.userId!, deviceName: senderDevice.deviceId!)], "standardTestMessageContent_\(i)")
             }
             
@@ -711,8 +711,41 @@ class Matrix_PlaygroundTests: XCTestCase {
         //This can happen when the remote user deleted the session, but we did not
         async {
             
+            // Set up recipient
+            self.createKeysUploadStub()
+            let (_, recipientKeychain, recipientMxRestClient) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser1:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
+            let (recipientEncryptionHandler, recipientIdentityKey, recipientOTKey) = try createEncryptionHandlerAndObtainKeys(keychain: recipientKeychain, mxRestClient: recipientMxRestClient)
             
+            // Set up sender
+            let (senderCredentials, _, _) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser2:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
+            let (_, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
+            
+            // Send messages from the sender to the recipient
+            let _ = try self.fakeMessageSend(senderSession: senderSession, messageContent: "Initial Messages", senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+            
+            // Change the sender's session
+            let (_, secondSenderDevice, secondSenderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
+            
+            // Send another message from the sender to the recipient
+            let (_, alteredSessions) = try self.fakeMessageSend(senderSession: secondSenderSession, messageContent: "Second Messages", senderDevice: secondSenderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+            
+            print(alteredSessions)
+            
+            XCTAssertEqual(alteredSessions.contains(EncryptedMessageRecipient(userName: senderCredentials.userId!, deviceName: senderCredentials.deviceId!)), true)
             expectation.fulfill()
+            
         }.onError { (error) in
             print(error)
         }
@@ -812,6 +845,7 @@ func e2eSendMessageFromUserToUser(recipient: EncryptedMessageRecipient, sendersH
             serverTimeout: 5000,
             clientTimeout: 5000,
             setPresence: nil))
-        return (try await(recipientsHandler.handleSyncResponse(syncResponse: syncResponse)), syncResponse.nextBatch)
+        let (decryptedMessage, _) = try await(recipientsHandler.handleSyncResponse(syncResponse: syncResponse))
+        return (decryptedMessage, syncResponse.nextBatch)
     }
 }

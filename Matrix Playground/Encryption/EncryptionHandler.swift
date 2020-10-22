@@ -279,7 +279,7 @@ public class EncryptionHandler {
         }
     }
     
-    func handleSyncResponse(syncResponse: MXSyncResponse) throws -> Promise<[EncryptedMessageRecipient: String]> {
+    func handleSyncResponse(syncResponse: MXSyncResponse) throws -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient])> {
         return Promise {resolve, reject in
             async {
                 
@@ -289,11 +289,13 @@ public class EncryptionHandler {
                 guard self.device != nil else {throw EncryptionError.noAccount}
                 
                 var decryptedMessages = [EncryptedMessageRecipient:String]()
+                var alteredSessions:[EncryptedMessageRecipient] = []
                 // Ensure toDevice messages exist
                 if syncResponse.toDevice != nil {
-                    decryptedMessages = self.decryptMessagesFromSyncResponse(toDeviceMessages: syncResponse.toDevice!)
+                    (decryptedMessages, alteredSessions) = self.decryptMessagesFromSyncResponse(toDeviceMessages: syncResponse.toDevice!)
                 }
                 print(decryptedMessages)
+                print(alteredSessions)
                 
                 //Update OTK count
                 if syncResponse.deviceOneTimeKeysCount != nil {
@@ -308,7 +310,7 @@ public class EncryptionHandler {
                 // Store session state
                 try self.saveEncryptionState()
                 
-                resolve(decryptedMessages)
+                resolve((decryptedMessages, alteredSessions))
                 
             }.onError { error in
                 reject(error)
@@ -352,11 +354,12 @@ public class EncryptionHandler {
         }
     }
     
-    private func decryptMessagesFromSyncResponse(toDeviceMessages: MXToDeviceSyncResponse) -> [EncryptedMessageRecipient: String] {
+    private func decryptMessagesFromSyncResponse(toDeviceMessages: MXToDeviceSyncResponse) -> ([EncryptedMessageRecipient: String], [EncryptedMessageRecipient]) {
         
         var returnedMessages = [EncryptedMessageRecipient: String]()
+        var alteredSessions: [EncryptedMessageRecipient] = []
         
-        guard toDeviceMessages.events != nil else {return returnedMessages}
+        guard toDeviceMessages.events != nil else {return (returnedMessages, alteredSessions)}
         
         // For each message
         for event in toDeviceMessages.events {
@@ -372,10 +375,14 @@ public class EncryptionHandler {
                     // If we've never seen this device before
                     print("Handling pre key message")
                     print("Message age \(event.ageLocalTs)")
-                    returnedMessages[sender] = try self.handlePreKeyMessage(
+                    let (decryptedMessage, isSessionAltered) = try self.handlePreKeyMessage(
                         encryptedMessage: encryptedMessage,
                         sender: sender,
                         wrappedIdentityKey: wrappedMessage.senderKey)
+                    returnedMessages[sender] = decryptedMessage
+                    if isSessionAltered {
+                        alteredSessions.append(sender)
+                    }
                 } else {
                     // We must have seen this device before
                     print("Handling standard message")
@@ -392,19 +399,23 @@ public class EncryptionHandler {
             }
         }
         
-        return returnedMessages
+        return (returnedMessages, alteredSessions)
     }
     
-    private func handlePreKeyMessage(encryptedMessage: OLMMessage, sender: EncryptedMessageRecipient, wrappedIdentityKey: String) throws -> String {
+    private func handlePreKeyMessage(encryptedMessage: OLMMessage, sender: EncryptedMessageRecipient, wrappedIdentityKey: String) throws -> (String, Bool) {
         
-        let session: OLMSession?
+        var alteredSession = false
+        var session: OLMSession?
         // Check if existing session
         if (self.sessions.object(forDevice: sender.deviceName, forUser: sender.userName) != nil) {
             print("Existing session")
             session = self.sessions.object(forDevice: sender.deviceName, forUser: sender.userName)
             // Check session matches
-            guard session!.matchesInboundSession(encryptedMessage.ciphertext) else {
-                throw EncryptionError.inboundSessionDoesntMatch
+            if session!.matchesInboundSession(encryptedMessage.ciphertext) == false {
+                print("Inbound session doesn't match")
+                alteredSession = true
+                // Create new session
+                session = try OLMSession.init(inboundSessionWith: self.account, oneTimeKeyMessage: encryptedMessage.ciphertext)
             }
         } else {
             // Create new session
@@ -421,7 +432,7 @@ public class EncryptionHandler {
         // Save device and session
         self.sessions.setObject(session!, forUser: sender.userName, andDevice: senderDevice.deviceId)
         self.recipientDevices.setObject(senderDevice, forUser: sender.userName, andDevice: senderDevice.deviceId)
-        return decryptedMessage
+        return (decryptedMessage, alteredSession)
     }
     
     private func handleStandardMessage(encryptedMessage: OLMMessage, senderId: String, senderDevice: String, wrappedIdentityKey: String) throws -> String {

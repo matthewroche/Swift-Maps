@@ -84,6 +84,18 @@ struct ChatView: View {
         }
     }
     
+    /// Structure of altered session banner
+    var AlteredSessionBanner: some View {
+        HStack {
+            if (self.chatDetails.receiving) {
+                Text("Session has been altered")
+                    .foregroundColor(.white)
+                    .font(.subheadline)
+                Spacer()
+            }
+        }.padding().background(Color.red)
+    }
+    
     /// Structure of modification buttons
     var ModificationButtonsStack: some View {
         HStack {
@@ -132,6 +144,9 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
+            ZStack {
+                AlteredSessionBanner
+            }
             ZStack {
                 MapViewStack
             }.zIndex(5)
@@ -202,11 +217,23 @@ struct ChatView_Previews: PreviewProvider {
         fakeChatFour.lastSeen = Date().timeIntervalSince1970
         fakeUser.addToChats(fakeChatFour)
         
+        // Example with altered session
+        let fakeChatFive = Chat.init(context: context)
+        fakeChatFive.recipientUser = "testUser2"
+        fakeChatFive.sending = true
+        fakeChatFive.receiving = true
+        fakeChatFive.lastReceivedLatitude = 52.32
+        fakeChatFive.lastReceivedLongitude = 3.43
+        fakeChatFive.lastSeen = Date().timeIntervalSince1970
+        fakeChatFive.alteredSession = true
+        fakeUser.addToChats(fakeChatFive)
+        
         return Group {
             PreviewWrapper(chatDetails: fakeUser.chats!.array[0] as! Chat).previewDisplayName("Receiving Only")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[1] as! Chat).previewDisplayName("Sending Only")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[2] as! Chat).previewDisplayName("Sending and Receiving")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[3] as! Chat).previewDisplayName("Previous date")
+            PreviewWrapper(chatDetails: fakeUser.chats!.array[4] as! Chat).previewDisplayName("Altered Session")
         }
     }
     
