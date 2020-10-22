@@ -47,6 +47,7 @@ class ContentLogic {
                     userDetails: userDetails,
                     context: context,
                     encryptionHandler: encryptionHandler))
+                print("Created chat - starting location tracking")
                 _ = try await(locationLogic.startTrackingLocation())
                 resolve(true)
             }.onError {error in
@@ -128,7 +129,9 @@ class ContentLogic {
             sessionData.locationLogic.stopTrackingLocation()
             sessionData.keychain.delete("credentials")
             sessionData.encryptionHandler.clearEncryptionState()
-            sessionData.mxRestClient = MXRestClient()
+            DispatchQueue.main.async {
+                sessionData.mxRestClient = MXRestClient()
+            }
             
             return true
         }

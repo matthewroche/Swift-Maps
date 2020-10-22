@@ -198,7 +198,7 @@ public class MessagingLogic {
             if recipients.count > 0 {
                 
                 // Create message to send
-                let directMessage = try MatrixMapsMessage(location, version: self.messageVersion)
+                let directMessage = MatrixMapsMessage(location, version: self.messageVersion)
                 
                 // Create array of recipients
                 var recipientArray = [EncryptedMessageRecipient]()
@@ -276,8 +276,11 @@ public class MessagingLogic {
     ///   - ownerUserId: A String containing the userID of the local user
     ///   - context: The NSManagedObjectContext for the local device
     ///   - locationLogic: The LocationLogic object providing updates to the user's location
+    ///   - encryptionHandler: The instance of EncryptionHandler that manages the session for this user
     /// - Returns: Void
     public func deleteChat(chat: Chat, ownerUserId: String, context: NSManagedObjectContext, locationLogic: LocationLogic) throws -> Void {
+        guard chat.recipientUser != nil else {throw MessagingError.noUsername}
+        guard chat.recipientDevice != nil else {throw MessagingError.noDevice}
         //Delete chat
         context.delete(chat)
         try context.save()

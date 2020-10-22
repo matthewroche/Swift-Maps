@@ -23,23 +23,27 @@ public class LocationLogic: ObservableObject {
     func startTrackingLocation() -> Promise<Bool> {
         return Promise { resolve, reject in
             async {
+                print("startTrackingLocation")
                 guard (self.locationRequest == nil) else {resolve(true); return}
                 LocationManager.shared.requireUserAuthorization(.always)
-                print("startTrackingLocation")
                 let currentLocation = try await(self.returnCurrentLocation())
                 DispatchQueue.main.async {
                     self.currentLocation = currentLocation
                 }
-                self.locationRequest = LocationManager.shared.locateFromGPS(.significant, accuracy: .block) { response in
+                self.locationRequest = LocationManager.shared.locateFromGPS(.continous, accuracy: .room) { response in
+                    print("New location received")
+                    print(self.locationRequest ?? "Location Request = Nil")
                     switch response {
                         case .success(let session):
-                            self.currentLocation = session
-                            resolve(true)
+                            DispatchQueue.main.async {
+                                self.currentLocation = session
+                            }
                         case .failure(let error):
                             print(error)
                             reject(error)
-                        }
+                    }
                 }
+                resolve(true)
             }.onError {error in
                 reject(error)
             }
@@ -51,9 +55,12 @@ public class LocationLogic: ObservableObject {
     /// Stops the current locationRequest
     /// - Returns: Void
     func stopTrackingLocation() -> Void {
-        guard locationRequest != nil else {return}
-        locationRequest!.stop()
-        locationRequest = nil
+        print("Stopping location tracking")
+        guard self.locationRequest != nil else {return}
+        DispatchQueue.main.async {
+            self.locationRequest!.stop()
+            self.locationRequest = nil
+        }
     }
     
     /// Returns the current location as a one-shot request, no background tracking is initiated.
@@ -64,7 +71,6 @@ public class LocationLogic: ObservableObject {
                 switch response {
                     case .success(let session):
                         print("Location: \(session.coordinate.latitude), \(session.coordinate.longitude)")
-                        self.currentLocation = session
                         resolve(session)
                     case .failure(let error):
                         print(error)

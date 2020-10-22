@@ -62,7 +62,9 @@ class SessionData: ObservableObject {
             // If the mxRest client doesn't include credentials then remove all device data from the Encryptionhandler as we have logged out
             print("Setting encryption handler to nil")
             self.encryptionHandler.clearEncryptionState()
-            self.encryptionHandler = EncryptionHandler()
+            DispatchQueue.main.async {
+                self.encryptionHandler = EncryptionHandler()
+            }
         }
     }
     

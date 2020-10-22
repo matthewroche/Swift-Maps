@@ -374,7 +374,7 @@ public class EncryptionHandler {
                     print("Message age \(event.ageLocalTs)")
                     returnedMessages[sender] = try self.handlePreKeyMessage(
                         encryptedMessage: encryptedMessage,
-                        senderId: event.sender,
+                        sender: sender,
                         wrappedIdentityKey: wrappedMessage.senderKey)
                 } else {
                     // We must have seen this device before
@@ -395,20 +395,32 @@ public class EncryptionHandler {
         return returnedMessages
     }
     
-    private func handlePreKeyMessage(encryptedMessage: OLMMessage, senderId: String, wrappedIdentityKey: String) throws -> String {
+    private func handlePreKeyMessage(encryptedMessage: OLMMessage, sender: EncryptedMessageRecipient, wrappedIdentityKey: String) throws -> String {
         
-        // Create new session
-        let session = try OLMSession.init(inboundSessionWith: self.account, oneTimeKeyMessage: encryptedMessage.ciphertext)
+        let session: OLMSession?
+        // Check if existing session
+        if (self.sessions.object(forDevice: sender.deviceName, forUser: sender.userName) != nil) {
+            print("Existing session")
+            session = self.sessions.object(forDevice: sender.deviceName, forUser: sender.userName)
+            // Check session matches
+            guard session!.matchesInboundSession(encryptedMessage.ciphertext) else {
+                throw EncryptionError.inboundSessionDoesntMatch
+            }
+        } else {
+            // Create new session
+            session = try OLMSession.init(inboundSessionWith: self.account, oneTimeKeyMessage: encryptedMessage.ciphertext)
+        }
+        
         //Decrypt message
-        let (decryptedMessage, senderDevice) = try session.decryptMessageWithPayload(
+        let (decryptedMessage, senderDevice) = try session!.decryptMessageWithPayload(
             encryptedMessage,
             recipientDevice: self.device!
         )
         // Check encrypted sender key matches that in wrapper
         guard senderDevice.identityKey == wrappedIdentityKey else {throw EncryptionError.noMatchingIdentityKey}
         // Save device and session
-        self.sessions.setObject(session, forUser: senderId, andDevice: senderDevice.deviceId)
-        self.recipientDevices.setObject(senderDevice, forUser: senderId, andDevice: senderDevice.deviceId)
+        self.sessions.setObject(session!, forUser: sender.userName, andDevice: senderDevice.deviceId)
+        self.recipientDevices.setObject(senderDevice, forUser: sender.userName, andDevice: senderDevice.deviceId)
         return decryptedMessage
     }
     
@@ -466,12 +478,19 @@ public class EncryptionHandler {
                 guard self.account != nil else {throw EncryptionError.noAccount}
                 guard self.device != nil else {throw EncryptionError.noAccount}
                 
+                //Check whether a session already exists
+                if (self.sessions.object(forDevice: recipient.deviceName, forUser: recipient.userName) != nil) {
+                    print("Existing session")
+                    resolve(true)
+                    return
+                }
+                
                 // Obtaining keys for all devices for user
                 let downloadedKeys = try await(self.mxRestClient.downloadKeysPromise(forUsers: [recipient.userName]))
                 
                 // Check requested device exists
                 if downloadedKeys.deviceKeys.object(forDevice: recipient.deviceName, forUser: recipient.userName) == nil {
-                    print("Downloaded keys does not contain device")
+                    print("downloadedKeys does not contain device")
                     throw EncryptionError.deviceDoesNotExist
                 }
                 let recipientDevice = downloadedKeys.deviceKeys.object(
@@ -484,10 +503,6 @@ public class EncryptionHandler {
                 
                 // Download prekeys
                 let downloadedPreKeys = try await(self.mxRestClient.claimOneTimeKeysPromise(for: preKeysRequestDetails))
-                
-                print(recipient.userName)
-                print(downloadedPreKeys.oneTimeKeys.deviceIds(forUser: recipient.userName))
-                print(recipient.deviceName)
                 
                 // Check rqeuested keys exist for specified device
                 if !((downloadedPreKeys.oneTimeKeys.deviceIds(forUser: recipient.userName) ?? []).contains(recipient.deviceName)) {

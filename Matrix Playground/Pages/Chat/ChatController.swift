@@ -90,7 +90,7 @@ struct ChatController: View {
                 ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
                 locationLogic: self.sessionData.locationLogic)
-            _ = self.sessionData.locationLogic.startTrackingLocation().start()
+            self.sessionData.locationLogic.startTrackingLocation().start()
         } catch {
             print(error)
             self.viewError = IdentifiableError(error)
