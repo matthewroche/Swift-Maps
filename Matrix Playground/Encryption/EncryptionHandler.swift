@@ -202,7 +202,7 @@ public class EncryptionHandler {
         }
     }
     
-    func handleSendMessage(recipients: [EncryptedMessageRecipient], message: String, txnId: String?) throws ->
+    func handleSendMessage(recipients: [EncryptedMessageRecipient], message: String, txnId: String? = UUID().uuidString) throws ->
         Promise<EncryptedSentMessageOutcome> {
         return Promise { resolve, reject in
             async {
@@ -279,7 +279,7 @@ public class EncryptionHandler {
         }
     }
     
-    func handleSyncResponse(syncResponse: MXSyncResponse) throws -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient])> {
+    func handleSyncResponse(syncResponse: MXSyncResponse, txnId: String? = nil) throws -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient])> {
         return Promise {resolve, reject in
             async {
                 
@@ -292,7 +292,7 @@ public class EncryptionHandler {
                 var alteredSessions:[EncryptedMessageRecipient] = []
                 // Ensure toDevice messages exist
                 if syncResponse.toDevice != nil {
-                    (decryptedMessages, alteredSessions) = self.decryptMessagesFromSyncResponse(toDeviceMessages: syncResponse.toDevice!)
+                    (decryptedMessages, alteredSessions) = try await(self.decryptMessagesFromSyncResponse(toDeviceMessages: syncResponse.toDevice!, txnId: txnId))
                 }
                 print(decryptedMessages)
                 print(alteredSessions)
@@ -354,52 +354,55 @@ public class EncryptionHandler {
         }
     }
     
-    private func decryptMessagesFromSyncResponse(toDeviceMessages: MXToDeviceSyncResponse) -> ([EncryptedMessageRecipient: String], [EncryptedMessageRecipient]) {
+    private func decryptMessagesFromSyncResponse(toDeviceMessages: MXToDeviceSyncResponse, txnId: String? = nil) -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient])> {
         
-        var returnedMessages = [EncryptedMessageRecipient: String]()
-        var alteredSessions: [EncryptedMessageRecipient] = []
-        
-        guard toDeviceMessages.events != nil else {return (returnedMessages, alteredSessions)}
-        
-        // For each message
-        for event in toDeviceMessages.events {
-            
-            do {
-                guard event.type == self.eventType else {continue}
-                let wrappedMessage = EncryptedMessageWrapper.init(dictionary: event.content!)
-                let encryptedMessage = try self.encryptionLogic.unwrapOLMMessage(wrappedMessage)
+        async {
                 
-                let sender = EncryptedMessageRecipient(userName: event.sender, deviceName: wrappedMessage.senderDevice)
+            var returnedMessages = [EncryptedMessageRecipient: String]()
+            var alteredSessions: [EncryptedMessageRecipient] = []
             
-                if (encryptedMessage.type == .preKey) {
-                    // If we've never seen this device before
-                    print("Handling pre key message")
-                    print("Message age \(event.ageLocalTs)")
-                    let (decryptedMessage, isSessionAltered) = try self.handlePreKeyMessage(
-                        encryptedMessage: encryptedMessage,
-                        sender: sender,
-                        wrappedIdentityKey: wrappedMessage.senderKey)
-                    returnedMessages[sender] = decryptedMessage
-                    if isSessionAltered {
-                        alteredSessions.append(sender)
+            guard toDeviceMessages.events != nil else {return (returnedMessages, alteredSessions)}
+            
+            // For each message
+            for event in toDeviceMessages.events {
+                
+                do {
+                    guard event.type == self.eventType else {continue}
+                    let wrappedMessage = EncryptedMessageWrapper.init(dictionary: event.content!)
+                    let encryptedMessage = try self.encryptionLogic.unwrapOLMMessage(wrappedMessage)
+                    
+                    let sender = EncryptedMessageRecipient(userName: event.sender, deviceName: wrappedMessage.senderDevice)
+                
+                    if (encryptedMessage.type == .preKey) {
+                        // If we've never seen this device before
+                        print("Handling pre key message")
+                        print("Message age \(event.ageLocalTs)")
+                        let (decryptedMessage, isSessionAltered) = try self.handlePreKeyMessage(
+                            encryptedMessage: encryptedMessage,
+                            sender: sender,
+                            wrappedIdentityKey: wrappedMessage.senderKey)
+                        returnedMessages[sender] = decryptedMessage
+                        if isSessionAltered {
+                            alteredSessions.append(sender)
+                        }
+                    } else {
+                        // We must have seen this device before
+                        print("Handling standard message")
+                        returnedMessages[sender] = try await(self.handleStandardMessage(
+                            encryptedMessage: encryptedMessage,
+                            senderId: event.sender,
+                            senderDeviceId: wrappedMessage.senderDevice,
+                            wrappedIdentityKey: wrappedMessage.senderKey,
+                            txnId: txnId))
                     }
-                } else {
-                    // We must have seen this device before
-                    print("Handling standard message")
-                    returnedMessages[sender] = try self.handleStandardMessage(
-                        encryptedMessage: encryptedMessage,
-                        senderId: event.sender,
-                        senderDevice: wrappedMessage.senderDevice,
-                        wrappedIdentityKey: wrappedMessage.senderKey)
+                } catch {
+                    // There was an error decrypting this message, but continue to try decrypting others
+                    print(error)
+                    continue
                 }
-            } catch {
-                // There was an error decrypting this message, but continue to try decrypting others
-                print(error)
-                continue
             }
+            return (returnedMessages, alteredSessions)
         }
-        
-        return (returnedMessages, alteredSessions)
     }
     
     private func handlePreKeyMessage(encryptedMessage: OLMMessage, sender: EncryptedMessageRecipient, wrappedIdentityKey: String) throws -> (String, Bool) {
@@ -435,27 +438,40 @@ public class EncryptionHandler {
         return (decryptedMessage, alteredSession)
     }
     
-    private func handleStandardMessage(encryptedMessage: OLMMessage, senderId: String, senderDevice: String, wrappedIdentityKey: String) throws -> String {
-        // Find previous session and device
-        let session = self.sessions.object(forDevice: senderDevice, forUser: senderId)
-        let senderDevice = self.recipientDevices.object(forDevice: senderDevice, forUser: senderId)
-        guard session != nil else {throw EncryptionError.noSession}
-        guard senderDevice != nil else {throw EncryptionError.noSession}
-        guard wrappedIdentityKey == senderDevice!.identityKey else {throw EncryptionError.inboundSessionDoesntMatch}
-        //Decrypt message with validation from previously known details
-        do {
-            let decryptedMessage = try session!.decryptMessageWithPayload(
-                encryptedMessage,
-                recipientDevice: self.device!,
-                senderDevice: senderDevice!
-            )
-            // We should never receive another prekey message with the prekey used to create this session, so we can safely delete it
-            // This will unfortunately throw an error every time more than one standard message is received,
-            // but unfortunately there is no sensible way to check whether a key has already been deleted
-            self.account!.removeOneTimeKeys(for: session)
-            return decryptedMessage
-        } catch {
-            throw error
+    private func handleStandardMessage(encryptedMessage: OLMMessage, senderId: String, senderDeviceId: String, wrappedIdentityKey: String, txnId: String? = nil) throws -> Promise<String> {
+        async {
+            // Find previous session and device
+            let session = self.sessions.object(forDevice: senderDeviceId, forUser: senderId)
+            if (session == nil) {
+                try await(self.handleStandardMessageWithNoSession(senderId: senderId, senderDeviceId: senderDeviceId, txnId: txnId))
+                throw EncryptionError.noSession
+            }
+            let senderDevice = self.recipientDevices.object(forDevice: senderDeviceId, forUser: senderId)
+            guard senderDevice != nil else {throw EncryptionError.noSession}
+            guard wrappedIdentityKey == senderDevice!.identityKey else {throw EncryptionError.inboundSessionDoesntMatch}
+            //Decrypt message with validation from previously known details
+            do {
+                let decryptedMessage = try session!.decryptMessageWithPayload(
+                    encryptedMessage,
+                    recipientDevice: self.device!,
+                    senderDevice: senderDevice!
+                )
+                // We should never receive another prekey message with the prekey used to create this session, so we can safely delete it
+                // This will unfortunately throw an error every time more than one standard message is received,
+                // but unfortunately there is no sensible way to check whether a key has already been deleted
+                self.account!.removeOneTimeKeys(for: session)
+                return decryptedMessage
+            } catch {
+                throw error
+            }
+        }
+    }
+    
+    private func handleStandardMessageWithNoSession(senderId: String, senderDeviceId: String, txnId: String? = nil) throws -> Promise<Bool>{
+        async {
+            print("Re-establishing session")
+            _ = try await(self.handleSendMessage(recipients: [EncryptedMessageRecipient(userName: senderId, deviceName: senderDeviceId)], message: "", txnId: txnId))
+            return true
         }
     }
     

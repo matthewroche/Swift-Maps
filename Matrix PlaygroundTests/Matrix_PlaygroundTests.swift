@@ -107,7 +107,7 @@ class Matrix_PlaygroundTests: XCTestCase {
         self.createStub(uriValue: uri, data: data, status: 200)
     }
     
-    func fakeMessageSend(senderSession: OLMSession, messageContent: String, senderDevice: MXDeviceInfo, recipientMXRestClient: MXRestClient, recipientEncryptionHandler: EncryptionHandler, mutateSenderKey: Bool = false, mutateSenderDevice: Bool = false) throws -> ([EncryptedMessageRecipient: String], [EncryptedMessageRecipient]){
+    func fakeMessageSend(senderSession: OLMSession, messageContent: String, senderDevice: MXDeviceInfo, recipientMXRestClient: MXRestClient, recipientEncryptionHandler: EncryptionHandler, mutateSenderKey: Bool = false, mutateSenderDevice: Bool = false, txnId: String? = nil) throws -> ([EncryptedMessageRecipient: String], [EncryptedMessageRecipient]){
         
         // Mutate sender device for use if necessary
         let mutatedSenderDevice = MXDeviceInfo.init(fromJSON: senderDevice.jsonDictionary())!
@@ -133,7 +133,7 @@ class Matrix_PlaygroundTests: XCTestCase {
             serverTimeout: 5000,
             clientTimeout: 5000,
             setPresence: nil))
-        return try await(recipientEncryptionHandler.handleSyncResponse(syncResponse: syncResponse))
+        return try await(recipientEncryptionHandler.handleSyncResponse(syncResponse: syncResponse, txnId: txnId))
     }
     
     func testEncryptingAMessage() throws {
@@ -342,12 +342,12 @@ class Matrix_PlaygroundTests: XCTestCase {
             XCTAssertEqual(firstDecryptedMessages[firstRecipient], "Test message")
             
             // Send message from second device to first
+            // Note stored sync token not valid for this user
             let (secondDecryptedMessages, secondE2ESyncToken) = try await(e2eSendMessageFromUserToUser(recipient: firstRecipient,
                                                                          sendersHandler: secondHandler,
                                                                          recipientsMxRestClient: firstMXRestClient,
                                                                          recipientsHandler: firstHandler,
-                                                                         messages: ["Another test message"],
-                                                                         lastSyncToken: self.lastE2ESyncToken))
+                                                                         messages: ["Another test message"]))
             self.lastE2ESyncToken = secondE2ESyncToken
             
             // Note only most recent message is outputted, as we only want the most recent location
@@ -752,12 +752,52 @@ class Matrix_PlaygroundTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func testCanWarnIfStandardMessageRecievedWithNoSession() throws {
+    func testCanHandleStandardMessageRecievedWithNoSession() throws {
         self.clearAllData()
-        let expectation = XCTestExpectation(description: "The app warns the user if stadard messages continue to be received for a session that does not eixst locally")
+        let expectation = XCTestExpectation(description: "The app sends a prekey message if stadard messages continue to be received for a session that does not eixst locally")
         // This can happen when we deleted the session but the remote user did not
         async {
+            let testMessageContent = "Test message content"
+            // Set up recipient
+            self.createKeysUploadStub()
+            let (_, recipientKeychain, recipientMxRestClient) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser1:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
+            let (recipientEncryptionHandler, recipientIdentityKey, recipientOTKey) = try createEncryptionHandlerAndObtainKeys(keychain: recipientKeychain, mxRestClient: recipientMxRestClient)
             
+            // Set up sender
+            let (senderCredentials, _, _) = createCredentialsKeychainAndRestClient(
+                userId: "@testUser2:matrix.org",
+                accessToken: "fakeAccessToken",
+                deviceName: "testDevice")
+            let (senderAccount, senderDevice, senderSession) = try createEncryptionAccountDeviceAndSession(
+                credentials: senderCredentials,
+                recipientIdentityKey: recipientIdentityKey,
+                recipientOTKey: recipientOTKey)
+            
+            // Prekey message from sender to recipient
+            let _ = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler)
+            
+            // Set up return standard message
+            let recipientSession = recipientEncryptionHandler.getSession(user: senderDevice.userId, device: senderDevice.deviceId)!
+            let standardReply = try recipientSession.encryptMessage("A reply")
+            let _ = try senderSession.decryptMessage(standardReply)
+            
+            // Delete recipient session
+            recipientEncryptionHandler.removeSessionForUser(recipient: EncryptedMessageRecipient(userName: senderDevice.userId, deviceName: senderDevice.deviceId))
+            XCTAssertEqual(recipientEncryptionHandler.getSession(user: senderDevice.userId, device: senderDevice.deviceId), nil)
+            
+            // Create stubs to allow session to be re-established
+            self.createKeysQueryStub(credentials: senderCredentials, device: senderDevice)
+            let senderSignedKey = createSignedKeys(account: senderAccount, credentials: senderCredentials)
+            self.createKeysClaimStub(credentials: senderCredentials, signedKey: senderSignedKey)
+            self.createSendToDeviceStub(txnId: "3")
+            
+            // Standard message from sender to recipient with no session at recipient
+            let _ = try self.fakeMessageSend(senderSession: senderSession, messageContent: testMessageContent, senderDevice: senderDevice, recipientMXRestClient: recipientMxRestClient, recipientEncryptionHandler: recipientEncryptionHandler, txnId: "3")
+            
+            XCTAssertNotEqual(recipientEncryptionHandler.getSession(user: senderDevice.userId, device: senderDevice.deviceId), nil)
             
             expectation.fulfill()
         }.onError { (error) in
@@ -834,7 +874,7 @@ func createEncryptionHandlerAndObtainKeys(keychain: KeychainSwift, mxRestClient:
 
 func e2eSendMessageFromUserToUser(recipient: EncryptedMessageRecipient, sendersHandler: EncryptionHandler,
                                   recipientsMxRestClient: MXRestClient, recipientsHandler: EncryptionHandler,
-                                  messages: [String], lastSyncToken: String?) throws -> Promise<([EncryptedMessageRecipient: String], String)> {
+                                  messages: [String], lastSyncToken: String? = nil) throws -> Promise<([EncryptedMessageRecipient: String], String)> {
     async {
         for message in messages {
             try await(sendersHandler.handleSendMessage(recipients: [recipient], message: message, txnId: nil))

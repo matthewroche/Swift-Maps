@@ -213,8 +213,7 @@ public class MessagingLogic {
                 
                 let outcomeForRecipients = try await(encryptionHandler.handleSendMessage(
                     recipients: recipientArray,
-                    message: try directMessage.toJSONString(),
-                    txnId: UUID().uuidString))
+                    message: try directMessage.toJSONString()))
                 
                 print("Success sending")
                 
