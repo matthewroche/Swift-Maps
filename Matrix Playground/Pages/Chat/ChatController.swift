@@ -59,6 +59,24 @@ struct ChatController: View {
         presentationMode.wrappedValue.dismiss()
     }
     
+    /// cancelChangedSessionWarning
+    /// Cancels the banner warning the user that the session was changed
+    func cancelChangedSessionWarning() {
+        do {
+            guard self.sessionData.mxRestClient.credentials?.userId != nil else {throw ChatError.notLoggedIn}
+            // If we're not receiving and don't wish to send any more hen just delete the chat
+            chatDetails.alteredSession = false
+            try messagingLogic.updateChat(
+                chat: chatDetails,
+                ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
+                context: self.context,
+                locationLogic: self.sessionData.locationLogic)
+        } catch {
+            print(error)
+            self.viewError = IdentifiableError(error)
+        }
+    }
+    
     
     /// stopTransmission
     /// Stops the user transmitting thier location to a user, and deltes the chat if they are not receiving location updates
@@ -137,6 +155,7 @@ struct ChatController: View {
                 stopChat: stopChat,
                 stopTransmission: stopTransmission,
                 startTransmission: startTransmission,
+                cancelChangedSessionWarning: cancelChangedSessionWarning,
                 onTransmissionLongPress: onTransmissionLongPress,
                 centerCoordinate: $centerCoordinate,
                 locations: $locations,

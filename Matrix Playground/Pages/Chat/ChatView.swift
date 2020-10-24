@@ -18,6 +18,7 @@ struct ChatView: View {
     var stopChat: () -> Void
     var stopTransmission: () -> Void
     var startTransmission: () -> Void
+    var cancelChangedSessionWarning: () -> Void
     var onTransmissionLongPress: (_: Bool) -> Void
     
     // TODO: Move to controller
@@ -89,11 +90,19 @@ struct ChatView: View {
         HStack {
             if (self.chatDetails.receiving) {
                 Text("Session has been altered")
-                    .foregroundColor(.white)
                     .font(.subheadline)
                 Spacer()
+                Button(action: cancelChangedSessionWarning, label: {
+                    Text("Cancel")
+                        .foregroundColor(.black)
+                })
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color.white, lineWidth: 5)
+                    )
             }
-        }.padding().background(Color.red)
+        }.padding().background(Color.yellow)
     }
     
     /// Structure of modification buttons
@@ -145,7 +154,9 @@ struct ChatView: View {
     var body: some View {
         VStack {
             ZStack {
-                AlteredSessionBanner
+                if chatDetails.alteredSession {
+                    AlteredSessionBanner.transition(.move(edge: .bottom)).animation(.easeInOut(duration: 0.2))
+                }
             }
             ZStack {
                 MapViewStack
@@ -250,6 +261,7 @@ struct ChatView_Previews: PreviewProvider {
         func stopChat () {return}
         func stopTransmission () {return}
         func startTransmission () {return}
+        func cancelChangedSessionWarning () {return}
         func onTransmissionLongPress (inProgress: Bool) {self.isExplanationTextShowing = inProgress}
 
         var body: some View {
@@ -263,6 +275,7 @@ struct ChatView_Previews: PreviewProvider {
                 stopChat: stopChat,
                 stopTransmission: stopTransmission,
                 startTransmission: startTransmission,
+                cancelChangedSessionWarning: cancelChangedSessionWarning,
                 onTransmissionLongPress: onTransmissionLongPress,
                 centerCoordinate: $centerCoordinate,
                 locations: $locations,
