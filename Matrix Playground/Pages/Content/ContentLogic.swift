@@ -65,9 +65,9 @@ class ContentLogic {
     ///   - ownerUser: A USerDetails object referring to the local user
     ///   - encryptionHandler: The EncryptionHandler object enabling decryption of the messages
     /// - Returns: A Promise returning true if successful
-    public func sync (mxRestClient: MXRestClient, context: NSManagedObjectContext, ownerUser: UserDetails, encryptionHandler: EncryptionHandler) -> Promise<Bool> {
+    public func sync (mxRestClient: MXRestClient, context: NSManagedObjectContext, ownerUser: UserDetails, encryptionHandler: EncryptionHandler) -> Promise<[EncryptedMessageRecipient]> {
         async {
-            try await(self.messagingLogic.sync(mxRestClient: mxRestClient, context: context, ownerUser: ownerUser, encryptionHandler: encryptionHandler))
+            return try await(self.messagingLogic.sync(mxRestClient: mxRestClient, context: context, ownerUser: ownerUser, encryptionHandler: encryptionHandler))
         }
     }
        

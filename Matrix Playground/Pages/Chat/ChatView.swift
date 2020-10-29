@@ -85,6 +85,22 @@ struct ChatView: View {
         }
     }
     
+    /// Structure of decryption error banner
+    var DecryptionErrorBanner: some View {
+        HStack {
+            if (self.chatDetails.lastError != nil) {
+                VStack(alignment: .leading) {
+                    Text("An Error Occured")
+                        .font(.subheadline)
+                    Text(self.chatDetails.lastError!)
+                }
+            }
+            Spacer()
+        }
+        .padding()
+        .background(Color.red)
+    }
+    
     /// Structure of altered session banner
     var AlteredSessionBanner: some View {
         HStack {
@@ -154,12 +170,20 @@ struct ChatView: View {
     var body: some View {
         VStack {
             ZStack {
-                if chatDetails.alteredSession {
-                    AlteredSessionBanner.transition(.move(edge: .bottom)).animation(.easeInOut(duration: 0.2))
-                }
-            }
-            ZStack {
-                MapViewStack
+                MapViewStack.zIndex(5)
+                VStack {
+                    if chatDetails.alteredSession {
+                        AlteredSessionBanner
+                            .transition(.move(edge: .bottom))
+                            .animation(.easeInOut(duration: 0.2))
+                    }
+                    Spacer()
+                    if chatDetails.lastError != nil {
+                        DecryptionErrorBanner
+                            .transition(.move(edge: .bottom))
+                            .animation(.easeInOut(duration: 0.2))
+                    }
+                }.zIndex(10)
             }.zIndex(5)
             ZStack {
                 TransmissionIconsStack
@@ -239,12 +263,25 @@ struct ChatView_Previews: PreviewProvider {
         fakeChatFive.alteredSession = true
         fakeUser.addToChats(fakeChatFive)
         
+        // Example with error
+        let fakeChatSix = Chat.init(context: context)
+        fakeChatSix.recipientUser = "testUser2"
+        fakeChatSix.sending = true
+        fakeChatSix.receiving = true
+        fakeChatSix.lastReceivedLatitude = 52.32
+        fakeChatSix.lastReceivedLongitude = 3.43
+        fakeChatSix.lastSeen = Date().timeIntervalSince1970
+        fakeChatSix.alteredSession = false
+        fakeChatSix.lastError = EncryptionError.noSession.localizedDescription
+        fakeUser.addToChats(fakeChatSix)
+        
         return Group {
             PreviewWrapper(chatDetails: fakeUser.chats!.array[0] as! Chat).previewDisplayName("Receiving Only")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[1] as! Chat).previewDisplayName("Sending Only")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[2] as! Chat).previewDisplayName("Sending and Receiving")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[3] as! Chat).previewDisplayName("Previous date")
             PreviewWrapper(chatDetails: fakeUser.chats!.array[4] as! Chat).previewDisplayName("Altered Session")
+            PreviewWrapper(chatDetails: fakeUser.chats!.array[5] as! Chat).previewDisplayName("With Error")
         }
     }
     

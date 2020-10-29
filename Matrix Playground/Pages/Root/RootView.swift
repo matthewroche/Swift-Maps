@@ -82,7 +82,8 @@ struct RootView: View {
                 chat: chatToRemove!,
                 ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
-                locationLogic: self.sessionData.locationLogic)
+                locationLogic: self.sessionData.locationLogic,
+                encryptionHandler: self.sessionData.encryptionHandler)
             
             print(failedMessage.1)
             self.viewError = IdentifiableError(failedMessage.1)

@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Chat" representedClassName="Chat" syncable="YES" codeGenerationType="class">
         <attribute name="alteredSession" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="lastError" optional="YES" attributeType="String"/>
         <attribute name="lastReceivedLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lastReceivedLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="lastSeen" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -17,7 +18,7 @@
         <relationship name="chats" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Chat" inverseName="ownerUser" inverseEntity="Chat"/>
     </entity>
     <elements>
-        <element name="Chat" positionX="69.75" positionY="-160.02734375" width="128" height="178"/>
+        <element name="Chat" positionX="69.75" positionY="-160.02734375" width="128" height="193"/>
         <element name="UserDetails" positionX="-270.06640625" positionY="-195.734375" width="128" height="88"/>
     </elements>
 </model>

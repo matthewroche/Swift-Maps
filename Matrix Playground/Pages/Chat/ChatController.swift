@@ -51,7 +51,8 @@ struct ChatController: View {
                 chat: chatDetails,
                 ownerUserId: self.sessionData.mxRestClient.credentials?.userId ?? "",
                 context: self.context,
-                locationLogic: self.sessionData.locationLogic)
+                locationLogic: self.sessionData.locationLogic,
+                encryptionHandler: self.sessionData.encryptionHandler)
         } catch {
             print(error)
             self.viewError = IdentifiableError(error)
@@ -144,7 +145,11 @@ struct ChatController: View {
             mxRestClient: self.sessionData.mxRestClient,
             context: self.context,
             ownerUser: userDetails,
-            encryptionHandler: self.sessionData.encryptionHandler).start()
+            encryptionHandler: self.sessionData.encryptionHandler).then { (messageErrors) in
+                if messageErrors.count > 0 {
+                    self.viewError = IdentifiableError(ChatError.newSenderMessageErrors(messageErrors))
+                }
+            }
     }
     
     

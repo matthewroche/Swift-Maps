@@ -58,13 +58,16 @@ struct ContentController: View {
         DispatchQueue.global(qos:.userInitiated).async {
             async {
                 self.syncInProgress = true
-                try await(self.contentLogic.sync(
+                let messageErrors = try await(self.contentLogic.sync(
                             mxRestClient: self.sessionData.mxRestClient ,
                     context: self.context,
                     ownerUser: self.userDetails ?? UserDetails(),
                             encryptionHandler: self.sessionData.encryptionHandler ))
                 DispatchQueue.main.sync {
                     self.syncInProgress = false
+                    if messageErrors.count > 0 {
+                        self.viewError = IdentifiableError(ContentError.newSenderMessageErrors(messageErrors))
+                    }
                 }
             }.onError {error in
                 DispatchQueue.main.sync {

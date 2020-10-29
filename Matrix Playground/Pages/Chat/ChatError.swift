@@ -10,6 +10,8 @@ import Foundation
 
 enum ChatError: LocalizedError {
     case notLoggedIn
+    case newSenderMessageErrors([EncryptedMessageRecipient])
+    
 }
 
 extension ChatError {
@@ -17,6 +19,13 @@ extension ChatError {
         switch self {
             case .notLoggedIn:
                 return NSLocalizedString("User is not logged in", comment: "")
+            case .newSenderMessageErrors(let errorSenders):
+                var senderStrings = ""
+                for sender in errorSenders {
+                    senderStrings.append("\(sender.combinedName), ")
+                }
+                senderStrings = String(senderStrings.dropLast(2))
+                return NSLocalizedString("Errors for users: \(senderStrings)", comment: "")
         }
     }
 }

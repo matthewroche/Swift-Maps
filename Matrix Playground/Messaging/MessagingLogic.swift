@@ -62,12 +62,13 @@ public class MessagingLogic {
     ///   - context: The NSManagedObjectCOntext for the local device
     ///   - ownerUser: The UserDetails object relating to the logged in user locally
     ///   - encryptionHandler: The EncryptionHandler object relating encryption to the logged in user
-    /// - Returns: A Promise resolving to true if successful
+    /// - Returns: A Promise resolving to an array os senders and errors describing the senders we have not seen before that have resulted in errors during processing
     public func sync (
         mxRestClient: MXRestClient,
         context: NSManagedObjectContext,
         ownerUser: UserDetails,
-        encryptionHandler: EncryptionHandler) -> Promise<Bool> {
+        encryptionHandler: EncryptionHandler,
+        existingSyncErrorsWithoutExistingChats: [EncryptedMessageRecipient] = []) -> Promise<[EncryptedMessageRecipient]> {
         async {
             print("Syncing with token: \(ownerUser.syncFromToken ?? "No token")")
             let syncResponse = try await(
@@ -77,13 +78,15 @@ public class MessagingLogic {
                     clientTimeout: 5000,
                     setPresence: nil)
             )
+            var newSyncErrorsWithoutExistingChats: [EncryptedMessageRecipient] = []
             try DispatchQueue.main.sync {
-                try self.processSyncResponse(
+                newSyncErrorsWithoutExistingChats = try self.processSyncResponse(
                     syncResponse: syncResponse,
                     context: context,
                     ownerUser: ownerUser,
                     encryptionHandler: encryptionHandler)
             }
+            newSyncErrorsWithoutExistingChats.append(contentsOf: existingSyncErrorsWithoutExistingChats)
             // If we received exactly 100 events then we reached the server limit of messages to receive
             // We need to sync again to ensure we are up to date
             if (syncResponse.toDevice != nil && syncResponse.toDevice.events != nil) {
@@ -93,12 +96,13 @@ public class MessagingLogic {
                     mxRestClient: mxRestClient,
                     context: context,
                     ownerUser: ownerUser,
-                    encryptionHandler: encryptionHandler))
+                    encryptionHandler: encryptionHandler,
+                    existingSyncErrorsWithoutExistingChats: newSyncErrorsWithoutExistingChats))
                 }
             } else {
                 print("No events received.")
             }
-            return true
+            return newSyncErrorsWithoutExistingChats
         }
     }
     
@@ -113,7 +117,9 @@ public class MessagingLogic {
         syncResponse: MXSyncResponse,
         context: NSManagedObjectContext,
         ownerUser: UserDetails,
-        encryptionHandler: EncryptionHandler) throws -> Void {
+        encryptionHandler: EncryptionHandler) throws -> [EncryptedMessageRecipient] {
+        
+        var arrayOfNewUserErrors: [EncryptedMessageRecipient] = []
         
         // Check direct to device events received
         if (syncResponse.toDevice != nil && syncResponse.toDevice.events != nil) {
@@ -128,7 +134,7 @@ public class MessagingLogic {
                 }
                 
                 // Decrypt events
-                let (decryptedEvents, alteredSessions) = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
+                let (decryptedEvents, alteredSessions, messageErrors) = try await(encryptionHandler.handleSyncResponse(syncResponse: syncResponse))
                 
                 // For each message
                 for (sender, eventContent) in decryptedEvents {
@@ -150,6 +156,7 @@ public class MessagingLogic {
                         existingChat!.lastReceivedLongitude = content!.location[1]
                         existingChat!.receiving = true
                         existingChat!.alteredSession = alteredSessions.contains(sender)
+                        existingChat!.lastError = nil
                         try context.save()
                     }
                     
@@ -167,6 +174,20 @@ public class MessagingLogic {
                         try context.save()
                     }
                 }
+                
+                // For each error
+                for (sender, error) in messageErrors {
+                    print("Error for sender \(sender):")
+                    print(error)
+                    
+                    // If chat for that user already exists
+                    let existingChat = try existingChatForUserDevice(localUsername: ownerUser.userId!, remoteUsername: sender.userName, remoteDeviceId: sender.deviceName, context: context)
+                    if (existingChat != nil) {
+                        existingChat!.lastError = error.localizedDescription
+                    } else {
+                        arrayOfNewUserErrors.append(sender)
+                    }
+                }
             }
         }
         
@@ -175,6 +196,8 @@ public class MessagingLogic {
             ownerUser.syncFromToken = syncResponse.nextBatch
             try context.save()
         }
+        
+        return arrayOfNewUserErrors
         
     }
     
@@ -278,9 +301,12 @@ public class MessagingLogic {
     ///   - locationLogic: The LocationLogic object providing updates to the user's location
     ///   - encryptionHandler: The instance of EncryptionHandler that manages the session for this user
     /// - Returns: Void
-    public func deleteChat(chat: Chat, ownerUserId: String, context: NSManagedObjectContext, locationLogic: LocationLogic) throws -> Void {
+    public func deleteChat(chat: Chat, ownerUserId: String, context: NSManagedObjectContext, locationLogic: LocationLogic, encryptionHandler: EncryptionHandler) throws -> Void {
         guard chat.recipientUser != nil else {throw MessagingError.noUsername}
         guard chat.recipientDevice != nil else {throw MessagingError.noDevice}
+        //Delete session and device from EncryptionHandler
+        let encryptedMessageRecipient = EncryptedMessageRecipient(userName: chat.recipientUser!, deviceName: chat.recipientDevice!)
+        encryptionHandler.removeSessionForUser(recipient: encryptedMessageRecipient)
         //Delete chat
         context.delete(chat)
         try context.save()

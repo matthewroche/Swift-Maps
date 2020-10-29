@@ -32,6 +32,13 @@
 32) Fix location pin doesn't update :white_check_mark: 
 33) Fix doesn't stop location tracking when deleting last transmitting chat :white_check_mark:
 34) Allow dismissal of altered chat alert
+35) Handle user deleted chat but still receiving chats
+36) Handle transmission of user stopped sending location
+37) Check altered session warning correctly displayed
+38) Fix transmission pop up not displayed on physical phone
+39) Fix New Chat modal warnings appear when loded with existsing text even if text valid
+40) Fix background colors
+41) Fix re-establishing session
 
 
 Note:

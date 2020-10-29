@@ -279,7 +279,7 @@ public class EncryptionHandler {
         }
     }
     
-    func handleSyncResponse(syncResponse: MXSyncResponse, txnId: String? = nil) throws -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient])> {
+    func handleSyncResponse(syncResponse: MXSyncResponse, txnId: String? = nil) throws -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient], [EncryptedMessageRecipient: Error])> {
         return Promise {resolve, reject in
             async {
                 
@@ -289,13 +289,15 @@ public class EncryptionHandler {
                 guard self.device != nil else {throw EncryptionError.noAccount}
                 
                 var decryptedMessages = [EncryptedMessageRecipient:String]()
+                var messageErrors = [EncryptedMessageRecipient:Error]()
                 var alteredSessions:[EncryptedMessageRecipient] = []
                 // Ensure toDevice messages exist
                 if syncResponse.toDevice != nil {
-                    (decryptedMessages, alteredSessions) = try await(self.decryptMessagesFromSyncResponse(toDeviceMessages: syncResponse.toDevice!, txnId: txnId))
+                    (decryptedMessages, alteredSessions, messageErrors) = try await(self.decryptMessagesFromSyncResponse(toDeviceMessages: syncResponse.toDevice!, txnId: txnId))
                 }
                 print(decryptedMessages)
                 print(alteredSessions)
+                print(messageErrors)
                 
                 //Update OTK count
                 if syncResponse.deviceOneTimeKeysCount != nil {
@@ -310,7 +312,7 @@ public class EncryptionHandler {
                 // Store session state
                 try self.saveEncryptionState()
                 
-                resolve((decryptedMessages, alteredSessions))
+                resolve((decryptedMessages, alteredSessions, messageErrors))
                 
             }.onError { error in
                 reject(error)
@@ -354,25 +356,25 @@ public class EncryptionHandler {
         }
     }
     
-    private func decryptMessagesFromSyncResponse(toDeviceMessages: MXToDeviceSyncResponse, txnId: String? = nil) -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient])> {
+    private func decryptMessagesFromSyncResponse(toDeviceMessages: MXToDeviceSyncResponse, txnId: String? = nil) -> Promise<([EncryptedMessageRecipient: String], [EncryptedMessageRecipient], [EncryptedMessageRecipient: Error])> {
         
         async {
                 
             var returnedMessages = [EncryptedMessageRecipient: String]()
+            var messageErrors = [EncryptedMessageRecipient: Error]()
             var alteredSessions: [EncryptedMessageRecipient] = []
             
-            guard toDeviceMessages.events != nil else {return (returnedMessages, alteredSessions)}
+            guard toDeviceMessages.events != nil else {return (returnedMessages, alteredSessions, messageErrors)}
             
             // For each message
             for event in toDeviceMessages.events {
                 
+                guard event.type == self.eventType else {continue}
+                let wrappedMessage = EncryptedMessageWrapper.init(dictionary: event.content!)
+                let sender = EncryptedMessageRecipient(userName: event.sender, deviceName: wrappedMessage.senderDevice)
+            
                 do {
-                    guard event.type == self.eventType else {continue}
-                    let wrappedMessage = EncryptedMessageWrapper.init(dictionary: event.content!)
                     let encryptedMessage = try self.encryptionLogic.unwrapOLMMessage(wrappedMessage)
-                    
-                    let sender = EncryptedMessageRecipient(userName: event.sender, deviceName: wrappedMessage.senderDevice)
-                
                     if (encryptedMessage.type == .preKey) {
                         // If we've never seen this device before
                         print("Handling pre key message")
@@ -396,12 +398,10 @@ public class EncryptionHandler {
                             txnId: txnId))
                     }
                 } catch {
-                    // There was an error decrypting this message, but continue to try decrypting others
-                    print(error)
-                    continue
+                    messageErrors[sender] = error
                 }
             }
-            return (returnedMessages, alteredSessions)
+            return (returnedMessages, alteredSessions, messageErrors)
         }
     }
     
@@ -459,6 +459,7 @@ public class EncryptionHandler {
                 // We should never receive another prekey message with the prekey used to create this session, so we can safely delete it
                 // This will unfortunately throw an error every time more than one standard message is received,
                 // but unfortunately there is no sensible way to check whether a key has already been deleted
+                print(self.account!.oneTimeKeys() as Any)
                 self.account!.removeOneTimeKeys(for: session)
                 return decryptedMessage
             } catch {

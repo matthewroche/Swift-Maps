@@ -17,6 +17,7 @@ enum ContentError: LocalizedError {
     case unableToSendMessage
     case passwordDoesNotExist
     case unableToDeleteUser
+    case newSenderMessageErrors([EncryptedMessageRecipient])
 }
 
 extension ContentError {
@@ -36,8 +37,15 @@ extension ContentError {
                 return NSLocalizedString("Unable to send message.", comment: "")
             case .passwordDoesNotExist:
                 return NSLocalizedString("No password was provided.", comment: "")
-        case .unableToDeleteUser:
-            return NSLocalizedString("Unable to delete user", comment: "")
+            case .unableToDeleteUser:
+                return NSLocalizedString("Unable to delete user", comment: "")
+            case .newSenderMessageErrors(let errorSenders):
+                var senderStrings = ""
+                for sender in errorSenders {
+                    senderStrings.append("\(sender.combinedName), ")
+                }
+                senderStrings = String(senderStrings.dropLast(2))
+                return NSLocalizedString("Errors for users: \(senderStrings)", comment: "")
         }
     }
 }
